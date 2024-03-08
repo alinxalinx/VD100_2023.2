@@ -1,0 +1,14 @@
+menu "user packages " 
+config axlcd  
+	 bool "axlcd"
+	 help
+	
+config mdiorw  
+	 bool "mdiorw"
+	 help
+	
+config test-apps  
+	 bool "test-apps"
+	 help
+	
+endmenu

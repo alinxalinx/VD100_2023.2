@@ -1,0 +1,21 @@
+#!/bin/sh
+
+devmem 0x80090010 32 800
+devmem 0x80090018 32 600
+devmem 0x80090028 32 0
+devmem 0x80090000 32 0x80
+READREG=`devmem 0x80090000 32`
+let "READREG=$READREG&0x80"
+let "READREG=$READREG|0x01"
+devmem 0x80090000 32 $READREG
+
+devmem 0x800a0010 32 800
+devmem 0x800a0018 32 600
+devmem 0x800a0028 32 0
+devmem 0x800a0000 32 0x80
+READREG=`devmem 0x800a0000 32`
+let "READREG=$READREG&0x80"
+let "READREG=$READREG|0x01"
+devmem 0x800a0000 32 $READREG
+
+echo demosaic init over .

@@ -1,0 +1,11 @@
+[Unit]
+Description=ETH1 PHY SET
+DefaultDependencies=no
+After=busybox-udhcpd.service
+
+[Service]
+Type=oneshot
+ExecStart=/etc/init.d/eth1_phy_init.sh --any
+
+[Install]
+WantedBy=multi-user.target

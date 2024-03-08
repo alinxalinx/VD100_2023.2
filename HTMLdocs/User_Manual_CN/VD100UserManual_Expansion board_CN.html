@@ -1,0 +1,1593 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>扩展板 &#8212; Versal 开发平台FPGA教程 1.0 文档</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/translations.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'User_Manual_CN/VD100UserManual_Expansion board_CN';</script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="说明" href="../VD100_S1_RSTdocument_CN/00_Introduction_CN.html" />
+    <link rel="prev" title="开发板简介" href="VD100UserManual_Core_board_CN.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="zh-CN"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/8.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/8.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Versal 开发平台
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">公司简介</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_CN/00_%E5%85%B3%E4%BA%8EALINX_CN.html">关于ALINX</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">用户手册</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="VD100UserManual_Core_board_CN.html">开发板简介</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">扩展板</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">VD100型号板卡S1_FPGA教程</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_CN/00_Introduction_CN.html">说明</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_CN/01_Versal_CN.html">第一章 Versal介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_CN/02_led_CN.html">第二章 PL的”Hello World”LED实验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_CN/03_pl_rw_ddr_CN.html">第三章 PL通过NoC读写DDR4实验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_CN/04_lvds_lcd_CN.html">第四章 LVDS液晶屏显示实验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_CN/05_ibert_test_CN.html">第五章 GTYP收发器误码率测试IBERT实验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_CN/06_ps_hello_CN.html">第六章 体验ARM，裸机输出“Hello World”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_CN/07_ps_lwip_CN.html">第七章 PS端以太网使用之lwip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_CN/08_versal_trd_CN.html">第八章 整体工程及实验</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">VD100型号板卡S2_Linux教程</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/1_%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8Linux-%E5%88%B6%E4%BD%9C%E5%90%AF%E5%8A%A8%E5%BC%80%E5%8F%91%E6%9D%BFlinux%E7%B3%BB%E7%BB%9F%E7%9A%84SD%E5%8D%A1.html">快速启动Linux-制作启动开发板linux系统的SD卡</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/2_%E5%85%B3%E4%BA%8EPetalinux.html">关于PETALINUX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/3_01_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-%E4%B8%B2%E5%8F%A3.html">第一章 串口(UART)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/3_02_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-LED%E7%81%AF%E5%92%8C%E6%8C%89%E9%94%AE.html">第二章 LEDS、KEYS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/3_03_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-CAN.html">第三章 CAN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/3_04_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-LCD.html">第四章 LCD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/3_05_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-USB.html">第五章 USB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/3_06_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-%E4%BB%A5%E5%A4%AA%E7%BD%91.html">第六章 ETH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/3_07_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-MIPI%E6%91%84%E5%83%8F%E5%A4%B4.html">第七章 MIPI摄像头</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/3_08_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-EMMC.html">第八章 EMMC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/3_09_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-EEPROM.html">第九章 EEPROM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/3_10_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-LM75.html">第十章 LM75</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/3_11_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-QSPIFLASH.html">第十一章 QSPI FLASH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/4_%E5%AE%89%E8%A3%85QT%E5%BA%93%E5%92%8COPENCV%E5%BA%93%E4%BB%A5%E5%8F%8A%E5%9C%A8QTCreator%E4%B8%AD%E8%AE%BE%E7%BD%AE%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83.html">安装QT和OPENCV库以及在QTCreator中设置编译环境</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Alinx版权</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_CN/00_%E8%B4%A3%E4%BB%BB%E5%A3%B0%E6%98%8E_CN.html">版权说明</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/alinxalinx/VD100_2023.2" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="源码库"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="下载此页面">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/User_Manual_CN/VD100UserManual_Expansion board_CN.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="下载源文件"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="列印成 PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全屏模式"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>扩展板</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目录 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">简介</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">千兆以太网接口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pcie3-0-x4">PCIe3.0 X4接口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">光纤接口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usb">USB转串口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usb2-0">USB2.0接口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lvds">LVDS显示屏接口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mipi">MIPI接口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sd">SD卡</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eeprom-24lc04">EEPROM 24LC04和温度传感器</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jtag">JTAG接口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#canfd">CANFD通信接口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pmod">PMOD拓展口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">按键</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#led">LED灯</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">供电电源</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">结构尺寸图</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="id1">
+<h1>扩展板<a class="headerlink" href="#id1" title="此标题的永久链接">#</a></h1>
+<section id="id2">
+<span id="id3"></span><h2>简介<a class="headerlink" href="#id2" title="此标题的永久链接">#</a></h2>
+<p>通过前面的功能简介，我们可以了解到扩展板部分的功能</p>
+<ul class="simple">
+<li><p>2路千兆以太网RJ-45接口</p></li>
+<li><p>PCIe3.0 x4接口</p></li>
+<li><p>2路SFP+高速光纤接口</p></li>
+<li><p>1路USB Uart调试接口</p></li>
+<li><p>1路USB HOST接口</p></li>
+<li><p>1路LVDS显示屏接口</p></li>
+<li><p>2路MIPI摄像头接口</p></li>
+<li><p>1路Micro SD卡座</p></li>
+<li><p>JTAG调试口</p></li>
+<li><p>1路温度传感器</p></li>
+<li><p>1路EEPROM</p></li>
+<li><p>1路CANFD通信接口</p></li>
+<li><p>1路22针拓展口</p></li>
+</ul>
+</section>
+<section id="id4">
+<h2>千兆以太网接口<a class="headerlink" href="#id4" title="此标题的永久链接">#</a></h2>
+<p>VD100拓展板上有两路千兆以太网接口，1路连接到PS端，另1路连接到PL端。通过景略半导体的工业级以太网GPHY芯片（JL2121-N040I）为用户提供网络通信服务。JL2121芯片支持10/100/1000
+Mbps网络传输速率，通过RGMII接口跟FPGA的MAC层进行数据通信。JL2121D支持ＭDI/MDX自适应，各种速度自适应，Master/Slave自适应，支持MDIO总线进行PHY的寄存器管理。</p>
+<p>JL2121上电会检测一些特定的IO的电平状态，从而确定自己的工作模式。表3-2-1
+描述了GPHY芯片上电之后的默认设定信息。</p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>配置Pin脚</strong></p></td>
+<td><p><strong>说明</strong></p></td>
+<td><p><strong>配置值</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>RXD3_ADR0</p>
+<p>RXC_ADR1</p>
+<p>RXCTL_ADR2</p>
+</td>
+<td><p>MDIO/MDC 模式的PHY地址</p></td>
+<td><p>PHY Address 为 001</p></td>
+</tr>
+<tr class="row-odd"><td><p>RXD1_TXDLY</p></td>
+<td><p>TX时钟2ns延时</p></td>
+<td><p>延时</p></td>
+</tr>
+<tr class="row-even"><td><p>RXD0_RXDLY</p></td>
+<td><p>RX时钟2ns延时</p></td>
+<td><p>延时</p></td>
+</tr>
+</tbody>
+</table>
+<p>表3-2-1 PHY芯片默认配置值</p>
+<p>当网络连接到千兆以太网时，FPGA和PHY芯片JL2121的数据传输时通过RGMII总线通信，传输时钟为125Mhz，数据在时钟的上升沿和下降样采样。</p>
+<p>当网络连接到百兆以太网时，FPGA和PHY芯片JL2121的数据传输时通过RMII总线通信，传输时钟为25Mhz。数据在时钟的上升沿和下降样采样。</p>
+<p>千兆以太网的设计示意图如图3-2-1所示:</p>
+<img alt="../_images/image15.png" src="../_images/image15.png" />
+<p>图3-2-1千兆以太网接口设计示意图</p>
+<p><strong>千兆以太网引脚分配如下：</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>信号名称</strong></p></td>
+<td><p><strong>引脚名</strong></p></td>
+<td><p><strong>引脚
+号</strong></p></td>
+<td><p><strong>备注</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>PHY1_TXCK</p></td>
+<td><p>LPD_MIO0</p></td>
+<td><p>T1</p></td>
+<td><p>以太网1RGMII 发送时钟</p></td>
+</tr>
+<tr class="row-odd"><td><p>PHY1_TXD0</p></td>
+<td><p>LPD_MIO1</p></td>
+<td><p>U1</p></td>
+<td><p>以太网1发送数据bit０</p></td>
+</tr>
+<tr class="row-even"><td><p>PHY1_TXD1</p></td>
+<td><p>LPD_MIO2</p></td>
+<td><p>W1</p></td>
+<td><p>以太网1发送数据bit1</p></td>
+</tr>
+<tr class="row-odd"><td><p>PHY1_TXD2</p></td>
+<td><p>LPD_MIO3</p></td>
+<td><p>Y1</p></td>
+<td><p>以太网1发送数据bit2</p></td>
+</tr>
+<tr class="row-even"><td><p>PHY1_TXD3</p></td>
+<td><p>LPD_MIO4</p></td>
+<td><p>Y2</p></td>
+<td><p>以太网1发送数据bit3</p></td>
+</tr>
+<tr class="row-odd"><td><p>PHY1_TXCTL</p></td>
+<td><p>LPD_MIO5</p></td>
+<td><p>W2</p></td>
+<td><p>以太网1发送使能信号</p></td>
+</tr>
+<tr class="row-even"><td><p>PHY1_RXCK</p></td>
+<td><p>LPD_MIO6</p></td>
+<td><p>V2</p></td>
+<td><p>以太网1RGMII接收时钟</p></td>
+</tr>
+<tr class="row-odd"><td><p>PHY1_RXD0</p></td>
+<td><p>LPD_MIO7</p></td>
+<td><p>U2</p></td>
+<td><p>以太网1接收数据Bit0</p></td>
+</tr>
+<tr class="row-even"><td><p>PHY1_RXD1</p></td>
+<td><p>LPD_MIO8</p></td>
+<td><p>T3</p></td>
+<td><p>以太网1接收数据Bit1</p></td>
+</tr>
+<tr class="row-odd"><td><p>PHY1_RXD2</p></td>
+<td><p>LPD_MIO9</p></td>
+<td><p>U3</p></td>
+<td><p>以太网1接收数据Bit2</p></td>
+</tr>
+<tr class="row-even"><td><p>PHY1_RXD3</p></td>
+<td><p>LPD_MIO10</p></td>
+<td><p>V3</p></td>
+<td><p>以太网1接收数据Bit3</p></td>
+</tr>
+<tr class="row-odd"><td><p>PHY1_RXCTL</p></td>
+<td><p>LPD_MIO11</p></td>
+<td><p>Y3</p></td>
+<td><p>以
+太网1接收数据有效信号</p></td>
+</tr>
+<tr class="row-even"><td><p>PHY1_MDIO</p></td>
+<td><p>PS_MIO51</p></td>
+<td><p>AA10</p></td>
+<td><p>以太网1MDIO管理数据</p></td>
+</tr>
+<tr class="row-odd"><td><p>PHY1_MDC</p></td>
+<td><p>PS_MIO50</p></td>
+<td><p>AB10</p></td>
+<td><p>以太网1MDIO管理时钟</p></td>
+</tr>
+<tr class="row-even"><td><p>PHY1_RESET</p></td>
+<td><p>LPD_MIO15</p></td>
+<td><p>T5</p></td>
+<td><p>以太网1复位信号</p></td>
+</tr>
+<tr class="row-odd"><td><p>PHY2_TXCK</p></td>
+<td><p>B302_L9_N</p></td>
+<td><p>A13</p></td>
+<td><p>以太网2 RGMII
+发送时钟</p></td>
+</tr>
+<tr class="row-even"><td><p>PHY2_TXD0</p></td>
+<td><p>B302_L8_N</p></td>
+<td><p>A11</p></td>
+<td><p>以太网2发送数据bit０</p></td>
+</tr>
+<tr class="row-odd"><td><p>PHY2_TXD1</p></td>
+<td><p>B302_L8_P</p></td>
+<td><p>B11</p></td>
+<td><p>以太网2发送数据bit1</p></td>
+</tr>
+<tr class="row-even"><td><p>PHY2_TXD2</p></td>
+<td><p>B302_L7_N</p></td>
+<td><p>A10</p></td>
+<td><p>以太网2发送数据bit2</p></td>
+</tr>
+<tr class="row-odd"><td><p>PHY2_TXD3</p></td>
+<td><p>B302_L7_P</p></td>
+<td><p>B10</p></td>
+<td><p>以太网2发送数据bit3</p></td>
+</tr>
+<tr class="row-even"><td><p>PHY2_TXCTL</p></td>
+<td><p>B302_L9_P</p></td>
+<td><p>B12</p></td>
+<td><p>以太网2发送使能信号</p></td>
+</tr>
+<tr class="row-odd"><td><p>PHY2_RXCK</p></td>
+<td><p>B302_L6_P</p></td>
+<td><p>D10</p></td>
+<td><p>以太网2 RGMII接收时钟</p></td>
+</tr>
+<tr class="row-even"><td><p>PHY2_RXD0</p></td>
+<td><p>B302_L5_N</p></td>
+<td><p>C12</p></td>
+<td><p>以太网2接收数据Bit0</p></td>
+</tr>
+<tr class="row-odd"><td><p>PHY2_RXD1</p></td>
+<td><p>B302_L5_P</p></td>
+<td><p>D11</p></td>
+<td><p>以太网2接收数据Bit1</p></td>
+</tr>
+<tr class="row-even"><td><p>PHY2_RXD2</p></td>
+<td><p>B302_L10_N</p></td>
+<td><p>A14</p></td>
+<td><p>以太网2接收数据Bit2</p></td>
+</tr>
+<tr class="row-odd"><td><p>PHY2_RXD3</p></td>
+<td><p>B302_L10_P</p></td>
+<td><p>B13</p></td>
+<td><p>以太网2接收数据Bit3</p></td>
+</tr>
+<tr class="row-even"><td><p>PHY2_RXCTL</p></td>
+<td><p>B302_L6_N</p></td>
+<td><p>C10</p></td>
+<td><p>以
+太网2接收数据有效信号</p></td>
+</tr>
+<tr class="row-odd"><td><p>PHY2_MDIO</p></td>
+<td><p>B302_L1_P</p></td>
+<td><p>C14</p></td>
+<td><p>以太网2 MDIO管理数据</p></td>
+</tr>
+<tr class="row-even"><td><p>PHY2_MDC</p></td>
+<td><p>B302_L1_N</p></td>
+<td><p>C13</p></td>
+<td><p>以太网2 MDIO管理时钟</p></td>
+</tr>
+<tr class="row-odd"><td><p>PHY2_RESET</p></td>
+<td><p>B703_L12_P</p></td>
+<td><p>H23</p></td>
+<td><p>以太网2复位信号</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pcie3-0-x4">
+<h2>PCIe3.0 X4接口<a class="headerlink" href="#pcie3-0-x4" title="此标题的永久链接">#</a></h2>
+<p>VD100扩展板上提供一个工业级高速数据传输PCIe3.0
+x4接口，PCIE卡的外形尺寸符合标准PCIe卡电气规范要求，可直接在普通PC的x4
+PCIe插槽上使用。</p>
+<p>PCIe接口的收发信号直接跟FPGA的GTY收发器相连接，四通道的TX信号和RX信号都是以差分信号方式连接到FPGA，单通道通信速率可高达8G
+bit带宽。PCIe的参考时钟由PC的PCIe插槽提供给开发板，参考时钟频率为100Mhz。</p>
+<p>开发板的PCIe接口的设计示意图如下图3-3-1所示,其中TX发送信号和参考时钟CLK信号用AC耦合模式连接。</p>
+<img alt="../_images/image16.png" src="../_images/image16.png" />
+<p>图3-3-1 PCIe x4设计示意图</p>
+<blockquote>
+<div><p><strong>PCIe x4接口FPGA引脚分配如下：</strong></p>
+</div></blockquote>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>网络名称</strong></p></td>
+<td><p><strong>FPGA引脚</strong></p></td>
+<td><p><strong>备注</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>PCIE_RX0_P</p></td>
+<td><p>P2</p></td>
+<td><p>PCIE通道0数据接收 Positive</p></td>
+</tr>
+<tr class="row-odd"><td><p>PCIE_RX0_N</p></td>
+<td><p>P1</p></td>
+<td><p>PCIE通道0数据接收Negative</p></td>
+</tr>
+<tr class="row-even"><td><p>PCIE_RX1_P</p></td>
+<td><p>M2</p></td>
+<td><p>PCIE通道1数据接收 Positive</p></td>
+</tr>
+<tr class="row-odd"><td><p>PCIE_RX1_N</p></td>
+<td><p>M1</p></td>
+<td><p>PCIE通道1数据接收Negative</p></td>
+</tr>
+<tr class="row-even"><td><p>PCIE_RX2_P</p></td>
+<td><p>K2</p></td>
+<td><p>PCIE通道2数据接收 Positive</p></td>
+</tr>
+<tr class="row-odd"><td><p>PCIE_RX2_N</p></td>
+<td><p>K1</p></td>
+<td><p>PCIE通道2数据接收Negative</p></td>
+</tr>
+<tr class="row-even"><td><p>PCIE_RX3_P</p></td>
+<td><p>H2</p></td>
+<td><p>PCIE通道3数据接收 Positive</p></td>
+</tr>
+<tr class="row-odd"><td><p>PCIE_RX3_N</p></td>
+<td><p>H1</p></td>
+<td><p>PCIE通道3数据接收Negative</p></td>
+</tr>
+<tr class="row-even"><td><p>PCIE_TX0_P</p></td>
+<td><p>N5</p></td>
+<td><p>PCIE通道0数据发送 Positive</p></td>
+</tr>
+<tr class="row-odd"><td><p>PCIE_TX0_N</p></td>
+<td><p>N4</p></td>
+<td><p>PCIE通道0数据发送Negative</p></td>
+</tr>
+<tr class="row-even"><td><p>PCIE_TX1_P</p></td>
+<td><p>L5</p></td>
+<td><p>PCIE通道1数据发送 Positive</p></td>
+</tr>
+<tr class="row-odd"><td><p>PCIE_TX1_N</p></td>
+<td><p>L4</p></td>
+<td><p>PCIE通道1数据发送Negative</p></td>
+</tr>
+<tr class="row-even"><td><p>PCIE_TX2_P</p></td>
+<td><p>J5</p></td>
+<td><p>PCIE通道2数据发送 Positive</p></td>
+</tr>
+<tr class="row-odd"><td><p>PCIE_TX2_N</p></td>
+<td><p>J4</p></td>
+<td><p>PCIE通道2数据发送Negative</p></td>
+</tr>
+<tr class="row-even"><td><p>PCIE_TX3_P</p></td>
+<td><p>G5</p></td>
+<td><p>PCIE通道3数据发送 Positive</p></td>
+</tr>
+<tr class="row-odd"><td><p>PCIE_TX3_N</p></td>
+<td><p>G4</p></td>
+<td><p>PCIE通道3数据发送Negative</p></td>
+</tr>
+<tr class="row-even"><td><p>PCIE_CLK_P</p></td>
+<td><p>M7</p></td>
+<td><p>PCIE的参考时钟 Positive</p></td>
+</tr>
+<tr class="row-odd"><td><p>PCIE_CLK_N</p></td>
+<td><p>M6</p></td>
+<td><p>PCIE的参考时钟Negative</p></td>
+</tr>
+<tr class="row-even"><td><p>PCIE_PERST</p></td>
+<td><p>B13</p></td>
+<td><p>PCIE复位信号</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id5">
+<h2>光纤接口<a class="headerlink" href="#id5" title="此标题的永久链接">#</a></h2>
+<p>VD100开发板上有2路SFP+光纤接口，用户可以购买SFP光模块(市场上1.25G，2.5G，10G光模块）插入到这2个光纤接口中进行光纤数据通信。2路光纤接口分别跟FPGA的BANK104的GTY收发器的2路RX/TX相连接，TX信号和RX信号都是以差分信号方式通过隔直电容连接FPGA和光模块，每路TX发送和RX接收数据速率高达10Gb/s。BANK104的GTY收发器的参考时钟由是156.25Mhz差分晶振提供。</p>
+<p>FPGA和SFP光纤设计示意图如下图3-4-1所示:</p>
+<img alt="../_images/image17.png" src="../_images/image17.png" />
+<p>图3-4-1光纤设计示意图</p>
+<blockquote>
+<div><p><strong>第1路光纤接口FPGA引脚分配如下：</strong></p>
+</div></blockquote>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>网络名称</strong></p></td>
+<td><p><strong>FPGA引脚</strong></p></td>
+<td><p><strong>备注</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>SFP1_TX_P</p></td>
+<td><p>E5</p></td>
+<td><p>SFP光模块数据发送 Positive</p></td>
+</tr>
+<tr class="row-odd"><td><p>SFP1_TX_N</p></td>
+<td><p>E4</p></td>
+<td><p>SFP光模块数据发送Negative</p></td>
+</tr>
+<tr class="row-even"><td><p>SFP1_RX_P</p></td>
+<td><p>F2</p></td>
+<td><p>SFP光模块数据接收 Positive</p></td>
+</tr>
+<tr class="row-odd"><td><p>SFP1_RX_N</p></td>
+<td><p>F1</p></td>
+<td><p>SFP光模块数据接收Negative</p></td>
+</tr>
+<tr class="row-even"><td><p>SFP1_TX_DIS</p></td>
+<td><p>D26</p></td>
+<td><p>SFP光模块光发射禁止，低有效</p></td>
+</tr>
+<tr class="row-odd"><td><p>SFP1_SCL</p></td>
+<td><p>D21</p></td>
+<td><p>I2C时钟信号</p></td>
+</tr>
+<tr class="row-even"><td><p>SFP1_SDA</p></td>
+<td><p>D20</p></td>
+<td><p>I2C数据信号</p></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p><strong>第2路光纤接口FPGA引脚分配如下：</strong></p>
+</div></blockquote>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>网络名称</strong></p></td>
+<td><p><strong>FPGA引脚</strong></p></td>
+<td><p><strong>备注</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>SFP2_TX_P</p></td>
+<td><p>D8</p></td>
+<td><p>SFP光模块数据发送 Positive</p></td>
+</tr>
+<tr class="row-odd"><td><p>SFP2_TX_N</p></td>
+<td><p>D7</p></td>
+<td><p>SFP光模块数据发送Negative</p></td>
+</tr>
+<tr class="row-even"><td><p>SFP2_RX_P</p></td>
+<td><p>D2</p></td>
+<td><p>SFP光模块数据接收 Positive</p></td>
+</tr>
+<tr class="row-odd"><td><p>SFP2_RX_N</p></td>
+<td><p>D1</p></td>
+<td><p>SFP光模块数据接收Negative</p></td>
+</tr>
+<tr class="row-even"><td><p>SFP2_TX_DIS</p></td>
+<td><p>D25</p></td>
+<td><p>SFP光模块光发射禁止，低有效</p></td>
+</tr>
+<tr class="row-odd"><td><p>SFP_CLK_N</p></td>
+<td><p>H6</p></td>
+<td><p>FPGA输入时钟Negative</p></td>
+</tr>
+<tr class="row-even"><td><p>SFP_CLK_P</p></td>
+<td><p>H7</p></td>
+<td><p>FPGA输入时钟Positive</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="usb">
+<h2>USB转串口<a class="headerlink" href="#usb" title="此标题的永久链接">#</a></h2>
+<p>VD100扩展板上配备了1个连接到PS端的Uart转USB接口。转换芯片采用了Silicon
+Labs CP2102GM的USB-UAR芯片, USB接口采用MINI
+USB接口，可以用一根USB线将它连接到上PC的USB口进行串口数据通信 。</p>
+<p>USB Uart电路设计的示意图如图3-5-1所示<img alt="image2" src="../_images/image18.png" /></p>
+<p>图3-5-1 USB转串口示意图</p>
+<p><strong>UART转串口的FPGA引脚分配：</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>信号名称</strong></p></td>
+<td><p><strong>FPGA引脚名</strong></p></td>
+<td><p><strong>F
+PGA引脚号</strong></p></td>
+<td><p><strong>备注</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>PS_UART0_RX</p></td>
+<td><p>LPD_MIO16</p></td>
+<td><p>U5</p></td>
+<td><p>Uart数据输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>PS_UART0_TX</p></td>
+<td><p>LPD_MIO17</p></td>
+<td><p>V5</p></td>
+<td><p>Uart数据输出</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="usb2-0">
+<h2>USB2.0接口<a class="headerlink" href="#usb2-0" title="此标题的永久链接">#</a></h2>
+<p>VD100扩展板上有1个USB2.0接口，支持HOST工作模式。USB2.0通过ULPI接口连接外部的USB3320C芯片，实现高速USB2.0的数据通信。</p>
+<p>USB接口为扁型USB接口(USB Type A)，方便用户同时连接不同的USB
+Slave外设(比如USB鼠标，键盘或U盘）。USB2.0连接的示意图如3-6-1所示：</p>
+<img alt="../_images/image19.png" src="../_images/image19.png" />
+<p>3-6-1 USB3.0接口示意图</p>
+<p><strong>USB接口引脚分配：</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p>信号名称</p></td>
+<td><p>引脚名</p></td>
+<td><p>引脚号</p></td>
+<td><p>备注</p></td>
+</tr>
+<tr class="row-even"><td><p>USB_DATA0</p></td>
+<td><p>PS_MIO14</p></td>
+<td><p>AC3</p></td>
+<td><p>USB2.0数据Bit0</p></td>
+</tr>
+<tr class="row-odd"><td><p>USB_DATA1</p></td>
+<td><p>PS_MIO15</p></td>
+<td><p>AE3</p></td>
+<td><p>USB2.0数据Bit1</p></td>
+</tr>
+<tr class="row-even"><td><p>USB_DATA2</p></td>
+<td><p>PS_MIO16</p></td>
+<td><p>AF3</p></td>
+<td><p>USB2.0数据Bit2</p></td>
+</tr>
+<tr class="row-odd"><td><p>USB_DATA3</p></td>
+<td><p>PS_MIO17</p></td>
+<td><p>AG3</p></td>
+<td><p>USB2.0数据Bit3</p></td>
+</tr>
+<tr class="row-even"><td><p>USB_DATA4</p></td>
+<td><p>PS_MIO19</p></td>
+<td><p>AH4</p></td>
+<td><p>USB2.0数据Bit4</p></td>
+</tr>
+<tr class="row-odd"><td><p>USB_DATA5</p></td>
+<td><p>PS_MIO20</p></td>
+<td><p>AF4</p></td>
+<td><p>USB2.0数据Bit5</p></td>
+</tr>
+<tr class="row-even"><td><p>USB_DATA6</p></td>
+<td><p>PS_MIO21</p></td>
+<td><p>AE4</p></td>
+<td><p>USB2.0数据Bit6</p></td>
+</tr>
+<tr class="row-odd"><td><p>USB_DATA7</p></td>
+<td><p>PS_MIO22</p></td>
+<td><p>AD4</p></td>
+<td><p>USB2.0数据Bit7</p></td>
+</tr>
+<tr class="row-even"><td><p>USB_STP</p></td>
+<td><p>PS_MIO24</p></td>
+<td><p>AA4</p></td>
+<td><p>USB2.0停止信号</p></td>
+</tr>
+<tr class="row-odd"><td><p>USB_DIR</p></td>
+<td><p>PS_MIO23</p></td>
+<td><p>AC4</p></td>
+<td><p>USB2.0数据方向信号</p></td>
+</tr>
+<tr class="row-even"><td><p>USB_CLK</p></td>
+<td><p>PS_MIO18</p></td>
+<td><p>AH3</p></td>
+<td><p>USB2.0时钟信号</p></td>
+</tr>
+<tr class="row-odd"><td><p>USB_NXT</p></td>
+<td><p>PS_MIO25</p></td>
+<td><p>Y4</p></td>
+<td><p>USB2.0下一数据信号</p></td>
+</tr>
+<tr class="row-even"><td><p>USB_RESET_N</p></td>
+<td><p>PS_MIO13</p></td>
+<td><p>AB3</p></td>
+<td><p>USB2.0复位信号</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="lvds">
+<h2>LVDS显示屏接口<a class="headerlink" href="#lvds" title="此标题的永久链接">#</a></h2>
+<p>扩展板上包含了一个LVDS显示屏接口，可以用来接我们的7寸显示屏模块（AN7000）。LVDS接口是40PIN的FPC连接器，有4对LVDS的数据和1对时钟，以及其它的控制信号通过电平转换芯片连接到BANK703的差分IO管脚上，电平标准为1.5V。<img alt="image3" src="../_images/image20.png" /></p>
+<p>图3-7-1LVDS接口设计原理图</p>
+<p>LVDS<strong>接口引脚分配</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>信号名称</strong></p></td>
+<td><p><strong>引脚名</strong></p></td>
+<td><p><strong>引脚
+号</strong></p></td>
+<td><p><strong>备注</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>LVDS_CLK-</p></td>
+<td><p>B703_L17_N</p></td>
+<td><p>A24</p></td>
+<td><p>LVDS屏输入时钟负</p></td>
+</tr>
+<tr class="row-odd"><td><p>LVDS_CLK+</p></td>
+<td><p>B703_L17_P</p></td>
+<td><p>A23</p></td>
+<td><p>LVDS屏输入时钟正</p></td>
+</tr>
+<tr class="row-even"><td><p>LVDS_D0-</p></td>
+<td><p>B703_L13_N</p></td>
+<td><p>G23</p></td>
+<td><p>LV
+DS屏输入的数据DATA0负</p></td>
+</tr>
+<tr class="row-odd"><td><p>LVDS_D0+</p></td>
+<td><p>B703_L13_P</p></td>
+<td><p>F22</p></td>
+<td><p>LV
+DS屏输入的数据DATA0正</p></td>
+</tr>
+<tr class="row-even"><td><p>LVDS_D1-</p></td>
+<td><p>B703_L22_N</p></td>
+<td><p>A21</p></td>
+<td><p>LV
+DS屏输入的数据DATA1负</p></td>
+</tr>
+<tr class="row-odd"><td><p>LVDS_D1+</p></td>
+<td><p>B703_L22_P</p></td>
+<td><p>A20</p></td>
+<td><p>LV
+DS屏输入的数据DATA1正</p></td>
+</tr>
+<tr class="row-even"><td><p>LVDS_D2-</p></td>
+<td><p>B703_L23_N</p></td>
+<td><p>B22</p></td>
+<td><p>LV
+DS屏输入的数据DATA2负</p></td>
+</tr>
+<tr class="row-odd"><td><p>LVDS_D2+</p></td>
+<td><p>B703_L23_P</p></td>
+<td><p>C22</p></td>
+<td><p>LV
+DS屏输入的数据DATA2正</p></td>
+</tr>
+<tr class="row-even"><td><p>LVDS_D3-</p></td>
+<td><p>B703_L10_N</p></td>
+<td><p>A26</p></td>
+<td><p>LV
+DS屏输入的数据DATA3负</p></td>
+</tr>
+<tr class="row-odd"><td><p>LVDS_D3+</p></td>
+<td><p>B703_L10_P</p></td>
+<td><p>A25</p></td>
+<td><p>LV
+DS屏输入的数据DATA3正</p></td>
+</tr>
+<tr class="row-even"><td><p>FPGA_LCD_SDI</p></td>
+<td><p>B703_L11_N</p></td>
+<td><p>B27</p></td>
+<td><p>LCD屏串行
+接口地址和SPI数据输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>FPGA_LCD_CSB</p></td>
+<td><p>B703_L11_P</p></td>
+<td><p>B26</p></td>
+<td><p>LCD屏串
+行接口芯片SPl片选信号</p></td>
+</tr>
+<tr class="row-even"><td><p>FPGA_LCD_SCL</p></td>
+<td><p>B703_L3_N</p></td>
+<td><p>E28</p></td>
+<td><p>LCD屏串行接口SPI时钟</p></td>
+</tr>
+<tr class="row-odd"><td><p>FPGA_LCD_SDO</p></td>
+<td><p>B703_L9_N</p></td>
+<td><p>B25</p></td>
+<td><p>LCD
+屏串行接口SPI数据输出</p></td>
+</tr>
+<tr class="row-even"><td><p>FPGA_LCD_RESET</p></td>
+<td><p>B703_L3_P</p></td>
+<td><p>E27</p></td>
+<td><p>LCD屏复位信号</p></td>
+</tr>
+<tr class="row-odd"><td><p>FPGA_LCD_STBYB</p></td>
+<td><p>B703_L25_N</p></td>
+<td><p>F25</p></td>
+<td><p>LCD屏模式设置信号</p></td>
+</tr>
+<tr class="row-even"><td><p>FPGA_BANKLCD_SDA</p></td>
+<td><p>B703_L12_N</p></td>
+<td><p>H24</p></td>
+<td><p>背光I2C数据</p></td>
+</tr>
+<tr class="row-odd"><td><p>FPGA_BANKLCD_SCL</p></td>
+<td><p>B703_L14_P</p></td>
+<td><p>E22</p></td>
+<td><p>背光I2C时钟</p></td>
+</tr>
+<tr class="row-even"><td><p>FPGA_BANKLCD_INT</p></td>
+<td><p>B703_L9_P</p></td>
+<td><p>C25</p></td>
+<td><p>背光故障中断信号</p></td>
+</tr>
+<tr class="row-odd"><td><p>FPGA_BANKLCD_EN</p></td>
+<td><p>B703_L25_P</p></td>
+<td><p>E24</p></td>
+<td><p>背光使能信号</p></td>
+</tr>
+<tr class="row-even"><td><p>FPGA_BANKLCD_PWM</p></td>
+<td><p>B703_L15_N</p></td>
+<td><p>C24</p></td>
+<td><p>背光亮度调节信号</p></td>
+</tr>
+<tr class="row-odd"><td><p>FPGA_BANKLCD_SYNC</p></td>
+<td><p>B703_L15_P</p></td>
+<td><p>D24</p></td>
+<td><p>背光同步升压输入</p></td>
+</tr>
+<tr class="row-even"><td><p>LVDS_CLK_N</p></td>
+<td><p>B703_L24_N</p></td>
+<td><p>F24</p></td>
+<td><p>FPGA输入时钟负</p></td>
+</tr>
+<tr class="row-odd"><td><p>LVDS_CLK_P</p></td>
+<td><p>B703_L24_P</p></td>
+<td><p>F23</p></td>
+<td><p>FPGA输入时钟正</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mipi">
+<h2>MIPI接口<a class="headerlink" href="#mipi" title="此标题的永久链接">#</a></h2>
+<p>VD100扩展板上包含了2个MIPI 4 Lane摄像头接口，可以用来接我们的MIPI
+OS05A10像头模块（AN5010）。MIPI接口是20PIN的FPC连接器，为4个LANE的数据和1对时钟，连接到BANK702的差分IO管脚上，电平标准为1.2V；其它的控制信号通过电平转换连接到BANK703的IO上，电平标准为1.5V。</p>
+<p><img alt="image4" src="../_images/image21.png" /></p>
+<p>图3-8-1 MIPI接口设计原理图</p>
+<p><strong>MIPI接口引脚分配</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>信号名称</strong></p></td>
+<td><p><strong>引脚名</strong></p></td>
+<td><p><strong>引脚号</strong></p></td>
+<td><p><strong>备注</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI1_CLK_N</p></td>
+<td><p>B702_L12_N</p></td>
+<td><p>T24</p></td>
+<td><p>MIPI1输入时钟负</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI1_CLK_P</p></td>
+<td><p>B702_L12_P</p></td>
+<td><p>U23</p></td>
+<td><p>MIPI1输入时钟正</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI1_LAN0_N</p></td>
+<td><p>B702_L13_N</p></td>
+<td><p>R24</p></td>
+<td><p>MIPI1输入的数据LANE0负</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI1_LAN0_P</p></td>
+<td><p>B702_L13_P</p></td>
+<td><p>T23</p></td>
+<td><p>MIPI1输入的数据LANE0正</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI1_LAN1_N</p></td>
+<td><p>B702_L14_N</p></td>
+<td><p>P24</p></td>
+<td><p>MIPI1输入的数据LANE1负</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI1_LAN1_P</p></td>
+<td><p>B702_L14_P</p></td>
+<td><p>R23</p></td>
+<td><p>MIPI1输入的数据LANE1正</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI1_LAN2_N</p></td>
+<td><p>B702_L16_N</p></td>
+<td><p>K24</p></td>
+<td><p>MIPI1输入的数据LANE2负</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI1_LAN2_P</p></td>
+<td><p>B702_L16_P</p></td>
+<td><p>L23</p></td>
+<td><p>MIPI1输入的数据LANE2正</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI1_LAN3_N</p></td>
+<td><p>B702_L15_N</p></td>
+<td><p>M23</p></td>
+<td><p>MIPI1输入的数据LANE3负</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI1_LAN3_P</p></td>
+<td><p>B702_L15_P</p></td>
+<td><p>M22</p></td>
+<td><p>MIPI1输入的数据LANE3正</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI1_SDA</p></td>
+<td><p>B703_L2_N</p></td>
+<td><p>F28</p></td>
+<td><p>MIPI1摄像头的I2C数据</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI1_SCL</p></td>
+<td><p>B703_L2_P</p></td>
+<td><p>G27</p></td>
+<td><p>MIPI1摄像头的I2C时钟</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI1_GPIO</p></td>
+<td><p>B703_L7_N</p></td>
+<td><p>G26</p></td>
+<td><p>MIPI1摄像头的GPIO控制</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI1_CLK</p></td>
+<td><p>B703_L7_P</p></td>
+<td><p>G25</p></td>
+<td><p>MIPI1摄像头的时钟输入</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI2_CLK_N</p></td>
+<td><p>B702_L18_N</p></td>
+<td><p>U22</p></td>
+<td><p>MIPI2输入时钟负</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI2_CLK_P</p></td>
+<td><p>B702_L18_P</p></td>
+<td><p>V21</p></td>
+<td><p>MIPI2输入时钟正</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI2_LAN0_N</p></td>
+<td><p>B702_L19_N</p></td>
+<td><p>R22</p></td>
+<td><p>MIPI2输入的数据LANE0负</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI2_LAN0_P</p></td>
+<td><p>B702_L19_P</p></td>
+<td><p>T21</p></td>
+<td><p>MIPI2输入的数据LANE0正</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI2_LAN1_N</p></td>
+<td><p>B702_L20_N</p></td>
+<td><p>P22</p></td>
+<td><p>MIPI2输入的数据LANE1负</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI2_LAN1_P</p></td>
+<td><p>B702_L20_P</p></td>
+<td><p>R21</p></td>
+<td><p>MIPI2输入的数据LANE1正</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI2_LAN2_N</p></td>
+<td><p>B702_L21_N</p></td>
+<td><p>M21</p></td>
+<td><p>MIPI2输入的数据LANE2负</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI2_LAN2_P</p></td>
+<td><p>B702_L21_P</p></td>
+<td><p>N21</p></td>
+<td><p>MIPI2输入的数据LANE2正</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI2_LAN3_N</p></td>
+<td><p>B702_L22_N</p></td>
+<td><p>L22</p></td>
+<td><p>MIPI2输入的数据LANE3负</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI2_LAN3_P</p></td>
+<td><p>B702_L22_P</p></td>
+<td><p>K21</p></td>
+<td><p>MIPI2输入的数据LANE3正</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI2_SDA</p></td>
+<td><p>B703_L4_N</p></td>
+<td><p>C28</p></td>
+<td><p>MIPI2摄像头的I2C数据</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI2_SCL</p></td>
+<td><p>B703_L4_P</p></td>
+<td><p>D27</p></td>
+<td><p>MIPI2摄像头的I2C时钟</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI2_GPIO</p></td>
+<td><p>B703_L0_N</p></td>
+<td><p>H28</p></td>
+<td><p>MIPI2摄像头的GPIO控制</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI2_CLK</p></td>
+<td><p>B703_L0_P</p></td>
+<td><p>J27</p></td>
+<td><p>MIPI2摄像头的时钟输入</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="sd">
+<h2>SD卡<a class="headerlink" href="#sd" title="此标题的永久链接">#</a></h2>
+<p>VD100扩展板包含了一个Micro型的SD卡接口，以提供用户访问SD卡存储器，用于存储XCVE2302芯片的BOOT程序，Linux操作系统内核,
+文件系统以及其它的用户数据文件。</p>
+<p>SDIO信号与XCVE2302的PS
+BANK501的IO信号相连，因为501的VCCIO设置为1.8V，但SD卡的数据电平为3.3V,
+我们这里通过TXS02612电平转换器来连接。XCVE2302
+PS和SD卡连接器的原理图如图3-9-1所示。</p>
+<img alt="../_images/image22.png" src="../_images/image22.png" />
+<p>图3-9-1 SD卡连接示意图</p>
+<p><strong>SD卡槽引脚分配</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>信号名称</strong></p></td>
+<td><p><strong>引脚名</strong></p></td>
+<td><p><strong>引脚号</strong></p></td>
+<td><p><strong>备注</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>SD_CLK</p></td>
+<td><p>PS_MIO26</p></td>
+<td><p>AA5</p></td>
+<td><p>SD时钟信号</p></td>
+</tr>
+<tr class="row-odd"><td><p>SD_CD</p></td>
+<td><p>PS_MIO28</p></td>
+<td><p>AC5</p></td>
+<td><p>SD卡检测信号</p></td>
+</tr>
+<tr class="row-even"><td><p>SD_CMD</p></td>
+<td><p>PS_MIO29</p></td>
+<td><p>AD5</p></td>
+<td><p>SD命令信号</p></td>
+</tr>
+<tr class="row-odd"><td><p>SD_D0</p></td>
+<td><p>PS_MIO30</p></td>
+<td><p>AE6</p></td>
+<td><p>SD数据Data0</p></td>
+</tr>
+<tr class="row-even"><td><p>SD_D1</p></td>
+<td><p>PS_MIO31</p></td>
+<td><p>AD6</p></td>
+<td><p>SD数据Data1</p></td>
+</tr>
+<tr class="row-odd"><td><p>SD_D2</p></td>
+<td><p>PS_MIO32</p></td>
+<td><p>AB6</p></td>
+<td><p>SD数据Data2</p></td>
+</tr>
+<tr class="row-even"><td><p>SD_D3</p></td>
+<td><p>PS_MIO33</p></td>
+<td><p>AA6</p></td>
+<td><p>SD数据Data3</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eeprom-24lc04">
+<h2>EEPROM 24LC04和温度传感器<a class="headerlink" href="#eeprom-24lc04" title="此标题的永久链接">#</a></h2>
+<p>VD100开发板板载了一片EEPROM，型号为24LC04,容量为：4Kbit（2*256*8bit），通过IIC总线连接到PS端进行通信。另外板上还带有一个高精度、低功耗、数字温度传感器芯片，型号为ON
+Semiconductor公司的LM75，LM75芯片的温度精度为0.5度。EEPROM和温度传感器通过I2C总线挂载到Versal
+ACAP的Bank501 MIO上。图3-10-1为EEPROM和温度传感器的原理图</p>
+<img alt="../_images/image23.png" src="../_images/image23.png" />
+<p>图3-10-1 EEPROM和传感器的原理图</p>
+<p><strong>EEPROM通信引脚分配如下：</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p>信号名称</p></td>
+<td><p>引脚名</p></td>
+<td><p>引脚号</p></td>
+<td><p>备注</p></td>
+</tr>
+<tr class="row-even"><td><p>PS_IIC1_SCL</p></td>
+<td><p>PS_MIO34</p></td>
+<td><p>AB7</p></td>
+<td><p>I2C时钟信号</p></td>
+</tr>
+<tr class="row-odd"><td><p>PS_IIC1_SDA</p></td>
+<td><p>PS_MIO35</p></td>
+<td><p>AC7</p></td>
+<td><p>I2C数据信号</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="jtag">
+<h2>JTAG接口<a class="headerlink" href="#jtag" title="此标题的永久链接">#</a></h2>
+<p>开发板预留了一个JTAG接口，用于下载FPGA程序或者固化程序到FLASH。为了带电插拔造成对FPGA芯片的损坏，我们在JTAG信号上添加了保护二极管来保证信号的电压在FPGA接受的范围，避免FPGA的损坏。</p>
+<img alt="../_images/image24.png" src="../_images/image24.png" />
+<p>图3-8-1 JTAG接口原理图</p>
+<p>JTAG线插拔的时候注意不要热插拔。</p>
+</section>
+<section id="canfd">
+<h2>CANFD通信接口<a class="headerlink" href="#canfd" title="此标题的永久链接">#</a></h2>
+<p>VD100扩展板上有1路CAN/CANFD通信接口，连接在PS系统端BANK502的MIO接口上。CANFD收发芯片选用了智恩浦公司的TJA1051T/3/1J芯片为用户CAN通信服务。</p>
+<p>图3-12-1为PS端CAN收发芯片的连接示意图</p>
+<img alt="../_images/image25.png" src="../_images/image25.png" />
+<p>图3-12-1 PS端CAN收发芯片的连接示意图</p>
+<p><strong>CAN通信引脚分配如下：</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>信号名称</strong></p></td>
+<td><p><strong>引脚名</strong></p></td>
+<td><p><strong>引脚号</strong></p></td>
+<td><p><strong>备注</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>CANFD_TXD1</p></td>
+<td><p>LPD_MIO23</p></td>
+<td><p>Y7</p></td>
+<td><p>CAN1 发送端</p></td>
+</tr>
+<tr class="row-odd"><td><p>CANFD_RXD1</p></td>
+<td><p>LPD_MIO22</p></td>
+<td><p>T6</p></td>
+<td><p>CAN1 接收端</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pmod">
+<h2>PMOD拓展口<a class="headerlink" href="#pmod" title="此标题的永久链接">#</a></h2>
+<p>扩展板预留1个12PIN
+2.54mm标准间距的PMOD的扩展口J55，用于连接外部模块或者设备，扩展口有3.3V电源2路，地2路，IO口8路。IO的电平标准为3.3V，<strong>切勿跟5V设备的IO直接连接，以免烧坏FPGA。如果要接5V设备的IO，需要接电平转换芯片。</strong></p>
+<p>扩展口(55)的电路如下图3-13-1所示</p>
+<img alt="../_images/image26.png" src="../_images/image26.png" />
+<p>图3-13-1扩展口J55原理图</p>
+<p><strong>J55扩展口FPGA的引脚分配</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>J55引
+脚编号</strong></p></td>
+<td><p><strong>FPGA</strong>
+<strong>引脚名</strong></p></td>
+<td><p><strong>FPGA</strong>
+<strong>引脚号</strong></p></td>
+<td><p><strong>J55引
+脚编号</strong></p></td>
+<td><p><strong>FPGA</strong>
+<strong>引脚名</strong></p></td>
+<td><p><strong>FPGA</strong>
+<strong>引脚名</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>B302_L0_N</p></td>
+<td><p>E14</p></td>
+<td><p>7</p></td>
+<td><p>B
+302_L0_P</p></td>
+<td><p>F14</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>B302_L2_N</p></td>
+<td><p>D14</p></td>
+<td><p>8</p></td>
+<td><p>B
+302_L2_P</p></td>
+<td><p>E13</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>B302_L3_N</p></td>
+<td><p>D12</p></td>
+<td><p>9</p></td>
+<td><p>B
+302_L3_P</p></td>
+<td><p>E12</p></td>
+</tr>
+<tr class="row-odd"><td><p>J4</p></td>
+<td><p>B302_L4_N</p></td>
+<td><p>E11</p></td>
+<td><p>10</p></td>
+<td><p>B
+302_L4_P</p></td>
+<td><p>F11</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>11</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>+3.3V</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>12</p></td>
+<td><p>+3.3V</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id6">
+<h2>按键<a class="headerlink" href="#id6" title="此标题的永久链接">#</a></h2>
+<p>扩展板上含有2个用户按键KEY1~KEY2，两个按键都连接到FPGA的普通的IO上，一个连接到PL端，另一个连接到PS端。按键低电平有效，当按键按下，FPGA的IO输入电压为低，当没有按键按下时，FPGA的IO输入电压为高。按键部分电路如下图3-10-1所示</p>
+<img alt="../_images/image27.png" src="../_images/image27.png" />
+<p>图3-14-1按键硬件设计示意图</p>
+<p><strong>按键FPGA引脚分配：</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>信号名称</strong></p></td>
+<td><p><strong>FPGA引脚名</strong></p></td>
+<td><p><strong>FP
+GA引脚号</strong></p></td>
+<td><p><strong>备注</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>PS_LED1</p></td>
+<td><p>LPD_MIO25</p></td>
+<td><p>Y9</p></td>
+<td><p>用户按键1</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_KEY1</p></td>
+<td><p>B703_L19_N</p></td>
+<td><p>F21</p></td>
+<td><p>用户按键2</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="led">
+<span id="led-1"></span><h2>LED灯<a class="headerlink" href="#led" title="此标题的永久链接">#</a></h2>
+<p>扩展板上有3个红色LED灯，其中1个是电源指示灯(PWR)，2个是用户LED灯（LED1~LED2）。当开发板供电后，电源指示灯会亮起。用户LED1~LED2连接到FPGA的普通IO，一个连接到PL端，另一个连接到PS端，当连接用户LED灯的IO电压配置为高电平时，用户LED灯点亮，当连接IO电压为配置为低电平时，用户LED会被熄灭。LED灯硬件连接的原理图如图3-11-1所示</p>
+<img alt="../_images/image28.png" src="../_images/image28.png" />
+<p>图3-15-1 LED灯硬件设计原理图</p>
+<p><strong>LED FPGA引脚分配：</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>信号名称</strong></p></td>
+<td><p><strong>FPGA引脚名</strong></p></td>
+<td><p><strong>FPGA引脚号</strong></p></td>
+<td><p><strong>备注</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>PS_LED1</p></td>
+<td><p>LPD_MIO25</p></td>
+<td><p>Y9</p></td>
+<td><p>用户定义指示灯</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_LED1</p></td>
+<td><p>B703_L19_P</p></td>
+<td><p>E20</p></td>
+<td><p>用户定义指示灯</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id7">
+<h2>供电电源<a class="headerlink" href="#id7" title="此标题的永久链接">#</a></h2>
+<p>开发板的电源输入电压为DC12V，请使用开发板自带的电源,不要用其他规格的电源，以免损坏开发板。扩展板上通过3路DC/DC电源芯片ETA1471FT2G转化成+5V，+3.3V，+1.8V三路电源，再通过LDO电源芯片SPX3819M5-1-5将+3.3V转化为+1.5V。另外扩展板上的+12V电源通过板间连接器给核心板供电，扩展上的电源设计如下图3-12-1所示</p>
+<img alt="../_images/image29.png" src="../_images/image29.png" />
+<p>图3-16-1扩展板电源原理图</p>
+</section>
+<section id="id8">
+<h2>结构尺寸图<a class="headerlink" href="#id8" title="此标题的永久链接">#</a></h2>
+<img alt="../_images/image30.png" src="../_images/image30.png" />
+<p>正面图（Top View）</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="VD100UserManual_Core_board_CN.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">上一页</p>
+        <p class="prev-next-title">开发板简介</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../VD100_S1_RSTdocument_CN/00_Introduction_CN.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">说明</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目录
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">简介</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">千兆以太网接口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pcie3-0-x4">PCIe3.0 X4接口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">光纤接口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usb">USB转串口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usb2-0">USB2.0接口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lvds">LVDS显示屏接口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mipi">MIPI接口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sd">SD卡</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eeprom-24lc04">EEPROM 24LC04和温度传感器</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jtag">JTAG接口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#canfd">CANFD通信接口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pmod">PMOD拓展口</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">按键</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#led">LED灯</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">供电电源</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">结构尺寸图</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+作者： JunFN
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2024 , ALINX .
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  
+        These engineering documents are copyrighted by
+            <a
+                href="https://www.alinx.com/"
+            >ALINX official website</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://vd100-20232-v101.readthedocs.io/zh-cn/en/VD100_S1_RSTdocument_EN/00_aboutALINX_EN.html">English</a> | <a href="https://vd100-20232-v101.readthedocs.io/zh-cn/latest/VD100_S1_RSTdocument_CN/00_%E5%85%B3%E4%BA%8EALINX_CN.html">中文</a>
+    
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

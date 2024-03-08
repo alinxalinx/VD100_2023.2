@@ -1,0 +1,570 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>第五章 GTYP收发器误码率测试IBERT实验 &#8212; Versal 开发平台FPGA教程 1.0 文档</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/translations.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'VD100_S1_RSTdocument_CN/05_ibert_test_CN';</script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="第六章 体验ARM，裸机输出“Hello World”" href="06_ps_hello_CN.html" />
+    <link rel="prev" title="第四章 LVDS液晶屏显示实验" href="04_lvds_lcd_CN.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="zh-CN"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/8.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/8.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Versal 开发平台
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">公司简介</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="00_%E5%85%B3%E4%BA%8EALINX_CN.html">关于ALINX</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">用户手册</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../User_Manual_CN/VD100UserManual_Core_board_CN.html">开发板简介</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../User_Manual_CN/VD100UserManual_Expansion%20board_CN.html">扩展板</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">VD100型号板卡S1_FPGA教程</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="00_Introduction_CN.html">说明</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="01_Versal_CN.html">第一章 Versal介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_led_CN.html">第二章 PL的”Hello World”LED实验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_pl_rw_ddr_CN.html">第三章 PL通过NoC读写DDR4实验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_lvds_lcd_CN.html">第四章 LVDS液晶屏显示实验</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">第五章 GTYP收发器误码率测试IBERT实验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_ps_hello_CN.html">第六章 体验ARM，裸机输出“Hello World”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_ps_lwip_CN.html">第七章 PS端以太网使用之lwip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_versal_trd_CN.html">第八章 整体工程及实验</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">VD100型号板卡S2_Linux教程</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/1_%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8Linux-%E5%88%B6%E4%BD%9C%E5%90%AF%E5%8A%A8%E5%BC%80%E5%8F%91%E6%9D%BFlinux%E7%B3%BB%E7%BB%9F%E7%9A%84SD%E5%8D%A1.html">快速启动Linux-制作启动开发板linux系统的SD卡</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/2_%E5%85%B3%E4%BA%8EPetalinux.html">关于PETALINUX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/3_01_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-%E4%B8%B2%E5%8F%A3.html">第一章 串口(UART)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/3_02_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-LED%E7%81%AF%E5%92%8C%E6%8C%89%E9%94%AE.html">第二章 LEDS、KEYS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/3_03_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-CAN.html">第三章 CAN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/3_04_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-LCD.html">第四章 LCD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/3_05_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-USB.html">第五章 USB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/3_06_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-%E4%BB%A5%E5%A4%AA%E7%BD%91.html">第六章 ETH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/3_07_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-MIPI%E6%91%84%E5%83%8F%E5%A4%B4.html">第七章 MIPI摄像头</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/3_08_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-EMMC.html">第八章 EMMC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/3_09_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-EEPROM.html">第九章 EEPROM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/3_10_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-LM75.html">第十章 LM75</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/3_11_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-QSPIFLASH.html">第十一章 QSPI FLASH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/4_%E5%AE%89%E8%A3%85QT%E5%BA%93%E5%92%8COPENCV%E5%BA%93%E4%BB%A5%E5%8F%8A%E5%9C%A8QTCreator%E4%B8%AD%E8%AE%BE%E7%BD%AE%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83.html">安装QT和OPENCV库以及在QTCreator中设置编译环境</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Alinx版权</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="00_%E8%B4%A3%E4%BB%BB%E5%A3%B0%E6%98%8E_CN.html">版权说明</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/alinxalinx/VD100_2023.2" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="源码库"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="下载此页面">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/VD100_S1_RSTdocument_CN/05_ibert_test_CN.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="下载源文件"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="列印成 PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全屏模式"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>第五章 GTYP收发器误码率测试IBERT实验</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目录 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">5.1 硬件介绍</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vivado">5.2 Vivado工程建立</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">5.3 下载调试</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="gtypibert">
+<h1>第五章 GTYP收发器误码率测试IBERT实验<a class="headerlink" href="#gtypibert" title="此标题的永久链接">#</a></h1>
+<p><strong>实验VIvado工程为“ibert_test”,目录中还有一个“ibert_ex”，是生成的测试工程。</strong></p>
+<p>Vidado软件为我们提供了强大的误码率测试器IBERT，不但可以测试误码率还能测试眼图，给我们使用高速收发器带来很大的便利，本实验做个抛砖引玉，简单介绍IBERT的使用。</p>
+<section id="id1">
+<h2>5.1 硬件介绍<a class="headerlink" href="#id1" title="此标题的永久链接">#</a></h2>
+<p>使用IBERT测试误码率和眼图必须有个收发环通的硬件，开发板上有2个SFP光纤接口，本实验把2个光接口收发两两连接，形成2个收发环通链路。</p>
+</section>
+<section id="vivado">
+<h2>5.2 Vivado工程建立<a class="headerlink" href="#vivado" title="此标题的永久链接">#</a></h2>
+<ol class="arabic simple">
+<li><p>新建一个工程名为“ibert_test”</p></li>
+<li><p>在“IP Catalog”中搜索“gt”快速找到“Versal ACAPs Transceivers
+Wizard”,双击</p></li>
+</ol>
+<img alt="../_images/image133.png" src="../_images/image133.png" />
+<ol class="arabic" start="3">
+<li><p>“Component Name”改为”ibert”，并修改preset为“Aurora 64B/66B”</p>
+<img alt="../_images/image134.png" src="../_images/image134.png" />
+</li>
+<li><p>点击Transceiver Configs Protocol 0，配置发送和接收参数，点击OK</p>
+<img alt="../_images/image135.png" src="../_images/image135.png" />
+<img alt="../_images/image136.png" src="../_images/image136.png" />
+<img alt="../_images/image137.png" src="../_images/image137.png" />
+</li>
+<li><p>点击Generate</p>
+<img alt="../_images/image138.png" src="../_images/image138.png" />
+</li>
+<li><p>右键“Open IP Example Design…”,选择example工程路径</p>
+<img alt="../_images/image139.png" src="../_images/image139.png" />
+<img alt="../_images/image140.png" src="../_images/image140.png" />
+</li>
+<li><p>添加buffer连接到apb3clk</p>
+<img alt="../_images/image1411.png" src="../_images/image1411.png" />
+</li>
+<li><p>添加反向器连接到复位</p>
+<img alt="../_images/image142.png" src="../_images/image142.png" />
+</li>
+<li><p>其他一些信号配置为常数0</p>
+<img alt="../_images/image143.png" src="../_images/image143.png" />
+</li>
+<li><p>删除输出信号</p>
+<img alt="../_images/image144.png" src="../_images/image144.png" />
+</li>
+<li><p>配置sfp_disable为0</p>
+<img alt="../_images/image145.png" src="../_images/image145.png" />
+</li>
+<li><p>将CIPS改成PL Subsystem</p>
+<img alt="../_images/image146.png" src="../_images/image146.png" />
+</li>
+<li><p>约束引脚</p>
+<img alt="../_images/image147.png" src="../_images/image147.png" />
+</li>
+<li><p>生成pdi文件</p>
+<img alt="../_images/image148.png" src="../_images/image148.png" />
+</li>
+</ol>
+</section>
+<section id="id2">
+<h2>5.3 下载调试<a class="headerlink" href="#id2" title="此标题的永久链接">#</a></h2>
+<ol class="arabic simple">
+<li><p>插入光模块，然后使用光纤将2个光口对接，连接好JTAG下载线，给开发板上电</p></li>
+</ol>
+<img alt="../_images/image149.png" src="../_images/image149.png" />
+<ol class="arabic simple" start="2">
+<li><p>使用JTAG下载BIT文件到开发板，可以看到速度接近10.3125Gbps。</p></li>
+</ol>
+<img alt="../_images/image150.png" src="../_images/image150.png" />
+<ol class="arabic simple" start="3">
+<li><p>选择IBERT，右键，选择“Create Links”</p></li>
+</ol>
+<img alt="../_images/image1511.png" src="../_images/image1511.png" />
+<p>参考原理图，光纤连接到了Quad104的CH0和CH1，选择Link 0为Quad_104 CH_0
+TX和CH1 RX对应，Link 1为Quad_104 CH_1 TX和CH0 RX对应</p>
+<img alt="../_images/image152.png" src="../_images/image152.png" />
+<ol class="arabic" start="4">
+<li><p>修改配置，码流选择PRBS 31，Loopback配置成None</p>
+<img alt="../_images/image153.png" src="../_images/image153.png" />
+</li>
+<li><p>配置完，可以点击BERT Reset,可以看到Errors都是0，重新开始测试。</p>
+<img alt="../_images/image154.png" src="../_images/image154.png" />
+</li>
+<li><p>选择一个链路，右键“Create Scan…”</p></li>
+</ol>
+<img alt="../_images/image155.png" src="../_images/image155.png" />
+<img alt="../_images/image156.png" src="../_images/image156.png" />
+<ol class="arabic simple" start="7">
+<li><p>默认配置出来的眼图，注意：使用不同的软件版本，测量眼图可能会有差异。</p></li>
+</ol>
+<img alt="../_images/image157.png" src="../_images/image157.png" />
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="04_lvds_lcd_CN.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">上一页</p>
+        <p class="prev-next-title">第四章 LVDS液晶屏显示实验</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="06_ps_hello_CN.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">第六章 体验ARM，裸机输出“Hello World”</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目录
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">5.1 硬件介绍</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vivado">5.2 Vivado工程建立</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">5.3 下载调试</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+作者： JunFN
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2024 , ALINX .
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  
+        These engineering documents are copyrighted by
+            <a
+                href="https://www.alinx.com/"
+            >ALINX official website</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://vd100-20232-v101.readthedocs.io/zh-cn/en/VD100_S1_RSTdocument_EN/00_aboutALINX_EN.html">English</a> | <a href="https://vd100-20232-v101.readthedocs.io/zh-cn/latest/VD100_S1_RSTdocument_CN/00_%E5%85%B3%E4%BA%8EALINX_CN.html">中文</a>
+    
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

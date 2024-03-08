@@ -1,0 +1,599 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>第三章 PL通过NoC读写DDR4实验 &#8212; Versal 开发平台FPGA教程 1.0 文档</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/translations.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'VD100_S1_RSTdocument_CN/03_pl_rw_ddr_CN';</script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="第四章 LVDS液晶屏显示实验" href="04_lvds_lcd_CN.html" />
+    <link rel="prev" title="第二章 PL的”Hello World”LED实验" href="02_led_CN.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="zh-CN"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/8.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/8.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Versal 开发平台
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">公司简介</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="00_%E5%85%B3%E4%BA%8EALINX_CN.html">关于ALINX</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">用户手册</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../User_Manual_CN/VD100UserManual_Core_board_CN.html">开发板简介</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../User_Manual_CN/VD100UserManual_Expansion%20board_CN.html">扩展板</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">VD100型号板卡S1_FPGA教程</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="00_Introduction_CN.html">说明</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="01_Versal_CN.html">第一章 Versal介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_led_CN.html">第二章 PL的”Hello World”LED实验</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">第三章 PL通过NoC读写DDR4实验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_lvds_lcd_CN.html">第四章 LVDS液晶屏显示实验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_ibert_test_CN.html">第五章 GTYP收发器误码率测试IBERT实验</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_ps_hello_CN.html">第六章 体验ARM，裸机输出“Hello World”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_ps_lwip_CN.html">第七章 PS端以太网使用之lwip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_versal_trd_CN.html">第八章 整体工程及实验</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">VD100型号板卡S2_Linux教程</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/1_%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8Linux-%E5%88%B6%E4%BD%9C%E5%90%AF%E5%8A%A8%E5%BC%80%E5%8F%91%E6%9D%BFlinux%E7%B3%BB%E7%BB%9F%E7%9A%84SD%E5%8D%A1.html">快速启动Linux-制作启动开发板linux系统的SD卡</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/2_%E5%85%B3%E4%BA%8EPetalinux.html">关于PETALINUX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/3_01_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-%E4%B8%B2%E5%8F%A3.html">第一章 串口(UART)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/3_02_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-LED%E7%81%AF%E5%92%8C%E6%8C%89%E9%94%AE.html">第二章 LEDS、KEYS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/3_03_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-CAN.html">第三章 CAN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/3_04_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-LCD.html">第四章 LCD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/3_05_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-USB.html">第五章 USB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/3_06_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-%E4%BB%A5%E5%A4%AA%E7%BD%91.html">第六章 ETH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/3_07_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-MIPI%E6%91%84%E5%83%8F%E5%A4%B4.html">第七章 MIPI摄像头</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/3_08_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-EMMC.html">第八章 EMMC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/3_09_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-EEPROM.html">第九章 EEPROM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/3_10_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-LM75.html">第十章 LM75</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/3_11_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-QSPIFLASH.html">第十一章 QSPI FLASH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_CN/4_%E5%AE%89%E8%A3%85QT%E5%BA%93%E5%92%8COPENCV%E5%BA%93%E4%BB%A5%E5%8F%8A%E5%9C%A8QTCreator%E4%B8%AD%E8%AE%BE%E7%BD%AE%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83.html">安装QT和OPENCV库以及在QTCreator中设置编译环境</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Alinx版权</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="00_%E8%B4%A3%E4%BB%BB%E5%A3%B0%E6%98%8E_CN.html">版权说明</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/alinxalinx/VD100_2023.2" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="源码库"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="下载此页面">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/VD100_S1_RSTdocument_CN/03_pl_rw_ddr_CN.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="下载源文件"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="列印成 PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全屏模式"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>第三章 PL通过NoC读写DDR4实验</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目录 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3.1 硬件介绍</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vivado">3.2 Vivado工程建立</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#block-designnoc">3.2.1 创建一个Block design并配置NoC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.2.2 添加其他测试代码</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3.3 下载调试</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3.4 实验总结</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="plnocddr4">
+<h1>第三章 PL通过NoC读写DDR4实验<a class="headerlink" href="#plnocddr4" title="此标题的永久链接">#</a></h1>
+<p><strong>实验VIvado工程为“pl_rw_ddr”。</strong></p>
+<section id="id1">
+<h2>3.1 硬件介绍<a class="headerlink" href="#id1" title="此标题的永久链接">#</a></h2>
+<p>开发板的PL端有4颗16bit ddr4</p>
+<img alt="../_images/image87.png" src="../_images/image87.png" />
+</section>
+<section id="vivado">
+<h2>3.2 Vivado工程建立<a class="headerlink" href="#vivado" title="此标题的永久链接">#</a></h2>
+<p>Versal的DDR4是通过NoC访问，因此需要添加NoC IP进行配置。</p>
+<section id="block-designnoc">
+<h3>3.2.1 创建一个Block design并配置NoC<a class="headerlink" href="#block-designnoc" title="此标题的永久链接">#</a></h3>
+<ol class="arabic">
+<li><p>选择Create Block Design</p>
+<img alt="../_images/image54.png" src="../_images/image54.png" />
+<img alt="../_images/image88.png" src="../_images/image88.png" />
+</li>
+<li><p>添加CIPS</p>
+<img alt="../_images/image56.png" src="../_images/image56.png" />
+<img alt="../_images/image57.png" src="../_images/image57.png" />
+</li>
+<li><p>双击CIPS，选择PL_Subsystem，只有PL端的逻辑</p>
+<img alt="../_images/image58.png" src="../_images/image58.png" />
+</li>
+<li><p>添加NoC IP</p>
+<img alt="../_images/image89.png" src="../_images/image89.png" />
+</li>
+<li><p>配置NoC</p>
+<p>选择一个AXI Slave和AXI Clock，选择”Single Memory Controller”</p>
+<img alt="../_images/image90.png" src="../_images/image90.png" />
+<p>选择Inputs为PL</p>
+<img alt="../_images/image911.png" src="../_images/image911.png" />
+<p>连接port</p>
+<img alt="../_images/image92.png" src="../_images/image92.png" />
+<p>DDR4配置</p>
+<img alt="../_images/image93.png" src="../_images/image93.png" />
+<img alt="../_images/image94.png" src="../_images/image94.png" />
+<p>配置完成，点击OK</p>
+</li>
+<li><p>配置CIPS，添加复位</p>
+<img alt="../_images/image95.png" src="../_images/image95.png" />
+<img alt="../_images/image96.png" src="../_images/image96.png" />
+<img alt="../_images/image97.png" src="../_images/image97.png" />
+<img alt="../_images/image98.png" src="../_images/image98.png" />
+<p>点击Finish</p>
+</li>
+<li><p>添加Clocking Wizard，配置输出时钟150MHz，作为PL端读写时钟</p>
+<img alt="../_images/image99.png" src="../_images/image99.png" />
+<img alt="../_images/image100.png" src="../_images/image100.png" />
+</li>
+<li><p>添加IBUFDS为NoC和Clocking
+Wizard提供参考时钟，并导出S00_AXI，CH0_DDR4_0等总线，添加axi_clk,axi_resetn为PL端提供时钟和复位。</p>
+<img alt="../_images/image1011.png" src="../_images/image1011.png" />
+<p>双击参考时钟引脚，并配置频率为200MHz</p>
+<img alt="../_images/image102.png" src="../_images/image102.png" />
+<p>双击AXI总线，并配置</p>
+<img alt="../_images/image103.png" src="../_images/image103.png" />
+<img alt="../_images/image104.png" src="../_images/image104.png" />
+</li>
+<li><p>分配地址</p>
+<img alt="../_images/image105.png" src="../_images/image105.png" />
+<img alt="../_images/image106.png" src="../_images/image106.png" />
+</li>
+<li><p>Create HDL</p>
+<img alt="../_images/image107.png" src="../_images/image107.png" />
+</li>
+</ol>
+</section>
+<section id="id2">
+<h3>3.2.2 添加其他测试代码<a class="headerlink" href="#id2" title="此标题的永久链接">#</a></h3>
+<p>其他代码主要功能是读写ddr4并比较数据是否一致，这里不做详细介绍，可参考工程代码。</p>
+<img alt="../_images/image108.png" src="../_images/image108.png" />
+<ol class="arabic simple">
+<li><p>在mem_test.v中添加mark_debug调试</p></li>
+</ol>
+<img alt="../_images/image109.png" src="../_images/image109.png" />
+<ol class="arabic" start="2">
+<li><p>引脚绑定</p>
+<img alt="../_images/image110.png" src="../_images/image110.png" />
+</li>
+<li><p>综合</p>
+<img alt="../_images/image1111.png" src="../_images/image1111.png" />
+</li>
+</ol>
+<ol class="arabic" start="3">
+<li><p>综合完成后点击Set up debug</p>
+<img alt="../_images/image112.png" src="../_images/image112.png" />
+<img alt="../_images/image113.png" src="../_images/image113.png" />
+<img alt="../_images/image114.png" src="../_images/image114.png" />
+<p>根据需求设置采样点数</p>
+<img alt="../_images/image115.png" src="../_images/image115.png" />
+<img alt="../_images/image116.png" src="../_images/image116.png" />
+<p>之后保存，并生成pdi文件</p>
+<img alt="../_images/image511.png" src="../_images/image511.png" />
+</li>
+</ol>
+</section>
+</section>
+<section id="id3">
+<h2>3.3 下载调试<a class="headerlink" href="#id3" title="此标题的永久链接">#</a></h2>
+<p>生成pdi文件以后，使用JTAG下载到开发板，在MIG_1窗口会显示DDR4校准等信息</p>
+<img alt="../_images/image117.png" src="../_images/image117.png" />
+<p>在hw_ila_1中可以查看调试信号</p>
+<img alt="../_images/image118.png" src="../_images/image118.png" />
+</section>
+<section id="id4">
+<h2>3.4 实验总结<a class="headerlink" href="#id4" title="此标题的永久链接">#</a></h2>
+<p>本实验通过PL端Verilog代码直接读写ddr4，主要了解NoC的配置方法，如何通过NoC访问DDR4，后续的实验中都要用到此配置。</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02_led_CN.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">上一页</p>
+        <p class="prev-next-title">第二章 PL的”Hello World”LED实验</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="04_lvds_lcd_CN.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">第四章 LVDS液晶屏显示实验</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目录
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3.1 硬件介绍</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vivado">3.2 Vivado工程建立</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#block-designnoc">3.2.1 创建一个Block design并配置NoC</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.2.2 添加其他测试代码</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3.3 下载调试</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3.4 实验总结</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+作者： JunFN
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2024 , ALINX .
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  
+        These engineering documents are copyrighted by
+            <a
+                href="https://www.alinx.com/"
+            >ALINX official website</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://vd100-20232-v101.readthedocs.io/zh-cn/en/VD100_S1_RSTdocument_EN/00_aboutALINX_EN.html">English</a> | <a href="https://vd100-20232-v101.readthedocs.io/zh-cn/latest/VD100_S1_RSTdocument_CN/00_%E5%85%B3%E4%BA%8EALINX_CN.html">中文</a>
+    
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+diff --git a/drivers/video/fbdev/core/fbmem.c b/drivers/video/fbdev/core/fbmem.c
+index 221f3cf..d7c1cff 100644
+--- a/drivers/video/fbdev/core/fbmem.c
++++ b/drivers/video/fbdev/core/fbmem.c
+@@ -1114,6 +1114,7 @@ static long do_fb_ioctl(struct fb_info *info, unsigned int cmd,
+ 		ret = copy_to_user(argp, &var, sizeof(var)) ? -EFAULT : 0;
+ 		break;
+ 	case FBIOPUT_VSCREENINFO:
++		return 0;
+ 		if (copy_from_user(&var, argp, sizeof(var)))
+ 			return -EFAULT;
+ 		/* only for kernel-internal use */
+@@ -1319,6 +1320,7 @@ static long fb_compat_ioctl(struct file *file, unsigned int cmd,
+ 	switch(cmd) {
+ 	case FBIOGET_VSCREENINFO:
+ 	case FBIOPUT_VSCREENINFO:
++	return 0;
+ 	case FBIOPAN_DISPLAY:
+ 	case FBIOGET_CON2FBMAP:
+ 	case FBIOPUT_CON2FBMAP:
+--

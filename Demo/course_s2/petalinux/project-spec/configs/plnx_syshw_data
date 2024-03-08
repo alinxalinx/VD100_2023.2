@@ -1,0 +1,313 @@
+device_id: xcve2302
+hw_design_name: design_1_wrapper_1
+processor:
+    versal_cips_0_pspmc_0_psv_cortexa72_0:
+        arch: aarch64
+        ip_name: psv_cortexa72
+        slaves_strings: axi_noc_0 axi_vdma_0 axi_vdma_1 axi_vdma_2 cam0_rst_gpio cam1_rst_gpio key_gpio led_gpio mipi_csi2_rx_subsyst_0 mipi_csi2_rx_subsyst_1 v_demosaic_0 v_demosaic_1 v_tc_0 versal_cips_0_pspmc_0_psv_acpu_gic versal_cips_0_pspmc_0_psv_adma_0 versal_cips_0_pspmc_0_psv_adma_1 versal_cips_0_pspmc_0_psv_adma_2 versal_cips_0_pspmc_0_psv_adma_3 versal_cips_0_pspmc_0_psv_adma_4 versal_cips_0_pspmc_0_psv_adma_5 versal_cips_0_pspmc_0_psv_adma_6 versal_cips_0_pspmc_0_psv_adma_7 versal_cips_0_pspmc_0_psv_apu_0 versal_cips_0_pspmc_0_psv_canfd_0 versal_cips_0_pspmc_0_psv_coresight_0 versal_cips_0_pspmc_0_psv_coresight_a720_cti versal_cips_0_pspmc_0_psv_coresight_a720_dbg versal_cips_0_pspmc_0_psv_coresight_a720_etm versal_cips_0_pspmc_0_psv_coresight_a720_pmu versal_cips_0_pspmc_0_psv_coresight_a721_cti versal_cips_0_pspmc_0_psv_coresight_a721_dbg versal_cips_0_pspmc_0_psv_coresight_a721_etm versal_cips_0_pspmc_0_psv_coresight_a721_pmu versal_cips_0_pspmc_0_psv_coresight_apu_cti versal_cips_0_pspmc_0_psv_coresight_apu_ela versal_cips_0_pspmc_0_psv_coresight_apu_etf versal_cips_0_pspmc_0_psv_coresight_apu_fun versal_cips_0_pspmc_0_psv_coresight_cpm_atm versal_cips_0_pspmc_0_psv_coresight_cpm_cti2a versal_cips_0_pspmc_0_psv_coresight_cpm_cti2d versal_cips_0_pspmc_0_psv_coresight_cpm_ela2a versal_cips_0_pspmc_0_psv_coresight_cpm_ela2b versal_cips_0_pspmc_0_psv_coresight_cpm_ela2c versal_cips_0_pspmc_0_psv_coresight_cpm_ela2d versal_cips_0_pspmc_0_psv_coresight_cpm_fun versal_cips_0_pspmc_0_psv_coresight_cpm_rom versal_cips_0_pspmc_0_psv_coresight_fpd_atm versal_cips_0_pspmc_0_psv_coresight_fpd_stm versal_cips_0_pspmc_0_psv_coresight_lpd_atm versal_cips_0_pspmc_0_psv_cpm versal_cips_0_pspmc_0_psv_crf_0 versal_cips_0_pspmc_0_psv_crl_0 versal_cips_0_pspmc_0_psv_crp_0 versal_cips_0_pspmc_0_psv_ethernet_0 versal_cips_0_pspmc_0_psv_ethernet_1 versal_cips_0_pspmc_0_psv_fpd_afi_0 versal_cips_0_pspmc_0_psv_fpd_afi_2 versal_cips_0_pspmc_0_psv_fpd_cci_0 versal_cips_0_pspmc_0_psv_fpd_gpv_0 versal_cips_0_pspmc_0_psv_fpd_maincci_0 versal_cips_0_pspmc_0_psv_fpd_slave_xmpu_0 versal_cips_0_pspmc_0_psv_fpd_slcr_0 versal_cips_0_pspmc_0_psv_fpd_slcr_secure_0 versal_cips_0_pspmc_0_psv_fpd_smmu_0 versal_cips_0_pspmc_0_psv_fpd_smmutcu_0 versal_cips_0_pspmc_0_psv_gpio_2 versal_cips_0_pspmc_0_psv_i2c_0 versal_cips_0_pspmc_0_psv_i2c_1 versal_cips_0_pspmc_0_psv_ipi_0 versal_cips_0_pspmc_0_psv_ipi_1 versal_cips_0_pspmc_0_psv_ipi_2 versal_cips_0_pspmc_0_psv_ipi_3 versal_cips_0_pspmc_0_psv_ipi_4 versal_cips_0_pspmc_0_psv_ipi_5 versal_cips_0_pspmc_0_psv_ipi_6 versal_cips_0_pspmc_0_psv_ipi_buffer versal_cips_0_pspmc_0_psv_ipi_pmc versal_cips_0_pspmc_0_psv_ipi_pmc_nobuf versal_cips_0_pspmc_0_psv_ipi_psm versal_cips_0_pspmc_0_psv_lpd_afi_0 versal_cips_0_pspmc_0_psv_lpd_iou_secure_slcr_0 versal_cips_0_pspmc_0_psv_lpd_iou_slcr_0 versal_cips_0_pspmc_0_psv_lpd_slcr_0 versal_cips_0_pspmc_0_psv_lpd_slcr_secure_0 versal_cips_0_pspmc_0_psv_lpd_xppu_0 versal_cips_0_pspmc_0_psv_ocm_ctrl versal_cips_0_pspmc_0_psv_ocm_ram_0 versal_cips_0_pspmc_0_psv_ocm_xmpu_0 versal_cips_0_pspmc_0_psv_pmc_aes versal_cips_0_pspmc_0_psv_pmc_bbram_ctrl versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_0 versal_cips_0_pspmc_0_psv_pmc_cfu_apb_0 versal_cips_0_pspmc_0_psv_pmc_dma_0 versal_cips_0_pspmc_0_psv_pmc_dma_1 versal_cips_0_pspmc_0_psv_pmc_efuse_cache versal_cips_0_pspmc_0_psv_pmc_efuse_ctrl versal_cips_0_pspmc_0_psv_pmc_global_0 versal_cips_0_pspmc_0_psv_pmc_i2c_0 versal_cips_0_pspmc_0_psv_pmc_ppu1_mdm_0 versal_cips_0_pspmc_0_psv_pmc_qspi_0 versal_cips_0_pspmc_0_psv_pmc_qspi_ospi_flash_0 versal_cips_0_pspmc_0_psv_pmc_ram versal_cips_0_pspmc_0_psv_pmc_ram_npi versal_cips_0_pspmc_0_psv_pmc_rsa versal_cips_0_pspmc_0_psv_pmc_rtc_0 versal_cips_0_pspmc_0_psv_pmc_sd_0 versal_cips_0_pspmc_0_psv_pmc_sd_1 versal_cips_0_pspmc_0_psv_pmc_sha versal_cips_0_pspmc_0_psv_pmc_slave_boot versal_cips_0_pspmc_0_psv_pmc_slave_boot_stream versal_cips_0_pspmc_0_psv_pmc_sysmon_0 versal_cips_0_pspmc_0_psv_pmc_trng versal_cips_0_pspmc_0_psv_pmc_xmpu_0 versal_cips_0_pspmc_0_psv_pmc_xppu_0 versal_cips_0_pspmc_0_psv_pmc_xppu_npi_0 versal_cips_0_pspmc_0_psv_psm_global_reg versal_cips_0_pspmc_0_psv_r5_1_atcm_global versal_cips_0_pspmc_0_psv_r5_1_btcm_global versal_cips_0_pspmc_0_psv_r5_tcm_ram_global versal_cips_0_pspmc_0_psv_rcpu_gic versal_cips_0_pspmc_0_psv_rpu_0 versal_cips_0_pspmc_0_psv_sbsauart_0 versal_cips_0_pspmc_0_psv_scntr_0 versal_cips_0_pspmc_0_psv_scntrs_0 versal_cips_0_pspmc_0_psv_ttc_0 versal_cips_0_pspmc_0_psv_ttc_1 versal_cips_0_pspmc_0_psv_ttc_2 versal_cips_0_pspmc_0_psv_ttc_3 versal_cips_0_pspmc_0_psv_usb_0 versal_cips_0_pspmc_0_psv_usb_xhci_0 versal_cips_0_pspmc_0_psv_xram_atm versal_cips_0_pspmc_0_psv_xram_bank_1 versal_cips_0_pspmc_0_psv_xram_bank_2 versal_cips_0_pspmc_0_psv_xram_bank_3 versal_cips_0_pspmc_0_psv_xram_bank_4 versal_cips_0_pspmc_0_psv_xram_ctrl_1 versal_cips_0_pspmc_0_psv_xram_ctrl_2 versal_cips_0_pspmc_0_psv_xram_ctrl_3 versal_cips_0_pspmc_0_psv_xram_ctrl_4 versal_cips_0_pspmc_0_psv_xram_global_ctrl versal_cips_0_pspmc_0_psv_xram_gpv versal_cips_0_pspmc_0_psv_xram_xmpu_bank_1 versal_cips_0_pspmc_0_psv_xram_xmpu_bank_2 versal_cips_0_pspmc_0_psv_xram_xmpu_bank_3 versal_cips_0_pspmc_0_psv_xram_xmpu_bank_4
+        slaves:
+            axi_noc_0_bankless:
+                device_type: memory
+                ip_name: axi_noc
+                baseaddr: 
+                highaddr: 
+            versal_cips_0_pspmc_0_psv_sbsauart_0:
+                device_type: serial
+                ip_name: psv_sbsauart
+                baseaddr: 0xFF000000
+            versal_cips_0_pspmc_0_psv_ethernet_0:
+                device_type: ethernet
+                ip_name: psv_ethernet
+            versal_cips_0_pspmc_0_psv_ethernet_1:
+                device_type: ethernet
+                ip_name: psv_ethernet
+            versal_cips_0_pspmc_0_psv_pmc_qspi_0_bankless:
+                device_type: flash
+                ip_name: psv_pmc_qspi
+            versal_cips_0_pspmc_0_psv_pmc_qspi_ospi_flash_0_bankless:
+                device_type: flash
+                ip_name: psv_pmc_qspi_ospi
+            axi_noc_0:
+                ip_name: axi_noc
+            axi_vdma_0:
+                ip_name: axi_vdma
+            axi_vdma_1:
+                ip_name: axi_vdma
+            axi_vdma_2:
+                ip_name: axi_vdma
+            cam0_rst_gpio:
+                ip_name: axi_gpio
+            cam1_rst_gpio:
+                ip_name: axi_gpio
+            key_gpio:
+                ip_name: axi_gpio
+            led_gpio:
+                ip_name: axi_gpio
+            mipi_csi2_rx_subsyst_0:
+                ip_name: mipi_csi2_rx_subsystem
+            mipi_csi2_rx_subsyst_1:
+                ip_name: mipi_csi2_rx_subsystem
+            v_demosaic_0:
+                ip_name: v_demosaic
+            v_demosaic_1:
+                ip_name: v_demosaic
+            v_tc_0:
+                ip_name: v_tc
+            versal_cips_0_pspmc_0_psv_acpu_gic:
+                ip_name: psv_acpu_gic
+            versal_cips_0_pspmc_0_psv_adma_0:
+                ip_name: psv_adma
+            versal_cips_0_pspmc_0_psv_adma_1:
+                ip_name: psv_adma
+            versal_cips_0_pspmc_0_psv_adma_2:
+                ip_name: psv_adma
+            versal_cips_0_pspmc_0_psv_adma_3:
+                ip_name: psv_adma
+            versal_cips_0_pspmc_0_psv_adma_4:
+                ip_name: psv_adma
+            versal_cips_0_pspmc_0_psv_adma_5:
+                ip_name: psv_adma
+            versal_cips_0_pspmc_0_psv_adma_6:
+                ip_name: psv_adma
+            versal_cips_0_pspmc_0_psv_adma_7:
+                ip_name: psv_adma
+            versal_cips_0_pspmc_0_psv_apu_0:
+                ip_name: psv_apu
+            versal_cips_0_pspmc_0_psv_canfd_0:
+                ip_name: psv_canfd
+            versal_cips_0_pspmc_0_psv_coresight_0:
+                ip_name: psv_coresight
+            versal_cips_0_pspmc_0_psv_coresight_a720_cti:
+                ip_name: psv_coresight_a720_cti
+            versal_cips_0_pspmc_0_psv_coresight_a720_dbg:
+                ip_name: psv_coresight_a720_dbg
+            versal_cips_0_pspmc_0_psv_coresight_a720_etm:
+                ip_name: psv_coresight_a720_etm
+            versal_cips_0_pspmc_0_psv_coresight_a720_pmu:
+                ip_name: psv_coresight_a720_pmu
+            versal_cips_0_pspmc_0_psv_coresight_a721_cti:
+                ip_name: psv_coresight_a721_cti
+            versal_cips_0_pspmc_0_psv_coresight_a721_dbg:
+                ip_name: psv_coresight_a721_dbg
+            versal_cips_0_pspmc_0_psv_coresight_a721_etm:
+                ip_name: psv_coresight_a721_etm
+            versal_cips_0_pspmc_0_psv_coresight_a721_pmu:
+                ip_name: psv_coresight_a721_pmu
+            versal_cips_0_pspmc_0_psv_coresight_apu_cti:
+                ip_name: psv_coresight_apu_cti
+            versal_cips_0_pspmc_0_psv_coresight_apu_ela:
+                ip_name: psv_coresight_apu_ela
+            versal_cips_0_pspmc_0_psv_coresight_apu_etf:
+                ip_name: psv_coresight_apu_etf
+            versal_cips_0_pspmc_0_psv_coresight_apu_fun:
+                ip_name: psv_coresight_apu_fun
+            versal_cips_0_pspmc_0_psv_coresight_cpm_atm:
+                ip_name: psv_coresight_cpm_atm
+            versal_cips_0_pspmc_0_psv_coresight_cpm_cti2a:
+                ip_name: psv_coresight_cpm_cti2a
+            versal_cips_0_pspmc_0_psv_coresight_cpm_cti2d:
+                ip_name: psv_coresight_cpm_cti2d
+            versal_cips_0_pspmc_0_psv_coresight_cpm_ela2a:
+                ip_name: psv_coresight_cpm_ela2a
+            versal_cips_0_pspmc_0_psv_coresight_cpm_ela2b:
+                ip_name: psv_coresight_cpm_ela2b
+            versal_cips_0_pspmc_0_psv_coresight_cpm_ela2c:
+                ip_name: psv_coresight_cpm_ela2c
+            versal_cips_0_pspmc_0_psv_coresight_cpm_ela2d:
+                ip_name: psv_coresight_cpm_ela2d
+            versal_cips_0_pspmc_0_psv_coresight_cpm_fun:
+                ip_name: psv_coresight_cpm_fun
+            versal_cips_0_pspmc_0_psv_coresight_cpm_rom:
+                ip_name: psv_coresight_cpm_rom
+            versal_cips_0_pspmc_0_psv_coresight_fpd_atm:
+                ip_name: psv_coresight_fpd_atm
+            versal_cips_0_pspmc_0_psv_coresight_fpd_stm:
+                ip_name: psv_coresight_fpd_stm
+            versal_cips_0_pspmc_0_psv_coresight_lpd_atm:
+                ip_name: psv_coresight_lpd_atm
+            versal_cips_0_pspmc_0_psv_cpm:
+                ip_name: psv_cpm
+            versal_cips_0_pspmc_0_psv_crf_0:
+                ip_name: psv_crf
+            versal_cips_0_pspmc_0_psv_crl_0:
+                ip_name: psv_crl
+            versal_cips_0_pspmc_0_psv_crp_0:
+                ip_name: psv_crp
+            versal_cips_0_pspmc_0_psv_fpd_afi_0:
+                ip_name: psv_fpd_afi
+            versal_cips_0_pspmc_0_psv_fpd_afi_2:
+                ip_name: psv_fpd_afi
+            versal_cips_0_pspmc_0_psv_fpd_cci_0:
+                ip_name: psv_fpd_cci
+            versal_cips_0_pspmc_0_psv_fpd_gpv_0:
+                ip_name: psv_fpd_gpv
+            versal_cips_0_pspmc_0_psv_fpd_maincci_0:
+                ip_name: psv_fpd_maincci
+            versal_cips_0_pspmc_0_psv_fpd_slave_xmpu_0:
+                ip_name: psv_fpd_slave_xmpu
+            versal_cips_0_pspmc_0_psv_fpd_slcr_0:
+                ip_name: psv_fpd_slcr
+            versal_cips_0_pspmc_0_psv_fpd_slcr_secure_0:
+                ip_name: psv_fpd_slcr_secure
+            versal_cips_0_pspmc_0_psv_fpd_smmu_0:
+                ip_name: psv_fpd_smmu
+            versal_cips_0_pspmc_0_psv_fpd_smmutcu_0:
+                ip_name: psv_fpd_smmutcu
+            versal_cips_0_pspmc_0_psv_gpio_2:
+                ip_name: psv_gpio
+            versal_cips_0_pspmc_0_psv_i2c_0:
+                ip_name: psv_i2c
+            versal_cips_0_pspmc_0_psv_i2c_1:
+                ip_name: psv_i2c
+            versal_cips_0_pspmc_0_psv_ipi_0:
+                ip_name: psv_ipi
+            versal_cips_0_pspmc_0_psv_ipi_1:
+                ip_name: psv_ipi
+            versal_cips_0_pspmc_0_psv_ipi_2:
+                ip_name: psv_ipi
+            versal_cips_0_pspmc_0_psv_ipi_3:
+                ip_name: psv_ipi
+            versal_cips_0_pspmc_0_psv_ipi_4:
+                ip_name: psv_ipi
+            versal_cips_0_pspmc_0_psv_ipi_5:
+                ip_name: psv_ipi
+            versal_cips_0_pspmc_0_psv_ipi_6:
+                ip_name: psv_ipi
+            versal_cips_0_pspmc_0_psv_ipi_buffer:
+                ip_name: psv_ipi_buffer
+            versal_cips_0_pspmc_0_psv_ipi_pmc:
+                ip_name: psv_ipi
+            versal_cips_0_pspmc_0_psv_ipi_pmc_nobuf:
+                ip_name: psv_ipi
+            versal_cips_0_pspmc_0_psv_ipi_psm:
+                ip_name: psv_ipi
+            versal_cips_0_pspmc_0_psv_lpd_afi_0:
+                ip_name: psv_lpd_afi
+            versal_cips_0_pspmc_0_psv_lpd_iou_secure_slcr_0:
+                ip_name: psv_lpd_iou_secure_slcr
+            versal_cips_0_pspmc_0_psv_lpd_iou_slcr_0:
+                ip_name: psv_lpd_iou_slcr
+            versal_cips_0_pspmc_0_psv_lpd_slcr_0:
+                ip_name: psv_lpd_slcr
+            versal_cips_0_pspmc_0_psv_lpd_slcr_secure_0:
+                ip_name: psv_lpd_slcr_secure
+            versal_cips_0_pspmc_0_psv_lpd_xppu_0:
+                ip_name: psv_lpd_xppu
+            versal_cips_0_pspmc_0_psv_ocm_ctrl:
+                ip_name: psv_ocm
+            versal_cips_0_pspmc_0_psv_ocm_ram_0:
+                ip_name: psv_ocm_ram_0
+            versal_cips_0_pspmc_0_psv_ocm_xmpu_0:
+                ip_name: psv_ocm_xmpu
+            versal_cips_0_pspmc_0_psv_pmc_aes:
+                ip_name: psv_pmc_aes
+            versal_cips_0_pspmc_0_psv_pmc_bbram_ctrl:
+                ip_name: psv_pmc_bbram_ctrl
+            versal_cips_0_pspmc_0_psv_pmc_cfi_cframe_0:
+                ip_name: psv_pmc_cfi_cframe
+            versal_cips_0_pspmc_0_psv_pmc_cfu_apb_0:
+                ip_name: psv_pmc_cfu_apb
+            versal_cips_0_pspmc_0_psv_pmc_dma_0:
+                ip_name: psv_pmc_dma
+            versal_cips_0_pspmc_0_psv_pmc_dma_1:
+                ip_name: psv_pmc_dma
+            versal_cips_0_pspmc_0_psv_pmc_efuse_cache:
+                ip_name: psv_pmc_efuse_cache
+            versal_cips_0_pspmc_0_psv_pmc_efuse_ctrl:
+                ip_name: psv_pmc_efuse_ctrl
+            versal_cips_0_pspmc_0_psv_pmc_global_0:
+                ip_name: psv_pmc_global
+            versal_cips_0_pspmc_0_psv_pmc_i2c_0:
+                ip_name: psv_pmc_i2c
+            versal_cips_0_pspmc_0_psv_pmc_ppu1_mdm_0:
+                ip_name: psv_pmc_ppu1_mdm
+            versal_cips_0_pspmc_0_psv_pmc_qspi_0:
+                ip_name: psv_pmc_qspi
+            versal_cips_0_pspmc_0_psv_pmc_qspi_ospi_flash_0:
+                ip_name: psv_pmc_qspi_ospi
+            versal_cips_0_pspmc_0_psv_pmc_ram:
+                ip_name: psv_pmc_ram
+            versal_cips_0_pspmc_0_psv_pmc_ram_npi:
+                ip_name: psv_pmc_ram_npi
+            versal_cips_0_pspmc_0_psv_pmc_rsa:
+                ip_name: psv_pmc_rsa
+            versal_cips_0_pspmc_0_psv_pmc_rtc_0:
+                ip_name: psv_pmc_rtc
+            versal_cips_0_pspmc_0_psv_pmc_sd_0:
+                ip_name: psv_pmc_sd
+            versal_cips_0_pspmc_0_psv_pmc_sd_1:
+                ip_name: psv_pmc_sd
+            versal_cips_0_pspmc_0_psv_pmc_sha:
+                ip_name: psv_pmc_sha
+            versal_cips_0_pspmc_0_psv_pmc_slave_boot:
+                ip_name: psv_pmc_slave_boot
+            versal_cips_0_pspmc_0_psv_pmc_slave_boot_stream:
+                ip_name: psv_pmc_slave_boot_stream
+            versal_cips_0_pspmc_0_psv_pmc_sysmon_0:
+                ip_name: psv_pmc_sysmon
+            versal_cips_0_pspmc_0_psv_pmc_trng:
+                ip_name: psv_pmc_trng
+            versal_cips_0_pspmc_0_psv_pmc_xmpu_0:
+                ip_name: psv_pmc_xmpu
+            versal_cips_0_pspmc_0_psv_pmc_xppu_0:
+                ip_name: psv_pmc_xppu
+            versal_cips_0_pspmc_0_psv_pmc_xppu_npi_0:
+                ip_name: psv_pmc_xppu_npi
+            versal_cips_0_pspmc_0_psv_psm_global_reg:
+                ip_name: psv_psm_global_reg
+            versal_cips_0_pspmc_0_psv_r5_1_atcm_global:
+                ip_name: psv_tcm_global
+            versal_cips_0_pspmc_0_psv_r5_1_btcm_global:
+                ip_name: psv_tcm_global
+            versal_cips_0_pspmc_0_psv_r5_tcm_ram_global:
+                ip_name: psv_r5_tcm
+            versal_cips_0_pspmc_0_psv_rcpu_gic:
+                ip_name: psv_rcpu_gic
+            versal_cips_0_pspmc_0_psv_rpu_0:
+                ip_name: psv_rpu
+            versal_cips_0_pspmc_0_psv_scntr_0:
+                ip_name: psv_scntr
+            versal_cips_0_pspmc_0_psv_scntrs_0:
+                ip_name: psv_scntrs
+            versal_cips_0_pspmc_0_psv_ttc_0:
+                ip_name: psv_ttc
+            versal_cips_0_pspmc_0_psv_ttc_1:
+                ip_name: psv_ttc
+            versal_cips_0_pspmc_0_psv_ttc_2:
+                ip_name: psv_ttc
+            versal_cips_0_pspmc_0_psv_ttc_3:
+                ip_name: psv_ttc
+            versal_cips_0_pspmc_0_psv_usb_0:
+                ip_name: psv_usb
+            versal_cips_0_pspmc_0_psv_usb_xhci_0:
+                ip_name: psv_usb_xhci
+            versal_cips_0_pspmc_0_psv_xram_atm:
+                ip_name: psv_xram_atm
+            versal_cips_0_pspmc_0_psv_xram_bank_1:
+                ip_name: psv_xram_bank_1
+            versal_cips_0_pspmc_0_psv_xram_bank_2:
+                ip_name: psv_xram_bank_2
+            versal_cips_0_pspmc_0_psv_xram_bank_3:
+                ip_name: psv_xram_bank_3
+            versal_cips_0_pspmc_0_psv_xram_bank_4:
+                ip_name: psv_xram_bank_4
+            versal_cips_0_pspmc_0_psv_xram_ctrl_1:
+                ip_name: psv_xram_ctrl
+            versal_cips_0_pspmc_0_psv_xram_ctrl_2:
+                ip_name: psv_xram_ctrl
+            versal_cips_0_pspmc_0_psv_xram_ctrl_3:
+                ip_name: psv_xram_ctrl
+            versal_cips_0_pspmc_0_psv_xram_ctrl_4:
+                ip_name: psv_xram_ctrl
+            versal_cips_0_pspmc_0_psv_xram_global_ctrl:
+                ip_name: psv_xram_global_ctrl
+            versal_cips_0_pspmc_0_psv_xram_gpv:
+                ip_name: psv_xram_gpv
+            versal_cips_0_pspmc_0_psv_xram_xmpu_bank_1:
+                ip_name: psv_xram_xmpu_bank
+            versal_cips_0_pspmc_0_psv_xram_xmpu_bank_2:
+                ip_name: psv_xram_xmpu_bank
+            versal_cips_0_pspmc_0_psv_xram_xmpu_bank_3:
+                ip_name: psv_xram_xmpu_bank
+            versal_cips_0_pspmc_0_psv_xram_xmpu_bank_4:
+                ip_name: psv_xram_xmpu_bank

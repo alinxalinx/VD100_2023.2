@@ -1,0 +1,1 @@
+set_false_path -to [get_pins -hier -filter {name =~ *async2sync*/D }]

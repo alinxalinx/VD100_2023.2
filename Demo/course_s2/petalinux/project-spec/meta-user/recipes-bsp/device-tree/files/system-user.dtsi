@@ -1,0 +1,102 @@
+/include/ "system-conf.dtsi"
+/ {	
+    reserved-memory {
+		#address-cells = <2>;
+		#size-cells = <2>;
+		ranges;
+		reserved: buffer@0 {
+			reg = <0x0 0x30000000 0x0 0x06000000>; 
+		};
+	};
+};
+
+/* SD */
+&sdhci1 {
+	disable-wp;
+	no-1-8-v;
+};
+
+/* USB  */
+&dwc3_0 {
+	status = "okay";
+	dr_mode = "host";
+};
+
+&v_tc_0 {
+	compatible = "xlnx,bridge-v-tc-6.1";
+	xlnx,pixels-per-clock = <1>;
+};
+
+&amba {
+	v_drm_dmaengine_drv: drm-dmaengine-drv {
+		compatible = "xlnx,pl-disp";
+		dmas = <&axi_vdma_0 0>;
+		dma-names = "dma0";
+		xlnx,vformat = "RG24";
+		xlnx,bridge = <&v_tc_0>;
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		dmaengine_port: port@0 {
+			reg = <0>;
+			dmaengine_crtc: endpoint {
+				remote-endpoint = <&lcd_encoder>;
+			};
+		};
+	};
+	ax_lcd_encoder: ax_lcd_encoder  {
+		compatible = "ax-drm-encoder";
+		ports {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			encoder_lcd_port: port@0 {
+				reg = <0>;
+				lcd_encoder: endpoint {
+					remote-endpoint = <&dmaengine_crtc>;
+				};
+			};
+		};
+	};
+};
+
+&gem1 {
+	phy-handle = <&phy1>;
+	psu_ethernet_0_mdio: mdio {
+		#address-cells = <1>;
+		#size-cells = <0>;
+		gmii_to_rgmii_0: gmii_to_rgmii_0@8 {
+			compatible = "xlnx,gmii-to-rgmii-1.0";
+			phy-handle = <&phy1>;
+			reg = <8>;
+		};
+		phy1: ethernet-phy@1 {
+			device_type = "ethernet-phy";
+			reg = <1>;
+		};
+	};
+};
+
+&qspi {
+        status = "okay";
+};
+
+&flash0 {
+	is-dual = <0>;
+	num-cs = <1>;
+	spi-rx-bus-width = <4>;
+        spi-tx-bus-width = <4>;
+        compatible ="jedec,spi-nor";
+        reg= <0x0>;
+};
+
+&i2c2 {
+	lm75@48 {
+			compatible = "nxp,lm75";
+			reg = <0x48>;
+	};
+	eeprom@50{
+			compatible = "atmel,24c04";
+			reg = <0x50>;
+			pagesize = <16>;
+	};
+};
