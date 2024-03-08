@@ -31,18 +31,18 @@ https://vd100-20232-v101.readthedocs.io/zh-cn/latest/VD100_S1_RSTdocument_CN/00_
 下载 **PetaLinux Installer**
 * Ubuntu 20.04.6 LTS 更多支持的版本请参考 AMD|XILINX 官方文档[UG1144(v2023.2)](https://docs.xilinx.com/r/en-US/ug1144-petalinux-tools-reference-guide)。
 ## 资料目录结构
-   │
-   ├──── HTMLdocs  //开发板教程文档html版本
-   ├──── RSTdocxs  //开发板教程文档rst版本
-   │	│
-   │ 	├── VD100_S1_RSTdocument_CN  //course_s1教程文档
-   │ 	│	
-   │ 	└── VD100_S2_RSTdocument_CN  //course_s2教程文档
-   ├──── Demo  //开发板例程
-   │	│
-   │ 	├── course_s1  //纯FPGA和裸机例程
-   │ 	│	
-   │ 	└── course_s2  //Linux例程
-   │
-   └──── Hardware    //硬件资料
+     │
+     ├──── HTMLdocs  //开发板教程文档html版本
+     ├──── RSTdocxs  //开发板教程文档rst版本
+     │	│
+     │ 	├── VD100_S1_RSTdocument_CN  //course_s1教程文档
+     │ 	│	
+     │ 	└── VD100_S2_RSTdocument_CN  //course_s2教程文档
+     ├──── Demo  //开发板例程
+     │	│
+     │ 	├── course_s1  //纯FPGA和裸机例程
+     │ 	│	
+     │ 	└── course_s2  //Linux例程
+     │
+     └──── Hardware    //硬件资料
 更多信息, 请访问[ALINX网站](https://www.alinx.com)
