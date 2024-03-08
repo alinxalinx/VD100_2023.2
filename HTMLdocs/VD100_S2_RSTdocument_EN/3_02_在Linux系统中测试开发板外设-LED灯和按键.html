@@ -1,0 +1,534 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Chapter II LEDS, KEYS &#8212; Versal 开发平台FPGA教程 1.0 文档</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/translations.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'VD100_S2_RSTdocument_EN/3_02_在Linux系统中测试开发板外设-LED灯和按键';</script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="Chapter III CAN" href="3_03_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-CAN.html" />
+    <link rel="prev" title="Chapter 1 Serial Port (UART)" href="3_01_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-%E4%B8%B2%E5%8F%A3.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="zh-CN"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/8.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/8.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Versal development platform
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Company Profile</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_EN/00_aboutALINX_EN.html">About ALINX</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">User Manual</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../User_Manual_EN/VD100UserManual_Core_board_EN.html">Development board introduction</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../User_Manual_EN/VD100UserManual_Expansion%20board_EN.html">expanding board</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">VD100 model board S1 FPGA tutorial</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_EN/00_Introduction_EN.html">illustrate</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_EN/01_Versal_EN.html">Chapter 1 Introduction to Versal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_EN/02_led_EN.html">Chapter 2 PL’s “Hello World” LED experiment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_EN/03_pl_rw_ddr_EN.html">Chapter 3 PL reads and writes DDR4 experiment through NoC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_EN/04_lvds_lcd_EN.html">Chapter 4 LVDS LCD screen display experiment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_EN/05_ibert_test_EN.html">Chapter 5 GTYP transceiver bit error rate test IBERT experiment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_EN/06_ps_hello_EN.html">Chapter 6 Experience ARM, bare metal output “Hello World”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_EN/07_ps_lwip_EN.html">Chapter 7 lwip used by PS side Ethernet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_EN/08_versal_trd_EN.html">Chapter 8 Overall engineering and experiments</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">VD100 model board S2 Linux tutorial</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="1_%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8Linux-%E5%88%B6%E4%BD%9C%E5%90%AF%E5%8A%A8%E5%BC%80%E5%8F%91%E6%9D%BFlinux%E7%B3%BB%E7%BB%9F%E7%9A%84SD%E5%8D%A1.html">Quick-boot Linux-Make an SD card to boot the development board Linux system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_%E5%85%B3%E4%BA%8EPetalinux.html">About PETALINUX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_01_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-%E4%B8%B2%E5%8F%A3.html">Chapter 1 Serial Port (UART)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter II LEDS, KEYS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_03_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-CAN.html">Chapter III CAN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_04_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-LCD.html">Chapter 4 LCD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_05_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-USB.html">Chapter 5 USB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_06_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-%E4%BB%A5%E5%A4%AA%E7%BD%91.html">Chapter 6 ETH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_07_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-MIPI%E6%91%84%E5%83%8F%E5%A4%B4.html">Chapter 7 MIPI Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_08_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-EMMC.html">Chapter 8 EMMC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_09_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-EEPROM.html">Chapter 9 EEPROM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_10_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-LM75.html">Chapter X LM75</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_11_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-QSPIFLASH.html">Chapter 11 QSPI FLASH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_%E5%AE%89%E8%A3%85QT%E5%BA%93%E5%92%8COPENCV%E5%BA%93%E4%BB%A5%E5%8F%8A%E5%9C%A8QTCreator%E4%B8%AD%E8%AE%BE%E7%BD%AE%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83.html">Installing the QT and OPENCV libraries and setting up the build environment in QTCreator</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Copyright Alinx</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_EN/00_liability%20statement_EN.html">Copyright statement</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/alinxalinx/VD100_2023.2" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="源码库"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="下载此页面">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/VD100_S2_RSTdocument_EN/3_02_在Linux系统中测试开发板外设-LED灯和按键.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="下载源文件"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="列印成 PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全屏模式"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter II LEDS, KEYS</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目录 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leds-and-key-on-the-vd100-development-board">LEDs and KEY on the VD100 development board</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-leds-and-key-in-linux">Using LEDs and KEY in Linux</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-the-led-and-key-with-the-built-in-script-of-the-system">Test the LED and KEY with the built-in script of the system</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="chapter-ii-leds-keys">
+<h1>Chapter II LEDS, KEYS<a class="headerlink" href="#chapter-ii-leds-keys" title="此标题的永久链接">#</a></h1>
+<section id="leds-and-key-on-the-vd100-development-board">
+<h2>LEDs and KEY on the VD100 development board<a class="headerlink" href="#leds-and-key-on-the-vd100-development-board" title="此标题的永久链接">#</a></h2>
+<div class="line-block">
+<div class="line">There are two sets of controllable LEDs and keys on the development board. At the location indicated in the figure below:</div>
+<div class="line"><img alt="IMG_256" src="../_images/image1101.png" /></div>
+</div>
+</section>
+<section id="using-leds-and-key-in-linux">
+<h2>Using LEDs and KEY in Linux<a class="headerlink" href="#using-leds-and-key-in-linux" title="此标题的永久链接">#</a></h2>
+<div class="line-block">
+<div class="line">Using LED and KEY is actually configuring and using GPIO. In Linux, you only need to know the GPIO number to use the corresponding IO port. The GPIO number needs to be combined with the schematic diagram. Take PS _ LED as an example, the LPD _ MIO25 pin on the Versal chip is connected in the schematic diagram:</div>
+<div class="line"><img alt="IMG_257" src="../_images/image263.png" /></div>
+<div class="line">Enter the command <code class="docutils literal notranslate"><span class="pre">ls/sys/class/gpio/gpiochip</span></code> in the development board system, and the minimum value 450 after these gpiochips we see is the starting number of the LPD _ MIO group IO.</div>
+<div class="line"><img alt="IMG_258" src="../_images/image312.png" /></div>
+<div class="line">The number of IO corresponding to PS _ LED is 450 + 25, which is 475.</div>
+<div class="line">In the development board system provided by us, the GPIO number of the PS _ LED is 475 and the GPIO number of the PS _ KEY is 474.</div>
+<div class="line">The IO corresponding to LED needs to be configured as output. The steps for configuration and use are as follows:</div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">#导出对应的端口</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">echo</span> <span class="pre">475</span> <span class="pre">&gt;&gt;/sys/class/gpio/export</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">#设置这个端口为输出</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">echo</span> <span class="pre">out</span> <span class="pre">&gt;&gt;/sys/class/gpio/gpio475/direction</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">#使这个端口输出高电平，点亮LED</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">echo</span> <span class="pre">1</span> <span class="pre">&gt;&gt;/sys/class/gpio/gpio475/value</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">#使这个端口输出低电平，熄灭LED</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">echo</span> <span class="pre">0</span> <span class="pre">&gt;&gt;/sys/class/gpio/gpio475/value</span></code></div>
+</div>
+<div class="line-block">
+<div class="line">The IO corresponding to KEY needs to be configured as input. The steps for configuration and use are as follows:</div>
+</div>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">#导出对应的端口</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">echo</span> <span class="pre">474</span> <span class="pre">&gt;&gt;/sys/class/gpio/export</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">#设置这个端口为输入</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">echo</span> <span class="pre">in</span> <span class="pre">&gt;&gt;/sys/class/gpio/gpio474/direction</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">#读取这个IO当前的电平状态</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">cat/sys/class/gpio/gpio474/value</span></code></div>
+</div>
+<div class="line-block">
+<div class="line">In addition to this method, the GPIO can also be used by directly reading and writing registers. The PL _ LED and PL _ KEY are implemented using the axi-gpio IP, and their register addresses can be found in the vivado project as PL _ LED: 0x80040000, PL_KEY:0x80030000。</div>
+<div class="line">Use the command <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">devmem</span> <span class="pre">0x80030000</span></code> to read out the value of the PL _ KEY.</div>
+<div class="line">Use the command <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">devmem</span> <span class="pre">0x80040000</span> <span class="pre">32</span> <span class="pre">1</span></code> to light the PL _ LED;</div>
+<div class="line">Use the command <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">devmem</span> <span class="pre">0x80040000</span> <span class="pre">32</span> <span class="pre">0</span></code> to turn off the PL _ LED.</div>
+</div>
+</section>
+<section id="test-the-led-and-key-with-the-built-in-script-of-the-system">
+<h2>Test the LED and KEY with the built-in script of the system<a class="headerlink" href="#test-the-led-and-key-with-the-built-in-script-of-the-system" title="此标题的永久链接">#</a></h2>
+<div class="line-block">
+<div class="line">Run <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">~/test_apps/leds_keys_test.sh</span></code> (PS: press the <strong>ctrl+c</strong> key combination to exit). The PS _ KEY can then be used to control the PS _ LED on and off, and the PL _ KEY can be used to control the PS _ LED on and off.</div>
+<div class="line"><img alt="IMG_259" src="../_images/image413.png" /></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="3_01_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-%E4%B8%B2%E5%8F%A3.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">上一页</p>
+        <p class="prev-next-title">Chapter 1 Serial Port (UART)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="3_03_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-CAN.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">Chapter III CAN</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目录
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leds-and-key-on-the-vd100-development-board">LEDs and KEY on the VD100 development board</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-leds-and-key-in-linux">Using LEDs and KEY in Linux</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-the-led-and-key-with-the-built-in-script-of-the-system">Test the LED and KEY with the built-in script of the system</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+作者： JunFN
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2024 , ALINX .
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  
+        These engineering documents are copyrighted by
+            <a
+                href="https://www.alinx.com/"
+            >ALINX official website</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://vd100-20232-v101.readthedocs.io/zh-cn/en/VD100_S1_RSTdocument_EN/00_aboutALINX_EN.html">English</a> | <a href="https://vd100-20232-v101.readthedocs.io/zh-cn/latest/VD100_S1_RSTdocument_CN/00_%E5%85%B3%E4%BA%8EALINX_CN.html">中文</a>
+    
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

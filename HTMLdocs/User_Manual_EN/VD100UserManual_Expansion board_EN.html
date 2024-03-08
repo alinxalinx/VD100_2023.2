@@ -1,0 +1,1825 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>expanding board &#8212; Versal 开发平台FPGA教程 1.0 文档</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/translations.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'User_Manual_EN/VD100UserManual_Expansion board_EN';</script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="illustrate" href="../VD100_S1_RSTdocument_EN/00_Introduction_EN.html" />
+    <link rel="prev" title="Development board introduction" href="VD100UserManual_Core_board_EN.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="zh-CN"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/8.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/8.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Versal development platform
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Company Profile</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_EN/00_aboutALINX_EN.html">About ALINX</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">User Manual</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="VD100UserManual_Core_board_EN.html">Development board introduction</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">expanding board</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">VD100 model board S1 FPGA tutorial</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_EN/00_Introduction_EN.html">illustrate</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_EN/01_Versal_EN.html">Chapter 1 Introduction to Versal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_EN/02_led_EN.html">Chapter 2 PL’s “Hello World” LED experiment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_EN/03_pl_rw_ddr_EN.html">Chapter 3 PL reads and writes DDR4 experiment through NoC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_EN/04_lvds_lcd_EN.html">Chapter 4 LVDS LCD screen display experiment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_EN/05_ibert_test_EN.html">Chapter 5 GTYP transceiver bit error rate test IBERT experiment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_EN/06_ps_hello_EN.html">Chapter 6 Experience ARM, bare metal output “Hello World”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_EN/07_ps_lwip_EN.html">Chapter 7 lwip used by PS side Ethernet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_EN/08_versal_trd_EN.html">Chapter 8 Overall engineering and experiments</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">VD100 model board S2 Linux tutorial</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_EN/1_%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8Linux-%E5%88%B6%E4%BD%9C%E5%90%AF%E5%8A%A8%E5%BC%80%E5%8F%91%E6%9D%BFlinux%E7%B3%BB%E7%BB%9F%E7%9A%84SD%E5%8D%A1.html">Quick-boot Linux-Make an SD card to boot the development board Linux system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_EN/2_%E5%85%B3%E4%BA%8EPetalinux.html">About PETALINUX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_EN/3_01_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-%E4%B8%B2%E5%8F%A3.html">Chapter 1 Serial Port (UART)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_EN/3_02_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-LED%E7%81%AF%E5%92%8C%E6%8C%89%E9%94%AE.html">Chapter II LEDS, KEYS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_EN/3_03_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-CAN.html">Chapter III CAN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_EN/3_04_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-LCD.html">Chapter 4 LCD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_EN/3_05_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-USB.html">Chapter 5 USB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_EN/3_06_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-%E4%BB%A5%E5%A4%AA%E7%BD%91.html">Chapter 6 ETH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_EN/3_07_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-MIPI%E6%91%84%E5%83%8F%E5%A4%B4.html">Chapter 7 MIPI Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_EN/3_08_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-EMMC.html">Chapter 8 EMMC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_EN/3_09_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-EEPROM.html">Chapter 9 EEPROM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_EN/3_10_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-LM75.html">Chapter X LM75</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_EN/3_11_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-QSPIFLASH.html">Chapter 11 QSPI FLASH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_EN/4_%E5%AE%89%E8%A3%85QT%E5%BA%93%E5%92%8COPENCV%E5%BA%93%E4%BB%A5%E5%8F%8A%E5%9C%A8QTCreator%E4%B8%AD%E8%AE%BE%E7%BD%AE%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83.html">Installing the QT and OPENCV libraries and setting up the build environment in QTCreator</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Copyright Alinx</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_EN/00_liability%20statement_EN.html">Copyright statement</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/alinxalinx/VD100_2023.2" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="源码库"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="下载此页面">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/User_Manual_EN/VD100UserManual_Expansion board_EN.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="下载源文件"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="列印成 PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全屏模式"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>expanding board</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目录 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gigabit-ethernet-interface">Gigabit Ethernet interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pcie3-0-x4-interface">PCIe3.0 X4 interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optical-fiber-interface">Optical fiber interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usb-to-serial-port">USB to serial port</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usb2-0-interface">USB2.0 interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lvds-display-interface">LVDS display interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mipi-interface">MIPI interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sd-card">SD card</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eeprom-24lc04-and-temperature-sensor">EEPROM 24LC04 and temperature sensor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jtag-interface">JTAG interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#canfd-communication-interface">CANFD communication interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pmod-expansion-port">PMOD expansion port</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#button">button</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#led-light">LED light</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-supply">Power supply</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structural-dimension-drawing">Structural dimension drawing</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="expanding-board">
+<h1>expanding board<a class="headerlink" href="#expanding-board" title="此标题的永久链接">#</a></h1>
+<section id="introduction">
+<span id="introduction-1"></span><h2>Introduction<a class="headerlink" href="#introduction" title="此标题的永久链接">#</a></h2>
+<p>Through the previous function introduction, we can understand the
+functions of the expansion board</p>
+<ul class="simple">
+<li><p>2-way Gigabit Ethernet RJ-45 interface</p></li>
+<li><p>PCIe 3.0 x 4 interface</p></li>
+<li><p>2-way SFP+ high-speed optical fiber interface</p></li>
+<li><p>1-way USB Uart debugging interface</p></li>
+<li><p>1 USB HOST interface</p></li>
+<li><p>1-way LVDS display interface</p></li>
+<li><p>2-way MIPI camera interface</p></li>
+<li><p>1-way Micro SD card holder</p></li>
+<li><p>JTAG debug port</p></li>
+<li><p>1 way temperature sensor</p></li>
+<li><p>1 channel EEPROM</p></li>
+<li><p>1 channel CANFD communication interface</p></li>
+<li><p>1 way 22-pin expansion port</p></li>
+</ul>
+</section>
+<section id="gigabit-ethernet-interface">
+<h2>Gigabit Ethernet interface<a class="headerlink" href="#gigabit-ethernet-interface" title="此标题的永久链接">#</a></h2>
+<p>There are two Gigabit Ethernet interfaces on the VD100 expansion board,
+one is connected to the PS end, and the other is connected to the PL
+end. Provide users with network communication services through Jinglue
+Semiconductor’s industrial-grade Ethernet GPH Y chip ( JL2121 -N040I ).
+The JL2121 chip supports 10/100/1000 Mbps network transmission rate and
+communicates data with the MAC layer of the FPGA through the R GMII
+interface. JL2121D supports MDI/MDX adaptation, various speed
+adaptation, Master/ Slave adaptation, and supports MDIO bus for PHY
+register management.</p>
+<p>JL2121 is powered on, it will detect the level status of some specific
+IOs to determine its own working mode . Table 3-2-1 Describes the
+default setting information of the GPHY chip after power-on.</p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Configure
+pins</strong></p></td>
+<td><p><strong>illustrate</strong></p></td>
+<td><p><strong>configuration value</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>RXD3_ADR0</p>
+<p>RXC_ADR1</p>
+<p>RXCTL_ADR2</p>
+</td>
+<td><p>PHY address for MDIO/MDC
+mode</p></td>
+<td><p>PHY Address is 0 01</p></td>
+</tr>
+<tr class="row-odd"><td><p>RXD1_TXDLY</p></td>
+<td><p>TX clock 2ns delay</p></td>
+<td><p>delay</p></td>
+</tr>
+<tr class="row-even"><td><p>RXD0_RXDLY</p></td>
+<td><p>RX clock 2ns delay</p></td>
+<td><p>delay</p></td>
+</tr>
+</tbody>
+</table>
+<p>Table 3-2-1 PHY chip default configuration values</p>
+<p>When the network is connected to Gigabit Ethernet, the data transmission
+of FPGA and PHY chip JL2121 is communicated through the RGMII bus. The
+transmission clock is 125Mhz, and the data is sampled on the rising edge
+and downsampling of the clock.</p>
+<p>When the network is connected to 100M Ethernet, the data transmission of
+FPGA and PHY chip JL2121 is communicated through RMII bus, and the
+transmission clock is 25Mhz. Data is sampled on the rising and falling
+edges of the clock.</p>
+<p>The design diagram of Gigabit Ethernet is shown in Figure 3-2-1:</p>
+<img alt="../_images/image15.png" src="../_images/image15.png" />
+<p>Figure 3-2-1 Gigabit Ethernet interface design diagram</p>
+<p><strong>The Gigabit Ethernet pin assignments are as follows:</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Signal name</strong></p></td>
+<td><p><strong>Pin name</strong></p></td>
+<td><p><strong>Pin
+number</strong></p></td>
+<td><p><strong>Remark</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>PHY1_TXCK</p></td>
+<td><p>LPD_MIO0</p></td>
+<td><p>T1</p></td>
+<td><p>Ethernet 1RGMII
+transmit clock</p></td>
+</tr>
+<tr class="row-odd"><td><p>PHY1_TXD0</p></td>
+<td><p>LPD_MIO1</p></td>
+<td><p>U1</p></td>
+<td><p>Ethernet 1 sends data
+bit0</p></td>
+</tr>
+<tr class="row-even"><td><p>PHY1_TXD1</p></td>
+<td><p>LPD_MIO2</p></td>
+<td><p>W1</p></td>
+<td><p>Ethernet 1 sends data
+bit1</p></td>
+</tr>
+<tr class="row-odd"><td><p>PHY1_TXD2</p></td>
+<td><p>LPD_MIO3</p></td>
+<td><p>Y1</p></td>
+<td><p>Ethernet 1 sends data
+bit2</p></td>
+</tr>
+<tr class="row-even"><td><p>PHY1_TXD3</p></td>
+<td><p>LPD_MIO4</p></td>
+<td><p>Y2</p></td>
+<td><p>Ethernet 1 sends data
+bit3</p></td>
+</tr>
+<tr class="row-odd"><td><p>PHY1_TXCTL</p></td>
+<td><p>LPD_MIO5</p></td>
+<td><p>W2</p></td>
+<td><p>Ethernet 1 sends
+enable signal</p></td>
+</tr>
+<tr class="row-even"><td><p>PHY1_RXCK</p></td>
+<td><p>LPD_MIO6</p></td>
+<td><p>V2</p></td>
+<td><p>Ethernet 1RGMII
+receive clock</p></td>
+</tr>
+<tr class="row-odd"><td><p>PHY1_RXD0</p></td>
+<td><p>LPD_MIO7</p></td>
+<td><p>U2</p></td>
+<td><p>Ethernet 1 receives
+data Bit0</p></td>
+</tr>
+<tr class="row-even"><td><p>PHY1_RXD1</p></td>
+<td><p>LPD_MIO8</p></td>
+<td><p>T3</p></td>
+<td><p>Ethernet 1 receives
+data Bit1</p></td>
+</tr>
+<tr class="row-odd"><td><p>PHY1_RXD2</p></td>
+<td><p>LPD_MIO9</p></td>
+<td><p>U3</p></td>
+<td><p>Ethernet 1 receives
+data Bit2</p></td>
+</tr>
+<tr class="row-even"><td><p>PHY1_RXD3</p></td>
+<td><p>LPD_MIO10</p></td>
+<td><p>V3</p></td>
+<td><p>Ethernet 1 receives
+data Bit3</p></td>
+</tr>
+<tr class="row-odd"><td><p>PHY1_RXCTL</p></td>
+<td><p>LPD_MIO11</p></td>
+<td><p>Y3</p></td>
+<td><p>Ethernet 1 receives
+data valid signal</p></td>
+</tr>
+<tr class="row-even"><td><p>PHY1_MDIO</p></td>
+<td><p>PS_MIO51</p></td>
+<td><p>AA10</p></td>
+<td><p>Ethernet 1MDIO
+management data</p></td>
+</tr>
+<tr class="row-odd"><td><p>PHY1_MDC</p></td>
+<td><p>PS_MIO50</p></td>
+<td><p>AB10</p></td>
+<td><p>Ethernet 1MDIO
+management clock</p></td>
+</tr>
+<tr class="row-even"><td><p>PHY1_RESET</p></td>
+<td><p>LPD_MIO15</p></td>
+<td><p>T5</p></td>
+<td><p>Ethernet 1 reset
+signal</p></td>
+</tr>
+<tr class="row-odd"><td><p>PHY2_TXCK</p></td>
+<td><p>B302_L9_N</p></td>
+<td><p>A13</p></td>
+<td><p>Ethernet 2 RGMII
+transmit clock</p></td>
+</tr>
+<tr class="row-even"><td><p>PHY2_TXD0</p></td>
+<td><p>B302_L8_N</p></td>
+<td><p>A11</p></td>
+<td><p>Ethernet 2 sends data
+bit0</p></td>
+</tr>
+<tr class="row-odd"><td><p>PHY2_TXD1</p></td>
+<td><p>B302_L8_P</p></td>
+<td><p>B11</p></td>
+<td><p>Ethernet 2 sends data
+bit1</p></td>
+</tr>
+<tr class="row-even"><td><p>PHY2_TXD2</p></td>
+<td><p>B302_L7_N</p></td>
+<td><p>A10</p></td>
+<td><p>Ethernet 2 sends data
+bit2</p></td>
+</tr>
+<tr class="row-odd"><td><p>PHY2_TXD3</p></td>
+<td><p>B302_L7_P</p></td>
+<td><p>B10</p></td>
+<td><p>Ethernet 2 sends data
+bit3</p></td>
+</tr>
+<tr class="row-even"><td><p>PHY2_TXCTL</p></td>
+<td><p>B302_L9_P</p></td>
+<td><p>B12</p></td>
+<td><p>Ethernet 2 sends
+enable signal</p></td>
+</tr>
+<tr class="row-odd"><td><p>PHY2_RXCK</p></td>
+<td><p>B302_L6_P</p></td>
+<td><p>D10</p></td>
+<td><p>Ethernet 2 RGMII
+receive clock</p></td>
+</tr>
+<tr class="row-even"><td><p>PHY2_RXD0</p></td>
+<td><p>B302_L5_N</p></td>
+<td><p>C12</p></td>
+<td><p>Ethernet 2 receives
+data Bit0</p></td>
+</tr>
+<tr class="row-odd"><td><p>PHY2_RXD1</p></td>
+<td><p>B302_L5_P</p></td>
+<td><p>D11</p></td>
+<td><p>Ethernet 2 receives
+data Bit1</p></td>
+</tr>
+<tr class="row-even"><td><p>PHY2_RXD2</p></td>
+<td><p>B302_L10_N</p></td>
+<td><p>A14</p></td>
+<td><p>Ethernet 2 receive
+data Bit2</p></td>
+</tr>
+<tr class="row-odd"><td><p>PHY2_RXD3</p></td>
+<td><p>B302_L10_P</p></td>
+<td><p>B13</p></td>
+<td><p>Ethernet 2 receive
+data Bit3</p></td>
+</tr>
+<tr class="row-even"><td><p>PHY2_RXCTL</p></td>
+<td><p>B302_L6_N</p></td>
+<td><p>C10</p></td>
+<td><p>Ethernet 2 receives
+data valid signal</p></td>
+</tr>
+<tr class="row-odd"><td><p>PHY2_MDIO</p></td>
+<td><p>B302_L1_P</p></td>
+<td><p>C14</p></td>
+<td><p>Ethernet 2 MDIO
+management data</p></td>
+</tr>
+<tr class="row-even"><td><p>PHY2_MDC</p></td>
+<td><p>B302_L1_N</p></td>
+<td><p>C13</p></td>
+<td><p>Ethernet 2 MDIO
+management clock</p></td>
+</tr>
+<tr class="row-odd"><td><p>PHY2_RESET</p></td>
+<td><p>B703_L12_P</p></td>
+<td><p>H23</p></td>
+<td><p>Ethernet 2 reset
+signal</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pcie3-0-x4-interface">
+<h2>PCIe3.0 X4 interface<a class="headerlink" href="#pcie3-0-x4-interface" title="此标题的永久链接">#</a></h2>
+<p>The VD100 expansion board provides an industrial-grade high-speed data
+transmission PCIe 3.0 x4 interface. The dimensions of the PCIE card
+comply with the electrical specifications of the standard PCIe card and
+can be used directly in the x4 PCIe slot of an ordinary PC.</p>
+<p>The transceiver signals of the PCIe interface are directly connected to
+the GTY transceiver of the FPGA. The four-channel TX signal and RX
+signal are connected to the FPGA in a differential signal mode. The
+single-channel communication rate can be as high as 8 Gbit bandwidth.
+The PCIe reference clock is provided to the development board from the
+PCIe slot of the PC, and the reference clock frequency is 100Mhz.</p>
+<p>The design schematic diagram of the PCIe interface of the development
+board is shown in Figure 3-3-1 below, in which the TX transmission
+signal and the reference clock CLK signal are connected in AC coupling
+mode.</p>
+<img alt="../_images/image16.png" src="../_images/image16.png" />
+<p>Figure 3-3-1 PCIe x4 design diagram</p>
+<blockquote>
+<div><p><strong>The PCIe x4 interface FPGA pin assignment is as follows:</strong></p>
+</div></blockquote>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>network name</strong></p></td>
+<td><p><strong>FPGA pin</strong></p></td>
+<td><p><strong>Remark</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>PCIE_RX0_P</p></td>
+<td><p>P2</p></td>
+<td><p>PCIE channel 0 data
+receptionPositive</p></td>
+</tr>
+<tr class="row-odd"><td><p>PCIE_RX0_N</p></td>
+<td><p>P1</p></td>
+<td><p>PCIE channel 0 data reception
+Negative</p></td>
+</tr>
+<tr class="row-even"><td><p>PCIE_RX1_P</p></td>
+<td><p>M2</p></td>
+<td><p>PCIE channel 1 data
+receptionPositive</p></td>
+</tr>
+<tr class="row-odd"><td><p>PCIE_RX1_N</p></td>
+<td><p>M1</p></td>
+<td><p>PCIE channel 1 data reception
+Negative</p></td>
+</tr>
+<tr class="row-even"><td><p>PCIE_RX2_P</p></td>
+<td><p>K2</p></td>
+<td><p>PCIE channel 2 data
+receptionPositive</p></td>
+</tr>
+<tr class="row-odd"><td><p>PCIE_RX2_N</p></td>
+<td><p>K1</p></td>
+<td><p>PCIE channel 2 data reception
+Negative</p></td>
+</tr>
+<tr class="row-even"><td><p>PCIE_RX3_P</p></td>
+<td><p>H2</p></td>
+<td><p>PCIE channel 3 data
+receptionPositive</p></td>
+</tr>
+<tr class="row-odd"><td><p>PCIE_RX3_N</p></td>
+<td><p>H1</p></td>
+<td><p>PCIE channel 3 data reception
+Negative</p></td>
+</tr>
+<tr class="row-even"><td><p>PCIE_TX0_P</p></td>
+<td><p>N5</p></td>
+<td><p>PCIE channel 0 data
+transmission Positive</p></td>
+</tr>
+<tr class="row-odd"><td><p>PCIE_TX0_N</p></td>
+<td><p>N4</p></td>
+<td><p>PCIE channel 0 data
+transmission Negative</p></td>
+</tr>
+<tr class="row-even"><td><p>PCIE_TX1_P</p></td>
+<td><p>L5</p></td>
+<td><p>PCIE channel 1 data
+transmission Positive</p></td>
+</tr>
+<tr class="row-odd"><td><p>PCIE_TX1_N</p></td>
+<td><p>L4</p></td>
+<td><p>PCIE channel 1 data
+transmission Negative</p></td>
+</tr>
+<tr class="row-even"><td><p>PCIE_TX2_P</p></td>
+<td><p>J5</p></td>
+<td><p>PCIE channel 2 data
+transmission Positive</p></td>
+</tr>
+<tr class="row-odd"><td><p>PCIE_TX2_N</p></td>
+<td><p>J4</p></td>
+<td><p>PCIE channel 2 data
+transmission Negative</p></td>
+</tr>
+<tr class="row-even"><td><p>PCIE_TX3_P</p></td>
+<td><p>G5</p></td>
+<td><p>PCIE channel 3 data
+transmission Positive</p></td>
+</tr>
+<tr class="row-odd"><td><p>PCIE_TX3_N</p></td>
+<td><p>G4</p></td>
+<td><p>PCIE channel 3 data
+transmission Negative</p></td>
+</tr>
+<tr class="row-even"><td><p>PCIE_CLK_P</p></td>
+<td><p>M7</p></td>
+<td><p>PCIE reference clock Positive</p></td>
+</tr>
+<tr class="row-odd"><td><p>PCIE_CLK_N</p></td>
+<td><p>M6</p></td>
+<td><p>PCIE reference clock Negative</p></td>
+</tr>
+<tr class="row-even"><td><p>PCIE_PERST</p></td>
+<td><p>B13</p></td>
+<td><p>PCIE reset signal</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="optical-fiber-interface">
+<h2>Optical fiber interface<a class="headerlink" href="#optical-fiber-interface" title="此标题的永久链接">#</a></h2>
+<p>There are 2 SFP+ optical fiber interfaces on the VD100 development
+board. Users can purchase SFP optical modules (1.25G, 2.5G, 10G optical
+modules on the market) and insert them into these two optical fiber
+interfaces for optical fiber data communication. The 2 optical fiber
+interfaces are connected to the 2 RX/TX of the GTY transceiver of FPGA’s
+BANK104 respectively. The TX signal and the RX signal are connected to
+the FPGA and the optical module through DC blocking capacitors in the
+form of differential signals. Each TX transmits and RX receives data.
+Rates up to 10Gb/s. The reference clock of BANK104’s GTY transceiver is
+provided by a 156.25Mhz differential crystal oscillator.</p>
+<p>The schematic diagram of FPGA and SFP optical fiber design is shown in
+Figure 3-4-1 below:</p>
+<img alt="../_images/image17.png" src="../_images/image17.png" />
+<p>Figure 3-4-1 Optical fiber design diagram</p>
+<blockquote>
+<div><p><strong>The first optical fiber interface FPGA pin assignment is as
+follows:</strong></p>
+</div></blockquote>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>network name</strong></p></td>
+<td><p><strong>FPGA pin</strong></p></td>
+<td><p><strong>Remark</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>SFP 1_TX_P</p></td>
+<td><p>E5</p></td>
+<td><p>SFP optical module data
+sendingPositive</p></td>
+</tr>
+<tr class="row-odd"><td><p>SFP 1_TX_N</p></td>
+<td><p>E4</p></td>
+<td><p>SFP optical module data sending
+Negative</p></td>
+</tr>
+<tr class="row-even"><td><p>SFP 1_R X_P</p></td>
+<td><p>F2</p></td>
+<td><p>SFP optical module data
+receptionPositive</p></td>
+</tr>
+<tr class="row-odd"><td><p>SFP 1_R X_N</p></td>
+<td><p>F1</p></td>
+<td><p>SFP optical module data
+reception Negative</p></td>
+</tr>
+<tr class="row-even"><td><p>SFP 1_TX_DIS</p></td>
+<td><p>D26</p></td>
+<td><p>SFP optical module light
+emission is disabled, low
+effective</p></td>
+</tr>
+<tr class="row-odd"><td><p>SFP1_SCL</p></td>
+<td><p>D21</p></td>
+<td><p>I2C clock signal</p></td>
+</tr>
+<tr class="row-even"><td><p>SFP 1_SDA</p></td>
+<td><p>D20</p></td>
+<td><p>I2C data signal</p></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p><strong>The second optical fiber interface FPGA pin assignment is as
+follows:</strong></p>
+</div></blockquote>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>network name</strong></p></td>
+<td><p><strong>FPGA pin</strong></p></td>
+<td><p><strong>Remark</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>SFP 2_TX_P</p></td>
+<td><p>D8</p></td>
+<td><p>SFP optical module data
+sendingPositive</p></td>
+</tr>
+<tr class="row-odd"><td><p>SFP 2_TX_N</p></td>
+<td><p>D7</p></td>
+<td><p>SFP optical module data sending
+Negative</p></td>
+</tr>
+<tr class="row-even"><td><p>SFP 2_R X_P</p></td>
+<td><p>D2</p></td>
+<td><p>SFP optical module data
+receptionPositive</p></td>
+</tr>
+<tr class="row-odd"><td><p>SFP 2_R X_N</p></td>
+<td><p>D1</p></td>
+<td><p>SFP optical module data
+reception Negative</p></td>
+</tr>
+<tr class="row-even"><td><p>SFP 2_TX_DIS</p></td>
+<td><p>D25</p></td>
+<td><p>SFP optical module light
+emission is disabled, low
+effective</p></td>
+</tr>
+<tr class="row-odd"><td><p>SFP_CLK_N</p></td>
+<td><p>H6</p></td>
+<td><p>FPGA input clock Negative</p></td>
+</tr>
+<tr class="row-even"><td><p>SFP_CLK_P</p></td>
+<td><p>H7</p></td>
+<td><p>FPGA input clock Positive</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="usb-to-serial-port">
+<h2>USB to serial port<a class="headerlink" href="#usb-to-serial-port" title="此标题的永久链接">#</a></h2>
+<p>The VD100 expansion board is equipped with a Uart-to-USB interface
+connected to the PS side. The conversion chip uses the USB- UAR chip of
+Silicon Labs CP210 2 GM . The USB interface adopts the MINI USB
+interface. You can use a USB cable to connect it to the USB port of the
+PC for serial data communication.</p>
+<p>The schematic diagram of USB Uart circuit design is shown in Figure
+3-5-1 <img alt="image2" src="../_images/image18.png" /></p>
+<p>Figure 3-5-1 USB to serial port schematic diagram</p>
+<p><strong>FPGA pin assignment for UART to serial port:</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Signal
+name</strong></p></td>
+<td><p><strong>FPGA pin name</strong></p></td>
+<td><p><strong>FPGA pin
+number</strong></p></td>
+<td><p><strong>Remark</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>PS_UART0_RX</p></td>
+<td><p>LPD_MIO16</p></td>
+<td><p>U5</p></td>
+<td><p>Uart data
+input</p></td>
+</tr>
+<tr class="row-odd"><td><p>PS_UART0_TX</p></td>
+<td><p>LPD_MIO17</p></td>
+<td><p>V5</p></td>
+<td><p>Uart data
+output</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="usb2-0-interface">
+<h2>USB2.0 interface<a class="headerlink" href="#usb2-0-interface" title="此标题的永久链接">#</a></h2>
+<p>The VD100 expansion board has a USB2.0 interface and supports HOST
+working mode. USB2.0 connects to the external USB3320C chip through the
+ULPI interface to achieve high-speed USB2.0 data communication.</p>
+<p>The USB interface is a flat USB interface (USB Type A) , which
+facilitates users to connect different USB Slave peripherals (such as
+USB mouse, keyboard or U disk) at the same time. The schematic diagram
+of USB2.0 connection is shown in 3-6-1:</p>
+<img alt="../_images/image19.png" src="../_images/image19.png" />
+<p>3-6-1 USB3.0 interface diagram</p>
+<p><strong>USB interface pin assignment:</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p>Signal name</p></td>
+<td><p>Pin name</p></td>
+<td><p>Pin number</p></td>
+<td><p>Remark</p></td>
+</tr>
+<tr class="row-even"><td><p>USB_DATA0</p></td>
+<td><p>PS_MIO14</p></td>
+<td><p>AC3</p></td>
+<td><p>USB2.0 Data Bit0</p></td>
+</tr>
+<tr class="row-odd"><td><p>USB_DATA1</p></td>
+<td><p>PS_MIO15</p></td>
+<td><p>AE3</p></td>
+<td><p>USB2.0 Data Bit1</p></td>
+</tr>
+<tr class="row-even"><td><p>USB_DATA2</p></td>
+<td><p>PS_MIO16</p></td>
+<td><p>AF3</p></td>
+<td><p>USB2.0 Data Bit2</p></td>
+</tr>
+<tr class="row-odd"><td><p>USB_DATA3</p></td>
+<td><p>PS_MIO17</p></td>
+<td><p>AG3</p></td>
+<td><p>USB2.0 Data Bit3</p></td>
+</tr>
+<tr class="row-even"><td><p>USB_DATA4</p></td>
+<td><p>PS_MIO19</p></td>
+<td><p>AH4</p></td>
+<td><p>USB2.0 Data Bit4</p></td>
+</tr>
+<tr class="row-odd"><td><p>USB_DATA5</p></td>
+<td><p>PS_MIO20</p></td>
+<td><p>AF4</p></td>
+<td><p>USB2.0 Data Bit5</p></td>
+</tr>
+<tr class="row-even"><td><p>USB_DATA6</p></td>
+<td><p>PS_MIO21</p></td>
+<td><p>AE4</p></td>
+<td><p>USB2.0 Data Bit6</p></td>
+</tr>
+<tr class="row-odd"><td><p>USB_DATA7</p></td>
+<td><p>PS_MIO22</p></td>
+<td><p>AD4</p></td>
+<td><p>USB2.0 Data Bit7</p></td>
+</tr>
+<tr class="row-even"><td><p>USB_STP</p></td>
+<td><p>PS_MIO24</p></td>
+<td><p>AA4</p></td>
+<td><p>USB2.0 stop signal</p></td>
+</tr>
+<tr class="row-odd"><td><p>USB_DIR</p></td>
+<td><p>PS_MIO23</p></td>
+<td><p>AC4</p></td>
+<td><p>USB2.0 data direction
+signal</p></td>
+</tr>
+<tr class="row-even"><td><p>USB_CLK</p></td>
+<td><p>PS_MIO18</p></td>
+<td><p>AH3</p></td>
+<td><p>USB2.0 clock signal</p></td>
+</tr>
+<tr class="row-odd"><td><p>USB_NXT</p></td>
+<td><p>PS_MIO25</p></td>
+<td><p>Y4</p></td>
+<td><p>USB2.0 next data signal</p></td>
+</tr>
+<tr class="row-even"><td><p>USB_RESET_N</p></td>
+<td><p>PS_MIO13</p></td>
+<td><p>AB3</p></td>
+<td><p>USB2.0 reset signal</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="lvds-display-interface">
+<h2>LVDS display interface<a class="headerlink" href="#lvds-display-interface" title="此标题的永久链接">#</a></h2>
+<p>The expansion board contains an LVDS display interface, which can be
+used to connect our 7-inch display module (AN7000). The LVDS interface
+is a 40PIN FPC connector with 4 pairs of LVDS data, 1 pair of clocks,
+and other control signals connected to the differential IO pins of
+BANK703 through a level conversion chip. The level standard is 1.5V.
+<img alt="image3" src="../_images/image20.png" /></p>
+<p>Figure 3-7-1 LVDS interface design schematic diagram</p>
+<p>LVDS <strong>interface pin assignment</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Signal name</strong></p></td>
+<td><p><strong>Pin
+name</strong></p></td>
+<td><p><strong>Pin
+number</strong></p></td>
+<td><p><strong>Remark</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>LVDS_CLK-</p></td>
+<td><p>B703_L17_N</p></td>
+<td><p>A24</p></td>
+<td><p>LVDS screen input
+clock negative</p></td>
+</tr>
+<tr class="row-odd"><td><p>LVDS_CLK+</p></td>
+<td><p>B703_L17_P</p></td>
+<td><p>A23</p></td>
+<td><p>LVDS screen input
+clock is positive</p></td>
+</tr>
+<tr class="row-even"><td><p>LVDS_D0-</p></td>
+<td><p>B703_L13_N</p></td>
+<td><p>G23</p></td>
+<td><p>The data input on the
+LVDS screen DATA0 is
+negative</p></td>
+</tr>
+<tr class="row-odd"><td><p>LVDS_D0+</p></td>
+<td><p>B703_L13_P</p></td>
+<td><p>F22</p></td>
+<td><p>The data input on the
+LVDS screen DATA0 is
+positive</p></td>
+</tr>
+<tr class="row-even"><td><p>LVDS_D1-</p></td>
+<td><p>B703_L22_N</p></td>
+<td><p>A21</p></td>
+<td><p>The data input on the
+LVDS screen DATA1 is
+negative</p></td>
+</tr>
+<tr class="row-odd"><td><p>LVDS_D1+</p></td>
+<td><p>B703_L22_P</p></td>
+<td><p>A20</p></td>
+<td><p>The data input on the
+LVDS screen DATA1 is
+positive</p></td>
+</tr>
+<tr class="row-even"><td><p>LVDS_D2-</p></td>
+<td><p>B703_L23_N</p></td>
+<td><p>B22</p></td>
+<td><p>Data input on the
+LVDS screen DATA2
+negative</p></td>
+</tr>
+<tr class="row-odd"><td><p>LVDS_D2+</p></td>
+<td><p>B703_L23_P</p></td>
+<td><p>C22</p></td>
+<td><p>The data input on the
+LVDS screen DATA2 is
+positive</p></td>
+</tr>
+<tr class="row-even"><td><p>LVDS_D3-</p></td>
+<td><p>B703_L10_N</p></td>
+<td><p>A26</p></td>
+<td><p>Data input on the
+LVDS screen DATA3
+negative</p></td>
+</tr>
+<tr class="row-odd"><td><p>LVDS_D3+</p></td>
+<td><p>B703_L10_P</p></td>
+<td><p>A25</p></td>
+<td><p>The data input on the
+LVDS screen DATA3 is
+positive</p></td>
+</tr>
+<tr class="row-even"><td><p>FPGA_LCD_SDI</p></td>
+<td><p>B703_L11_N</p></td>
+<td><p>B27</p></td>
+<td><p>LCD screen serial
+interface address and
+SPI data input</p></td>
+</tr>
+<tr class="row-odd"><td><p>FPGA_LCD_CSB</p></td>
+<td><p>B703_L11_P</p></td>
+<td><p>B26</p></td>
+<td><p>LCD screen serial
+interface chip SPl
+chip select signal</p></td>
+</tr>
+<tr class="row-even"><td><p>FPGA_LCD_SCL</p></td>
+<td><p>B703_L3_N</p></td>
+<td><p>E28</p></td>
+<td><p>LCD screen serial
+interface SPI clock</p></td>
+</tr>
+<tr class="row-odd"><td><p>FPGA_LCD_SDO</p></td>
+<td><p>B703_L9_N</p></td>
+<td><p>B25</p></td>
+<td><p>LCD screen serial
+interface SPI data
+output</p></td>
+</tr>
+<tr class="row-even"><td><p>FPGA_LCD_RESET</p></td>
+<td><p>B703_L3_P</p></td>
+<td><p>E27</p></td>
+<td><p>LCD screen reset
+signal</p></td>
+</tr>
+<tr class="row-odd"><td><p>FPGA_LCD_STBYB</p></td>
+<td><p>B703_L25_N</p></td>
+<td><p>F25</p></td>
+<td><p>LCD screen mode
+setting signal</p></td>
+</tr>
+<tr class="row-even"><td><p>FPGA_BANKLCD_SDA</p></td>
+<td><p>B703_L12_N</p></td>
+<td><p>H24</p></td>
+<td><p>Backlight I2C data</p></td>
+</tr>
+<tr class="row-odd"><td><p>FPGA_BANKLCD_SCL</p></td>
+<td><p>B703_L14_P</p></td>
+<td><p>E22</p></td>
+<td><p>Backlight I2C clock</p></td>
+</tr>
+<tr class="row-even"><td><p>FPGA_BANKLCD_INT</p></td>
+<td><p>B703_L9_P</p></td>
+<td><p>C25</p></td>
+<td><p>Backlight failure
+interrupt signal</p></td>
+</tr>
+<tr class="row-odd"><td><p>FPGA_BANKLCD_EN</p></td>
+<td><p>B703_L25_P</p></td>
+<td><p>E24</p></td>
+<td><p>Backlight enable
+signal</p></td>
+</tr>
+<tr class="row-even"><td><p>FPGA_BANKLCD_PWM</p></td>
+<td><p>B703_L15_N</p></td>
+<td><p>C24</p></td>
+<td><p>Backlight brightness
+adjustment signal</p></td>
+</tr>
+<tr class="row-odd"><td><p>FPGA_BANKLCD_SYNC</p></td>
+<td><p>B703_L15_P</p></td>
+<td><p>D24</p></td>
+<td><p>Backlight sync boost
+input</p></td>
+</tr>
+<tr class="row-even"><td><p>LVDS_CLK_N</p></td>
+<td><p>B703_L24_N</p></td>
+<td><p>F24</p></td>
+<td><p>FPGA input clock
+negative</p></td>
+</tr>
+<tr class="row-odd"><td><p>LVDS_CLK_P</p></td>
+<td><p>B703_L24_P</p></td>
+<td><p>F23</p></td>
+<td><p>FPGA input clock is
+positive</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mipi-interface">
+<h2>MIPI interface<a class="headerlink" href="#mipi-interface" title="此标题的永久链接">#</a></h2>
+<p>The VD100 expansion board contains 2 MIPI 4 Lane camera interfaces,
+which can be used to connect our MIPI OS05A10 camera module (AN5010).
+The MIPI interface is a 20PIN FPC connector, which is connected to the
+differential IO pins of BANK702 for 4 LANE data and 1 pair of clocks.
+The level standard is 1.2V; other control signals are connected to the
+IO of BANK703 through level conversion. on, the level standard is 1.5V.</p>
+<p><img alt="image4" src="../_images/image21.png" /></p>
+<p>Figure 3-8-1 MIPI interface design schematic diagram</p>
+<p><strong>MIPI interface pin assignments</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Signal
+name</strong></p></td>
+<td><p><strong>Pin name</strong></p></td>
+<td><p><strong>Pin
+number</strong></p></td>
+<td><p><strong>Remark</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI1_CLK_N</p></td>
+<td><p>B702_L12_N</p></td>
+<td><p>T24</p></td>
+<td><p>MIPI1 input clock
+negative</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI1_CLK_P</p></td>
+<td><p>B702_L12_P</p></td>
+<td><p>U23</p></td>
+<td><p>MIPI1 input clock
+positive</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI1_LAN0_N</p></td>
+<td><p>B702_L13_N</p></td>
+<td><p>R24</p></td>
+<td><p>MIPI1 input data LANE0
+negative</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI1_LAN0_P</p></td>
+<td><p>B702_L13_P</p></td>
+<td><p>T23</p></td>
+<td><p>MIPI1 input data LANE0
+positive</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI1_LAN1_N</p></td>
+<td><p>B702_L14_N</p></td>
+<td><p>P24</p></td>
+<td><p>MIPI1 input data LANE1
+negative</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI1_LAN1_P</p></td>
+<td><p>B702_L14_P</p></td>
+<td><p>R23</p></td>
+<td><p>MIPI1 input data LANE1
+positive</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI1_LAN2_N</p></td>
+<td><p>B702_L16_N</p></td>
+<td><p>K24</p></td>
+<td><p>MIPI1 input data LANE2
+negative</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI1_LAN2_P</p></td>
+<td><p>B702_L16_P</p></td>
+<td><p>L23</p></td>
+<td><p>MIPI1 input data LANE2
+positive</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI1_LAN3_N</p></td>
+<td><p>B702_L15_N</p></td>
+<td><p>M23</p></td>
+<td><p>MIPI1 input data LANE3
+negative</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI1_LAN3_P</p></td>
+<td><p>B702_L15_P</p></td>
+<td><p>M22</p></td>
+<td><p>MIPI1 input data LANE3
+positive</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI1_SDA</p></td>
+<td><p>B703_L2_N</p></td>
+<td><p>F28</p></td>
+<td><p>I2C data for MIPI1
+camera</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI1_SCL</p></td>
+<td><p>B703_L2_P</p></td>
+<td><p>G27</p></td>
+<td><p>I2C clock for MIPI1
+camera</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI1_GPIO</p></td>
+<td><p>B703_L7_N</p></td>
+<td><p>G26</p></td>
+<td><p>GPIO control of MIPI1
+camera</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI1_CLK</p></td>
+<td><p>B703_L7_P</p></td>
+<td><p>G25</p></td>
+<td><p>MIPI1 camera clock
+input</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI2_CLK_N</p></td>
+<td><p>B702_L18_N</p></td>
+<td><p>U22</p></td>
+<td><p>MIPI2 input clock
+negative</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI2_CLK_P</p></td>
+<td><p>B702_L18_P</p></td>
+<td><p>V21</p></td>
+<td><p>MIPI2 input clock
+positive</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI2_LAN0_N</p></td>
+<td><p>B702_L19_N</p></td>
+<td><p>R22</p></td>
+<td><p>MIPI2 input data LANE0
+negative</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI2_LAN0_P</p></td>
+<td><p>B702_L19_P</p></td>
+<td><p>T21</p></td>
+<td><p>MIPI2 input data LANE0
+is positive</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI2_LAN1_N</p></td>
+<td><p>B702_L20_N</p></td>
+<td><p>P22</p></td>
+<td><p>MIPI2 input data LANE1
+negative</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI2_LAN1_P</p></td>
+<td><p>B702_L20_P</p></td>
+<td><p>R21</p></td>
+<td><p>MIPI2 input data LANE1
+positive</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI2_LAN2_N</p></td>
+<td><p>B702_L21_N</p></td>
+<td><p>M21</p></td>
+<td><p>MIPI2 input data LANE2
+negative</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI2_LAN2_P</p></td>
+<td><p>B702_L21_P</p></td>
+<td><p>N21</p></td>
+<td><p>MIPI2 input data LANE2
+positive</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI2_LAN3_N</p></td>
+<td><p>B702_L22_N</p></td>
+<td><p>L22</p></td>
+<td><p>MIPI2 input data LANE3
+negative</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI2_LAN3_P</p></td>
+<td><p>B702_L22_P</p></td>
+<td><p>K21</p></td>
+<td><p>MIPI2 input data LANE3
+positive</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI2_SDA</p></td>
+<td><p>B703_L4_N</p></td>
+<td><p>C28</p></td>
+<td><p>I2C data for MIPI2
+camera</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI2_SCL</p></td>
+<td><p>B703_L4_P</p></td>
+<td><p>D27</p></td>
+<td><p>I2C clock for MIPI2
+camera</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI2_GPIO</p></td>
+<td><p>B703_L0_N</p></td>
+<td><p>H28</p></td>
+<td><p>GPIO control of MIPI2
+camera</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI2_CLK</p></td>
+<td><p>B703_L0_P</p></td>
+<td><p>J27</p></td>
+<td><p>MIPI2 camera clock
+input</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="sd-card">
+<h2>SD card<a class="headerlink" href="#sd-card" title="此标题的永久链接">#</a></h2>
+<p>The VD100 expansion board contains a Micro-type SD card interface to
+provide users with access to the SD card memory, which is used to store
+the BOOT program of the XCVE2302 chip and the Linux operating system
+kernel . file system and other user data files.</p>
+<p>The SDIO signal is connected to the IO signal of PS BANK501 of XCVE2302
+, because the VCCIO of 501 is set to 1.8V, but the data level of the SD
+card is 3.3V, we connect it here through the TXS02612 level converter .
+The schematic diagram of the XCVE2302 PS and SD card connector is shown
+in Figure 3-9-1 .</p>
+<img alt="../_images/image22.png" src="../_images/image22.png" />
+<p>Figure 3-9 - 1 SD card connection diagram</p>
+<p><strong>SD card slot pin assignment</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Signal
+name</strong></p></td>
+<td><p><strong>Pin name</strong></p></td>
+<td><p><strong>Pin
+number</strong></p></td>
+<td><p><strong>Remark</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>SD_CLK</p></td>
+<td><p>PS_MIO26</p></td>
+<td><p>AA5</p></td>
+<td><p>SD clock signal</p></td>
+</tr>
+<tr class="row-odd"><td><p>SD_CD</p></td>
+<td><p>PS_MIO28</p></td>
+<td><p>AC5</p></td>
+<td><p>SD card detection
+signal</p></td>
+</tr>
+<tr class="row-even"><td><p>SD_CMD</p></td>
+<td><p>PS_MIO29</p></td>
+<td><p>AD5</p></td>
+<td><p>SD command signal</p></td>
+</tr>
+<tr class="row-odd"><td><p>SD_D0</p></td>
+<td><p>PS_MIO30</p></td>
+<td><p>AE6</p></td>
+<td><p>SD dataData0</p></td>
+</tr>
+<tr class="row-even"><td><p>SD_D1</p></td>
+<td><p>PS_MIO31</p></td>
+<td><p>AD6</p></td>
+<td><p>SD dataData1</p></td>
+</tr>
+<tr class="row-odd"><td><p>SD_D2</p></td>
+<td><p>PS_MIO32</p></td>
+<td><p>AB6</p></td>
+<td><p>SD dataData2</p></td>
+</tr>
+<tr class="row-even"><td><p>SD_D3</p></td>
+<td><p>PS_MIO33</p></td>
+<td><p>AA6</p></td>
+<td><p>SD dataData3</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="eeprom-24lc04-and-temperature-sensor">
+<h2>EEPROM 24LC04 and temperature sensor<a class="headerlink" href="#eeprom-24lc04-and-temperature-sensor" title="此标题的永久链接">#</a></h2>
+<p>The VD100 development board is equipped with an EEPROM, model 24LC04,
+capacity: 4Kbit (2*256*8bit), which is connected to the PS side for
+communication through the IIC bus. In addition, the board also has a
+high-precision, low-power consumption, digital temperature sensor chip,
+model LM75 from ON Semiconductor. The temperature accuracy of the LM75
+chip is 0.5 degrees. The EEPROM and temperature sensor are mounted to
+the Versal ACAP’s Bank501 MIO via the I2C bus. Figure 3-10-1 is the
+schematic diagram of EEPROM and temperature sensor</p>
+<img alt="../_images/image23.png" src="../_images/image23.png" />
+<p>Figure 3-10-1 Schematic diagram of EEPROM and sensor</p>
+<p><strong>The EEPROM communication pin assignment is as follows:</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p>Signal name</p></td>
+<td><p>Pin name</p></td>
+<td><p>Pin number</p></td>
+<td><p>Remark</p></td>
+</tr>
+<tr class="row-even"><td><p>PS_IIC1_SCL</p></td>
+<td><p>PS_MIO34</p></td>
+<td><p>AB7</p></td>
+<td><p>I2C clock
+signal</p></td>
+</tr>
+<tr class="row-odd"><td><p>PS_IIC1_SDA</p></td>
+<td><p>PS_MIO35</p></td>
+<td><p>AC7</p></td>
+<td><p>I2C data
+signal</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="jtag-interface">
+<h2>JTAG interface<a class="headerlink" href="#jtag-interface" title="此标题的永久链接">#</a></h2>
+<p>The development board reserves a JTAG interface for downloading FPGA
+programs or firmware programs to FLASH. In order to prevent damage to
+the FPGA chip caused by hot plugging and unplugging, we added a
+protection diode to the JTAG signal to ensure that the signal voltage is
+within the acceptable range of the FPGA and avoid damage to the FPGA.</p>
+<img alt="../_images/image24.png" src="../_images/image24.png" />
+<p>Figure 3-8-1 JTAG interface schematic diagram</p>
+<p>Be careful not to hot-swap when plugging or unplugging the JTAG line.</p>
+</section>
+<section id="canfd-communication-interface">
+<h2>CANFD communication interface<a class="headerlink" href="#canfd-communication-interface" title="此标题的永久链接">#</a></h2>
+<p>The VD100 expansion board has 1 CAN/CANFD communication interface, which
+is connected to the MIO interface of BANK502 on the PS system side. The
+CANFD transceiver chip uses the TJA1051T/3/1J chip of Zhienpu Company to
+provide user CAN communication services.</p>
+<p>Figure 3-12-1 is the connection diagram of the CAN transceiver chip on
+the PS side.</p>
+<img alt="../_images/image25.png" src="../_images/image25.png" />
+<p>Figure 3-12-1 Connection diagram of PS-side CAN transceiver chip</p>
+<p><strong>The CAN communication pin assignment is as follows:</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Signal name</strong></p></td>
+<td><p><strong>Pin name</strong></p></td>
+<td><p><strong>Pin number</strong></p></td>
+<td><p><strong>Remark</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>CANFD_TXD1</p></td>
+<td><p>LPD_MIO23</p></td>
+<td><p>Y7</p></td>
+<td><p>CAN1 sending
+end</p></td>
+</tr>
+<tr class="row-odd"><td><p>CANFD_RXD1</p></td>
+<td><p>LPD_MIO22</p></td>
+<td><p>T6</p></td>
+<td><p>CAN1 receiving
+end</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pmod-expansion-port">
+<h2>PMOD expansion port<a class="headerlink" href="#pmod-expansion-port" title="此标题的永久链接">#</a></h2>
+<p>The expansion board reserves a 12PIN 2.54mm standard spacing PMOD
+expansion port J55 for connecting external modules or devices. The
+expansion port has 2 channels of 3.3V power supply, 2 channels of
+ground, and 8 channels of IO port. The IO level standard is 3.3V. <strong>Do
+not connect it directly to the IO of a 5V device to avoid burning out
+the FPGA. If you want to connect the IO of a 5V device, you need to
+connect a level conversion chip.</strong></p>
+<p>The circuit of the expansion port (55) is shown in Figure 3-13-1 below</p>
+<img alt="../_images/image26.png" src="../_images/image26.png" />
+<p>Figure 3-13-1 Schematic diagram of expansion port J55</p>
+<p><strong>J55 expansion port FPGA pin assignment</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>J55
+pin
+number</strong></p></td>
+<td><p><strong>FPGA</strong></p>
+<p><strong>Pin
+name</strong></p>
+</td>
+<td><p><strong>FPGA</strong></p>
+<p><strong>Pin
+number</strong></p>
+</td>
+<td><p><strong>J55
+pin
+number</strong></p></td>
+<td><p><strong>FPGA</strong></p>
+<p><strong>Pin
+name</strong></p>
+</td>
+<td><p><strong>FPGA</strong></p>
+<p><strong>Pin
+number</strong></p>
+</td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>B302_L0_N</p></td>
+<td><p>E14</p></td>
+<td><p>7</p></td>
+<td><p>B
+302_L0_P</p></td>
+<td><p>F14</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>B302_L2_N</p></td>
+<td><p>D14</p></td>
+<td><p>8</p></td>
+<td><p>B
+302_L2_P</p></td>
+<td><p>E13</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>B302_L3_N</p></td>
+<td><p>D12</p></td>
+<td><p>9</p></td>
+<td><p>B
+302_L3_P</p></td>
+<td><p>E12</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>B302_L4_N</p></td>
+<td><p>E11</p></td>
+<td><p>10</p></td>
+<td><p>B
+302_L4_P</p></td>
+<td><p>F11</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>land</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>11</p></td>
+<td><p>land</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>+3.3V</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>12</p></td>
+<td><p>+3.3V</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="button">
+<h2>button<a class="headerlink" href="#button" title="此标题的永久链接">#</a></h2>
+<p>The expansion board contains two user buttons KEY1~KEY2. Both buttons
+are connected to the ordinary IO of the FPGA, one is connected to the PL
+side and the other is connected to the PS side. The low level of the
+button is active. When the button is pressed, the IO input voltage of
+the FPGA is low. When no button is pressed, the IO input voltage of the
+FPGA is high. The circuit of the button part is shown in Figure 3-10-1
+below</p>
+<img alt="../_images/image27.png" src="../_images/image27.png" />
+<p>Figure 3-14-1 Button hardware design diagram</p>
+<p><strong>Button FPGA pin assignment:</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Signal
+name</strong></p></td>
+<td><p><strong>FPGA pin
+name</strong></p></td>
+<td><p><strong>FPGA pin
+number</strong></p></td>
+<td><p><strong>Remark</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>PS_LED1</p></td>
+<td><p>LPD_MIO25</p></td>
+<td><p>Y9</p></td>
+<td><p>User button 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_KEY1</p></td>
+<td><p>B703_L19_N</p></td>
+<td><p>F21</p></td>
+<td><p>User button 2</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="led-light">
+<span id="led-light-1"></span><h2>LED light<a class="headerlink" href="#led-light" title="此标题的永久链接">#</a></h2>
+<p>There are three red LED lights on the expansion board, one of which is
+the power indicator light (PWR) and two of which are user LED lights
+(LED1~LED2). When the development board is powered on, the power
+indicator light will light up. User LED1~LED2 are connected to the
+common IO of the FPGA, one is connected to the PL terminal, and the
+other is connected to the PS terminal. When the IO voltage connected to
+the user LED light is configured as high level, the user LED light
+lights up. When the connected IO voltage is configured as When low, the
+user LED will be turned off. The schematic diagram of LED light hardware
+connection is shown in Figure 3-11-1</p>
+<img alt="../_images/image28.png" src="../_images/image28.png" />
+<p>Figure 3-15-1 LED light hardware design schematic diagram</p>
+<p><strong>LED FPGA pin assignment:</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Signal
+name</strong></p></td>
+<td><p><strong>FPGA pin name</strong></p></td>
+<td><p><strong>FPGA pin
+number</strong></p></td>
+<td><p><strong>Remark</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>PS_LED1</p></td>
+<td><p>LPD_MIO25</p></td>
+<td><p>Y9</p></td>
+<td><p>User defined
+indicator light</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_LED1</p></td>
+<td><p>B703_L19_P</p></td>
+<td><p>E20</p></td>
+<td><p>User defined
+indicator light</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="power-supply">
+<span id="power-supply-1"></span><h2>Power supply<a class="headerlink" href="#power-supply" title="此标题的永久链接">#</a></h2>
+<p>The power input voltage of the development board is DC12V. Please use
+the power supply that comes with the development board. Do not use power
+supplies of other specifications to avoid damaging the development
+board. The expansion board converts the three-way DC/DC power chip
+ETA1471FT2G into three-way power supplies of +5V, +3.3V, and +1.8V, and
+then converts +3.3V into +1.5V through the LDO power chip SPX3819M5-1-5.
+In addition, the +12V power supply on the expansion board supplies power
+to the core board through the inter-board connector. The power supply
+design on the expansion board is shown in Figure 3-12-1 below.</p>
+<img alt="../_images/image29.png" src="../_images/image29.png" />
+<p>Figure 3-16-1 Expansion board power supply schematic diagram</p>
+</section>
+<section id="structural-dimension-drawing">
+<h2>Structural dimension drawing<a class="headerlink" href="#structural-dimension-drawing" title="此标题的永久链接">#</a></h2>
+<img alt="../_images/image30.png" src="../_images/image30.png" />
+<p>Top View</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="VD100UserManual_Core_board_EN.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">上一页</p>
+        <p class="prev-next-title">Development board introduction</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../VD100_S1_RSTdocument_EN/00_Introduction_EN.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">illustrate</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目录
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gigabit-ethernet-interface">Gigabit Ethernet interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pcie3-0-x4-interface">PCIe3.0 X4 interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optical-fiber-interface">Optical fiber interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usb-to-serial-port">USB to serial port</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usb2-0-interface">USB2.0 interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lvds-display-interface">LVDS display interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mipi-interface">MIPI interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sd-card">SD card</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eeprom-24lc04-and-temperature-sensor">EEPROM 24LC04 and temperature sensor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jtag-interface">JTAG interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#canfd-communication-interface">CANFD communication interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pmod-expansion-port">PMOD expansion port</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#button">button</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#led-light">LED light</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-supply">Power supply</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structural-dimension-drawing">Structural dimension drawing</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+作者： JunFN
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2024 , ALINX .
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  
+        These engineering documents are copyrighted by
+            <a
+                href="https://www.alinx.com/"
+            >ALINX official website</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://vd100-20232-v101.readthedocs.io/zh-cn/en/VD100_S1_RSTdocument_EN/00_aboutALINX_EN.html">English</a> | <a href="https://vd100-20232-v101.readthedocs.io/zh-cn/latest/VD100_S1_RSTdocument_CN/00_%E5%85%B3%E4%BA%8EALINX_CN.html">中文</a>
+    
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,3644 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="zh-CN" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Development board introduction &#8212; Versal 开发平台FPGA教程 1.0 文档</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/translations.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'User_Manual_EN/VD100UserManual_Core_board_EN';</script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="expanding board" href="VD100UserManual_Expansion%20board_EN.html" />
+    <link rel="prev" title="About ALINX" href="../VD100_S1_RSTdocument_EN/00_aboutALINX_EN.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="zh-CN"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/8.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/8.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Versal development platform
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Company Profile</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_EN/00_aboutALINX_EN.html">About ALINX</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">User Manual</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Development board introduction</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="VD100UserManual_Expansion%20board_EN.html">expanding board</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">VD100 model board S1 FPGA tutorial</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_EN/00_Introduction_EN.html">illustrate</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_EN/01_Versal_EN.html">Chapter 1 Introduction to Versal</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_EN/02_led_EN.html">Chapter 2 PL’s “Hello World” LED experiment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_EN/03_pl_rw_ddr_EN.html">Chapter 3 PL reads and writes DDR4 experiment through NoC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_EN/04_lvds_lcd_EN.html">Chapter 4 LVDS LCD screen display experiment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_EN/05_ibert_test_EN.html">Chapter 5 GTYP transceiver bit error rate test IBERT experiment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_EN/06_ps_hello_EN.html">Chapter 6 Experience ARM, bare metal output “Hello World”</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_EN/07_ps_lwip_EN.html">Chapter 7 lwip used by PS side Ethernet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_EN/08_versal_trd_EN.html">Chapter 8 Overall engineering and experiments</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">VD100 model board S2 Linux tutorial</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_EN/1_%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8Linux-%E5%88%B6%E4%BD%9C%E5%90%AF%E5%8A%A8%E5%BC%80%E5%8F%91%E6%9D%BFlinux%E7%B3%BB%E7%BB%9F%E7%9A%84SD%E5%8D%A1.html">Quick-boot Linux-Make an SD card to boot the development board Linux system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_EN/2_%E5%85%B3%E4%BA%8EPetalinux.html">About PETALINUX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_EN/3_01_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-%E4%B8%B2%E5%8F%A3.html">Chapter 1 Serial Port (UART)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_EN/3_02_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-LED%E7%81%AF%E5%92%8C%E6%8C%89%E9%94%AE.html">Chapter II LEDS, KEYS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_EN/3_03_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-CAN.html">Chapter III CAN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_EN/3_04_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-LCD.html">Chapter 4 LCD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_EN/3_05_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-USB.html">Chapter 5 USB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_EN/3_06_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-%E4%BB%A5%E5%A4%AA%E7%BD%91.html">Chapter 6 ETH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_EN/3_07_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-MIPI%E6%91%84%E5%83%8F%E5%A4%B4.html">Chapter 7 MIPI Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_EN/3_08_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-EMMC.html">Chapter 8 EMMC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_EN/3_09_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-EEPROM.html">Chapter 9 EEPROM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_EN/3_10_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-LM75.html">Chapter X LM75</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_EN/3_11_%E5%9C%A8Linux%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%B5%8B%E8%AF%95%E5%BC%80%E5%8F%91%E6%9D%BF%E5%A4%96%E8%AE%BE-QSPIFLASH.html">Chapter 11 QSPI FLASH</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S2_RSTdocument_EN/4_%E5%AE%89%E8%A3%85QT%E5%BA%93%E5%92%8COPENCV%E5%BA%93%E4%BB%A5%E5%8F%8A%E5%9C%A8QTCreator%E4%B8%AD%E8%AE%BE%E7%BD%AE%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83.html">Installing the QT and OPENCV libraries and setting up the build environment in QTCreator</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Copyright Alinx</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../VD100_S1_RSTdocument_EN/00_liability%20statement_EN.html">Copyright statement</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/alinxalinx/VD100_2023.2" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="源码库"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="下载此页面">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/User_Manual_EN/VD100UserManual_Core_board_EN.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="下载源文件"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="列印成 PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全屏模式"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="搜索" aria-label="搜索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Development board introduction</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目录 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Development board introduction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ve2302-core-board">VE2302 core board</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ve2302">VE2302</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clock-configuration">Clock configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ddr4-dram">DDR4 DRAM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qspi-flash">QSPI Flash</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#emmc-flash">eMMC Flash</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#led-light">LED light</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-supply">power supply</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extension-ports">Extension ports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-diagram">Structure diagram</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <p>The Adaptive Computing Acceleration Platform (ACAP) (Model: VD100) of
+the ALINX Versal AI Edge series has been officially released. In order
+to let you quickly understand this development platform, we have written
+this user manual.</p>
+<p>This Versal AI Edge development platform uses a core board plus
+expansion board model to facilitate users’ secondary development and
+utilization of the core board. In the baseboard design, we used 1 1
+2-pin PMOD interface, 2 10G optical fiber interfaces, 2 Ethernet ports,
+2 MIPI interfaces, 1 USB2.0 interface, 1 UART interface and 1 PCIe3.0X4
+interface. It meets users’ requirements for high-speed data transmission
+and exchange and is a “professional-level” and “all-around-level”
+development platform for data communications. I believe that such a
+product is very suitable for students, engineers and other groups
+engaged in artificial intelligence, data acceleration and video image
+processing.</p>
+<img alt="../_images/image2.png" src="../_images/image2.png" />
+<section id="development-board-introduction">
+<h1>Development board introduction<a class="headerlink" href="#development-board-introduction" title="此标题的永久链接">#</a></h1>
+<p>Here, a brief function introduction of this Versal AI VD100 platform is
+given.</p>
+<p>The entire structure of the development board is designed based on our
+consistent core board + expansion board model. The core board and the
+expansion board are connected using high-speed inter-board connectors.</p>
+<p>The core board is mainly composed of Versal AI VE2302 + 4 DDR4 + QSPI
+FLASH + EMMC. The VE2302 chip of the Versal AI Series we selected is
+packaged in SFVA784. The data bit width of VE2302 and DDR4 is 64 bits,
+the capacity of DDR4 is up to 4GB, and the data rate is 3200bps. Meet
+the need for high buffers during data processing. In addition, there are
+8G EMMC and 512Mbit QSPI FLASH on the core board for system startup and
+data storage.</p>
+<p>The base board is equipped with a wealth of peripheral interfaces. The
+following figure is a schematic structural diagram of the entire VD100
+platform:</p>
+<img alt="../_images/image3.png" src="../_images/image3.png" />
+<p>Through this schematic diagram, we can see the functions that our
+development platform can achieve.</p>
+<ul class="simple">
+<li><p> Versal AI VE2302 core board</p></li>
+</ul>
+<p>It is composed of VE2302+4GB DDR4+8G EMMC+512Mb QSPI FLASH, and there
+are two high-precision Sitime crystal oscillators, one is single-ended
+33.3333MHz, the other is differential 200MHz, providing stable clock
+input for the VE2302 system and logic unit.</p>
+<ul class="simple">
+<li><p>1 0/100M /1000M Ethernet RJ-45 interface</p></li>
+</ul>
+<p>2-way Gigabit Ethernet interface, the chip uses Jinglue Company’s JL2121
+Ethernet PH Y chip to provide users with network communication services.
+JL2121 The chip supports 10/100/1000 Mbps network transmission rate;
+full duplex and adaptive.</p>
+<ul class="simple">
+<li><p>USB Uart debugging interface</p></li>
+</ul>
+<p>1-way Uart to USB interface, used to communicate with the computer to
+facilitate user debugging. The serial port chip uses the USB- UAR chip
+of Silicon Labs CP210 2 GM , and the USB interface uses the MINI USB
+interface.</p>
+<ul class="simple">
+<li><p>PCIe x 4 interface</p></li>
+</ul>
+<p>Supports PCI Express 3.0 standard and provides standard PCIe x 4 high -
+speed data transmission interface.</p>
+<ul class="simple">
+<li><p>Micro SD card holder</p></li>
+</ul>
+<p>1-way Micro SD card holder for storing operating system images and file
+systems .</p>
+<ul class="simple">
+<li><p>USB2.0 interface</p></li>
+</ul>
+<blockquote>
+<div><p>1 high-speed USB2.0 interface can be used to connect the development
+board to USB peripherals such as mouse, keyboard, and USB flash
+drive.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>MIPI interface</p></li>
+</ul>
+<blockquote>
+<div><p>2-way MIPI interface, supports MIPI 4xLane, can be connected to ALINX
+MIPI camera (AN5010) .</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>LVDS interface</p></li>
+</ul>
+<p>1-way LVDS interface, used to connect to ALINX’s LVDS display.</p>
+<ul class="simple">
+<li><p>2-way SFP+ optical fiber interface</p></li>
+</ul>
+<p>The 2-channel high-speed transceiver of the GTY transceiver is connected
+to the sending and receiving of 2 optical modules to realize 2-channel
+high-speed optical fiber communication interface. The optical fiber data
+communication reception and transmission speed of each channel is as
+high as 12.5Gb/s.</p>
+<ul class="simple">
+<li><p>CAN communication interface</p></li>
+</ul>
+<p>1-way CAN/CAN FD bus interface uses TI’s TJA1051T chip, and the
+interface uses a 3-Pin green terminal block .</p>
+<ul class="simple">
+<li><p>12-pin PMOD expansion port</p></li>
+</ul>
+<p>One 12-pin 2.54mm pitch expansion IO port is reserved. The expansion
+port includes 2 channels of 3.3V power supply, 2 channels of ground, and
+8 channels of 3.3V IO ports.</p>
+<ul class="simple">
+<li><p>JTAG port</p></li>
+</ul>
+<p>10-pin 2.54mm standard JTAG port for downloading and debugging VE2302
+programs;</p>
+<ul class="simple">
+<li><p>button</p></li>
+</ul>
+<p>There are 2 user buttons on the expansion board, one connected to the
+MIO of the PS and one connected to the IO of the PL;</p>
+<ul class="simple">
+<li><p>LED light</p></li>
+</ul>
+<p>5 LEDs (2 on the core board and 3 on the expansion board);</p>
+</section>
+<section id="ve2302-core-board">
+<h1>VE2302 core board<a class="headerlink" href="#ve2302-core-board" title="此标题的永久链接">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="此标题的永久链接">#</a></h2>
+<p>The V100 ( <strong>core board model, the same below</strong> ) core board is a
+high-performance core board developed based on the
+XCVE2302-SFVA784-1LP-ES chip of XILINX’s Versal ACAP series. It has high
+performance, low latency, edge computing, and low power. It has
+characteristics such as high power consumption and is suitable for use
+in data centers, video image processing, high-speed data processing,
+etc.</p>
+<blockquote>
+<div><p>This core board uses 4 pieces of MT40A512M16LY-062E from MICRON.</p>
+</div></blockquote>
+<p>This DDR4 chip has 64-bit data bus bandwidth and 4GB capacity; the
+maximum operating speed of DDR4 SDRAM can reach 1600MHz (data rate
+3200Mbps). In addition, the core board also integrates two 256MBit QSPI
+FLASH and one 8GB EMMC chip for startup storage configuration and system
+files.</p>
+<blockquote>
+<div><p>The PS side of this core board has expanded 53 1.8V level standard
+MIOs, and the PL side has expanded 22 3.3V level standard IOs, 54
+1.8V level standard IO ports, and 30 1.2V level standard IOs. There
+are also 8 pairs of GTY high-speed RX/TX differential signals.
+Moreover, the wiring between the FPGA chip and the interface has been
+processed with equal length and differential processing, and the size
+of the core board is only 65*60 (mm), which is very suitable for
+secondary development.</p>
+</div></blockquote>
+<img alt="../_images/image4.png" src="../_images/image4.png" />
+<p>V100 core board front view</p>
+<img alt="../_images/image5.png" src="../_images/image5.png" />
+<p>V100 core board back view</p>
+</section>
+<section id="ve2302">
+<h2>VE2302<a class="headerlink" href="#ve2302" title="此标题的永久链接">#</a></h2>
+<p>As mentioned before, the Versal ACAP model we use is
+XCVE2302-SFVA784-1LP-ES, the speed level is 1, the operating temperature
+is 0~100 ℃ , and the package is SFVA784. The chip naming rules of Versal
+ACAP are as follows:</p>
+<img alt="../_images/image6.png" src="../_images/image6.png" />
+<p>The VE2302 chip integrates 4 ARM Cortex™-A 72 processors and 2 Cortex
+-R5F processors , as well as 34 AI Engines-ML acceleration units and 464
+DSP processing units. The internal resources of VE2302 are as follows:</p>
+<img alt="../_images/image7.png" src="../_images/image7.png" />
+</section>
+<section id="clock-configuration">
+<h2>Clock configuration<a class="headerlink" href="#clock-configuration" title="此标题的永久链接">#</a></h2>
+<p>The V100 core board provides a reference clock and an RTC real-time
+clock for the PS system and PL logic parts respectively, so that the PS
+system and PL logic can work independently. The schematic diagram of the
+clock circuit design is shown in Figure 2-3-1 below :</p>
+<img alt="../_images/image8.png" src="../_images/image8.png" />
+<p>Figure 2- 3-1 Core board clock source</p>
+<p><strong>PS system RTC real-time clock</strong></p>
+<p>The passive crystal Y1 on the core board provides a 3 2.768K Hz
+real-time clock source for the PS system . The crystal is connected to
+the RTC_PADI_503 and RTC_PAD O_503 pins of BANK503 of the VE2302 chip .</p>
+<p><strong>PS system clock source</strong></p>
+<p>1 crystal oscillator on the core board provides a 33.333MHz clock input
+to the PS system . The clock input is connected to the PS_REF_CLK_503
+pin of BANK503 of the VE2302 chip.</p>
+<p><strong>PL system clock source</strong></p>
+<p>The board provides a differential 200MHz PL system clock source for the
+reference clock of the DDR4 controller. The crystal oscillator output is
+connected to the global clock (GC) of PL BANK701. This global clock can
+be used to drive the DDR4 controller and user logic circuits in the
+FPGA.</p>
+<p><strong>PL clock pin assignment:</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p>Signal name</p></td>
+<td><p>VE2302 pin name</p></td>
+<td><p>VE2302 pin number</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_CLK0_N</p></td>
+<td><p>I
+O_L
+24N_GC_XCC_N8P1_M0P103_701</p></td>
+<td><p>AC23</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_CLK0_P</p></td>
+<td><p>IO_L
+24P_GC_XCC_N8P0_M0P102_701</p></td>
+<td><p>AB23</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ddr4-dram">
+<h2>DDR4 DRAM<a class="headerlink" href="#ddr4-dram" title="此标题的永久链接">#</a></h2>
+<p>The V100 core board is equipped with 4 Micron 1GB DDR 4 chips, model
+MT40A512M16LY-062E . The 4 DDR4 chips are hung on the XPIO of BANK700,
+701 and 702 to form a 64-bit data bus bandwidth and 4GB capacity . . DDR
+4 SDRAM operates at a maximum speed of 1600 MHz (data rate 3200Mbps) .
+The specific configuration of DDR 4 SDRAM is shown in Table 2-4-1 below
+.</p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>bit number</strong></p></td>
+<td><p><strong>Chip model</strong></p></td>
+<td><p><strong>capacity</strong></p></td>
+<td><p><strong>factory</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>U5, U 8 , U 9,
+U10</p></td>
+<td><p>MT40A512M16LY-062E</p></td>
+<td><p>512M x 16bit</p></td>
+<td><p>Micron</p></td>
+</tr>
+</tbody>
+</table>
+<p>Table 2-4-1 DDR 4 SDRAM configuration</p>
+<p>The hardware design of DDR4 requires strict consideration of signal
+integrity. We have fully considered matching resistors/terminal
+resistors, trace impedance control, and trace equal length control
+during circuit design and PCB design to ensure the high-speed and stable
+operation of DDR4. The hardware connection method of DDR4 is shown in
+Figure 2-4-1 :</p>
+<img alt="../_images/image9.png" src="../_images/image9.png" />
+<p>Figure 2-4-1 DDR4 DRAM schematic part</p>
+<p><strong>DDR4 SDRAM pin assignment:</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Signal name</strong></p></td>
+<td><p><strong>Pin name</strong></p></td>
+<td><p><strong>Pin
+number</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_A0</p></td>
+<td><p>IO_L18P_XCC_N6P0_M0P36_700</p></td>
+<td><p>AB12</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_A1</p></td>
+<td><p>IO_L17N_N5P5_M0P35_700</p></td>
+<td><p>AE22</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_A2</p></td>
+<td><p>IO_L17P_N5P4_M0P34_700</p></td>
+<td><p>AD22</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_A3</p></td>
+<td><p>IO_L20P_N6P4_M0P40_700</p></td>
+<td><p>AB15</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_A4</p></td>
+<td><p>IO_L12P_GC_XCC_N4P0_M0P24_700</p></td>
+<td><p>AD12</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_A5</p></td>
+<td><p>IO_L26P_N8P4_M0P52_700</p></td>
+<td><p>AE17</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_A6</p></td>
+<td><p>IO_L24P_GC_XCC_N8P0_M0P48_700</p></td>
+<td><p>AD16</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_A7</p></td>
+<td><p>IO_L6N_GC_XCC_N2P1_M0P13_700</p></td>
+<td><p>AG11</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_A8</p></td>
+<td><p>IO_L25N_N8P3_M0P51_700</p></td>
+<td><p>AE14</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_A9</p></td>
+<td><p>IO_L19P_N6P2_M0P38_700</p></td>
+<td><p>AB14</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_A10</p></td>
+<td><p>IO_L21N_XCC_N7P1_M0P43_700</p></td>
+<td><p>AB17</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_A11</p></td>
+<td><p>IO_L25P_N8P2_M0P50_700</p></td>
+<td><p>AE13</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_A12</p></td>
+<td><p>IO_L0N_XCC_N0P1_M0P1_700</p></td>
+<td><p>AH12</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_A13</p></td>
+<td><p>IO_L24N_GC_XCC_N8P1_M0P49_700</p></td>
+<td><p>AD15</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_CLK_N</p></td>
+<td><p>IO_L15N_XCC_N5P1_M0P31_700</p></td>
+<td><p>AD19</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_CLK_P</p></td>
+<td><p>IO_L15P_XCC_N5P0_M0P30_700</p></td>
+<td><p>AC19</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_BA0</p></td>
+<td><p>IO_L20N_N6P5_M0P41_700</p></td>
+<td><p>AC16</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_BA1</p></td>
+<td><p>IO_L12N_GC_XCC_N4P1_M0P25_700</p></td>
+<td><p>AD11</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_WE_B</p></td>
+<td><p>IO_L16N_N5P3_M0P33_700</p></td>
+<td><p>AD21</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_CAS_B</p></td>
+<td><p>IO_L14N_N4P5_M0P29_700</p></td>
+<td><p>AD17</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_CS_B</p></td>
+<td><p>IO_L14P_N4P4_M0P28_700</p></td>
+<td><p>AC17</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_ACT_B</p></td>
+<td><p>IO_L18N_XCC_N6P1_M0P37_700</p></td>
+<td><p>AC11</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_RAS_B</p></td>
+<td><p>IO_L19N_N6P3_M0P39_700</p></td>
+<td><p>AC13</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_BG0</p></td>
+<td><p>IO_L21P_XCC_N7P0_M0P42_700</p></td>
+<td><p>AB18</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_ODT</p></td>
+<td><p>IO_L23N_N7P5_M0P47_700</p></td>
+<td><p>AC22</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_CKE</p></td>
+<td><p>IO_L23P_N7P4_M0P46_700</p></td>
+<td><p>AB21</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_RST</p></td>
+<td><p>IO_L25P_N8P2_M0P104_701</p></td>
+<td><p>AC24</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQS0_N</p></td>
+<td><p>IO_L9N_GC_XCC_N3P1_M0P19_700</p></td>
+<td><p>AG16</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQS0_P</p></td>
+<td><p>IO_L9P_GC_XCC_N3P0_M0P18_700</p></td>
+<td><p>AG17</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQS1_N</p></td>
+<td><p>IO_L3N_XCC_N1P1_M0P7_700</p></td>
+<td><p>AH19</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQS1_P</p></td>
+<td><p>IO_L3P_XCC_N1P0_M0P6_700</p></td>
+<td><p>AG20</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQS2_N</p></td>
+<td><p>IO_L6N_GC_XCC_N2P1_M0P67_701</p></td>
+<td><p>AD27</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQS2_P</p></td>
+<td><p>IO_L6P_GC_XCC_N2P0_M0P66_701</p></td>
+<td><p>AC28</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQS3_N</p></td>
+<td><p>IO_L3N_XCC_N1P1_M0P61_701</p></td>
+<td><p>AF23</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQS3_P</p></td>
+<td><p>IO_L3P_XCC_N1P0_M0P60_701</p></td>
+<td><p>AF24</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQS4_N</p></td>
+<td><p>IO_L15N_XCC_N5P1_M0P85_701</p></td>
+<td><p>AA23</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQS4_P</p></td>
+<td><p>IO_L15P_XCC_N5P0_M0P84_701</p></td>
+<td><p>Y24</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQS5_N</p></td>
+<td><p>IO_L21N_XCC_N7P1_M0P97_701</p></td>
+<td><p>Y27</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQS5_P</p></td>
+<td><p>IO_L21P_XCC_N7P0_M0P96_701</p></td>
+<td><p>Y28</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQS6_N</p></td>
+<td><p>IO_L0N_XCC_N0P1_M0P109_702</p></td>
+<td><p>U28</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQS6_P</p></td>
+<td><p>IO_L0P_XCC_N0P0_M0P108_702</p></td>
+<td><p>U27</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQS7_N</p></td>
+<td><p>IO_L9N_GC_XCC_N3P1_M0P127_702</p></td>
+<td><p>N27</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQS7_P</p></td>
+<td><p>IO_L9P_GC_XCC_N3P0_M0P126_702</p></td>
+<td><p>P26</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DM0</p></td>
+<td><p>IO_L6P_GC_XCC_N2P0_M0P12_700</p></td>
+<td><p>AG12</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DM1</p></td>
+<td><p>IO_L0P_XCC_N0P0_M0P0_700</p></td>
+<td><p>AH13</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DM2</p></td>
+<td><p>IO_L9P_GC_XCC_N3P0_M0P72_701</p></td>
+<td><p>AE28</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DM3</p></td>
+<td><p>IO_L0P_XCC_N0P0_M0P54_701</p></td>
+<td><p>AD24</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DM4</p></td>
+<td><p>IO_L12P_GC_XCC_N4P0_M0P78_701</p></td>
+<td><p>V22</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DM5</p></td>
+<td><p>IO_L18P_XCC_N6P0_M0P90_701</p></td>
+<td><p>V28</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DM6</p></td>
+<td><p>IO_L3P_XCC_N1P0_M0P114_702</p></td>
+<td><p>N28</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DM7</p></td>
+<td><p>IO_L6P_GC_XCC_N2P0_M0P120_702</p></td>
+<td><p>U25</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQ0</p></td>
+<td><p>IO_L8P_N2P4_M0P16_700</p></td>
+<td><p>AF14</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQ1</p></td>
+<td><p>IO_L10N_N3P3_M0P21_700</p></td>
+<td><p>AG18</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQ2</p></td>
+<td><p>IO_L8N_N2P5_M0P17_700</p></td>
+<td><p>AG15</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQ3</p></td>
+<td><p>IO_L10P_N3P2_M0P20_700</p></td>
+<td><p>AF18</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQ4</p></td>
+<td><p>IO_L7P_N2P2_M0P14_700</p></td>
+<td><p>AF13</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQ5</p></td>
+<td><p>IO_L11N_N3P5_M0P23_700</p></td>
+<td><p>AF19</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQ6</p></td>
+<td><p>IO_L7N_N2P3_M0P15_700</p></td>
+<td><p>AG13</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQ7</p></td>
+<td><p>IO_L11P_N3P4_M0P22_700</p></td>
+<td><p>AE19</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQ8</p></td>
+<td><p>IO_L2P_N0P4_M0P4_700</p></td>
+<td><p>AH17</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQ9</p></td>
+<td><p>IO_L4P_N1P2_M0P8_700</p></td>
+<td><p>AG21</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQ10</p></td>
+<td><p>IO_L2N_N0P5_M0P5_700</p></td>
+<td><p>AH18</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQ11</p></td>
+<td><p>IO_L4N_N1P3_M0P9_700</p></td>
+<td><p>AH20</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQ12</p></td>
+<td><p>IO_L1P_N0P2_M0P2_700</p></td>
+<td><p>AH14</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQ13</p></td>
+<td><p>IO_L5N_N1P5_M0P11_700</p></td>
+<td><p>AH22</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQ14</p></td>
+<td><p>IO_L1N_N0P3_M0P3_700</p></td>
+<td><p>AH15</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQ15</p></td>
+<td><p>IO_L5P_N1P4_M0P10_700</p></td>
+<td><p>AG22</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQ16</p></td>
+<td><p>IO_L8N_N2P5_M0P71_701</p></td>
+<td><p>AF26</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQ17</p></td>
+<td><p>IO_L7N_N2P3_M0P69_701</p></td>
+<td><p>AE26</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQ18</p></td>
+<td><p>IO_L10N_N3P3_M0P75_701</p></td>
+<td><p>AH27</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQ19</p></td>
+<td><p>IO_L8P_N2P4_M0P70_701</p></td>
+<td><p>AE27</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQ20</p></td>
+<td><p>IO_L11N_N3P5_M0P77_701</p></td>
+<td><p>AG27</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQ21</p></td>
+<td><p>IO_L7P_N2P2_M0P68_701</p></td>
+<td><p>AD26</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQ22</p></td>
+<td><p>IO_L11P_N3P4_M0P76_701</p></td>
+<td><p>AG26</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQ23</p></td>
+<td><p>IO_L10P_N3P2_M0P74_701</p></td>
+<td><p>AG28</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQ24</p></td>
+<td><p>IO_L1N_N0P3_M0P57_701</p></td>
+<td><p>AE24</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQ25</p></td>
+<td><p>IO_L1P_N0P2_M0P56_701</p></td>
+<td><p>AD25</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQ26</p></td>
+<td><p>IO_L5P_N1P4_M0P64_701</p></td>
+<td><p>AH24</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQ27</p></td>
+<td><p>IO_L2P_N0P4_M0P58_701</p></td>
+<td><p>AF25</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQ28</p></td>
+<td><p>IO_L4P_N1P2_M0P62_701</p></td>
+<td><p>AG23</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQ29</p></td>
+<td><p>IO_L2N_N0P5_M0P59_701</p></td>
+<td><p>AG25</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQ30</p></td>
+<td><p>IO_L4N_N1P3_M0P63_701</p></td>
+<td><p>AH23</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQ31</p></td>
+<td><p>IO_L5N_N1P5_M0P65_701</p></td>
+<td><p>AH25</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQ32</p></td>
+<td><p>IO_L17P_N5P4_M0P88_701</p></td>
+<td><p>Y22</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQ33</p></td>
+<td><p>IO_L13P_N4P2_M0P80_701</p></td>
+<td><p>V23</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQ34</p></td>
+<td><p>IO_L16P_N5P2_M0P86_701</p></td>
+<td><p>Y23</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQ35</p></td>
+<td><p>IO_L13N_N4P3_M0P81_701</p></td>
+<td><p>W24</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQ36</p></td>
+<td><p>IO_L16N_N5P3_M0P87_701</p></td>
+<td><p>AA22</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQ37</p></td>
+<td><p>IO_L14P_N4P4_M0P82_701</p></td>
+<td><p>V24</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQ38</p></td>
+<td><p>IO_L17N_N5P5_M0P89_701</p></td>
+<td><p>AA21</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQ39</p></td>
+<td><p>IO_L14N_N4P5_M0P83_701</p></td>
+<td><p>W25</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQ40</p></td>
+<td><p>IO_L19P_N6P2_M0P92_701</p></td>
+<td><p>V25</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQ41</p></td>
+<td><p>IO_L20P_N6P4_M0P94_701</p></td>
+<td><p>W27</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQ42</p></td>
+<td><p>IO_L22P_N7P2_M0P98_701</p></td>
+<td><p>AA28</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQ43</p></td>
+<td><p>IO_L19N_N6P3_M0P93_701</p></td>
+<td><p>W26</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQ44</p></td>
+<td><p>IO_L20N_N6P5_M0P95_701</p></td>
+<td><p>Y26</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQ45</p></td>
+<td><p>IO_L23P_N7P4_M0P100_701</p></td>
+<td><p>AA26</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQ46</p></td>
+<td><p>IO_L22N_N7P3_M0P99_701</p></td>
+<td><p>AB28</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQ47</p></td>
+<td><p>IO_L23N_N7P5_M0P101_701</p></td>
+<td><p>AB26</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQ48</p></td>
+<td><p>IO_L2P_N0P4_M0P112_702</p></td>
+<td><p>P27</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQ49</p></td>
+<td><p>IO_L5P_N1P4_M0P118_702</p></td>
+<td><p>K27</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQ50</p></td>
+<td><p>IO_L2N_N0P5_M0P113_702</p></td>
+<td><p>R28</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQ51</p></td>
+<td><p>IO_L4N_N1P3_M0P117_702</p></td>
+<td><p>L28</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQ52</p></td>
+<td><p>IO_L1P_N0P2_M0P110_702</p></td>
+<td><p>R27</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQ53</p></td>
+<td><p>IO_L5N_N1P5_M0P119_702</p></td>
+<td><p>K28</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQ54</p></td>
+<td><p>IO_L1N_N0P3_M0P111_702</p></td>
+<td><p>T28</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQ55</p></td>
+<td><p>IO_L4P_N1P2_M0P116_702</p></td>
+<td><p>M27</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQ56</p></td>
+<td><p>IO_L8P_N2P4_M0P124_702</p></td>
+<td><p>P25</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQ57</p></td>
+<td><p>IO_L10N_N3P3_M0P129_702</p></td>
+<td><p>L26</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQ58</p></td>
+<td><p>IO_L8N_N2P5_M0P125_702</p></td>
+<td><p>R26</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQ59</p></td>
+<td><p>IO_L10P_N3P2_M0P128_702</p></td>
+<td><p>M26</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQ60</p></td>
+<td><p>IO_L7P_N2P2_M0P122_702</p></td>
+<td><p>T25</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQ61</p></td>
+<td><p>IO_L11N_N3P5_M0P131_702</p></td>
+<td><p>K26</p></td>
+</tr>
+<tr class="row-odd"><td><p>PL_DDR4_DQ62</p></td>
+<td><p>IO_L7N_N2P3_M0P123_702</p></td>
+<td><p>T26</p></td>
+</tr>
+<tr class="row-even"><td><p>PL_DDR4_DQ63</p></td>
+<td><p>IO_L11P_N3P4_M0P130_702</p></td>
+<td><p>J25</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="qspi-flash">
+<h2>QSPI Flash<a class="headerlink" href="#qspi-flash" title="此标题的永久链接">#</a></h2>
+<p>The core board uses two 256 M bit Q SPI FLASH chips, model
+MT25QU256ABA1EW9-0SIT, which uses the 1.8 V CMOS voltage standard. Due
+to its non-volatile characteristics, QSPI FLASH can be used as the boot
+image of the FPGA system during use . These images mainly include FPGA
+bit files, soft core application codes and other user data files.</p>
+<p>The specific models and related parameters of QSPI FLASH are shown in
+the table below</p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>bit
+number</strong></p></td>
+<td><p><strong>Chip type</strong></p></td>
+<td><p><strong>capacity</strong></p></td>
+<td><p><strong>factory</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>U3,U4</p></td>
+<td><p>MT25QU256ABA1EW9-0SIT</p></td>
+<td><p>256MB Bit</p></td>
+<td><p>Micron</p></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<div><p>Table 2-5-1 QSPI Flash models and parameters</p>
+</div></blockquote>
+<p>BANK500 in the PS part of the Versal ACAP chip . In the system design,
+the MIO port functions of these PS terminals need to be configured as
+QSPI FLASH interface.<img alt="image1" src="../_images/image10.png" /></p>
+<p>Figure 2- 5-1 QSPI Flash connection diagram</p>
+<p><strong>Configure chip pin assignments:</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Signal name</strong></p></td>
+<td><p><strong>Pin name</strong></p></td>
+<td><p><strong>Pin number</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>MIO0_QSPI0_SCLK</p></td>
+<td><p>PMC_MIO0_500</p></td>
+<td><p>AA1</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIO1_QSPI0_IO1</p></td>
+<td><p>PMC_MIO1_500</p></td>
+<td><p>AB1</p></td>
+</tr>
+<tr class="row-even"><td><p>MIO2_QSPI0_IO2</p></td>
+<td><p>PMC_MIO2_500</p></td>
+<td><p>AD1</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIO3_QSPI0_IO3</p></td>
+<td><p>PMC_MIO3_500</p></td>
+<td><p>AE1</p></td>
+</tr>
+<tr class="row-even"><td><p>MIO4_QSPI0_IO0</p></td>
+<td><p>PMC_MIO4_500</p></td>
+<td><p>AF1</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIO5_QSPI0_SS_B</p></td>
+<td><p>PMC_MIO5_500</p></td>
+<td><p>AG1</p></td>
+</tr>
+<tr class="row-even"><td><p>MIO7_QSPI1_SS_B</p></td>
+<td><p>PMC_MIO7_500</p></td>
+<td><p>AG2</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIO8_QSPI1_IO0</p></td>
+<td><p>PMC_MIO8_500</p></td>
+<td><p>AE2</p></td>
+</tr>
+<tr class="row-even"><td><p>MIO9_QSPI1_IO1</p></td>
+<td><p>PMC_MIO9_500</p></td>
+<td><p>AD2</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIO10_QSPI1_IO2</p></td>
+<td><p>PMC_MIO10_500</p></td>
+<td><p>AC2</p></td>
+</tr>
+<tr class="row-even"><td><p>MIO11_QSPI1_IO3</p></td>
+<td><p>PMC_MIO11_500</p></td>
+<td><p>AB2</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIO12_QSPI1_SCLK</p></td>
+<td><p>PMC_MIO12_500</p></td>
+<td><p>AA3</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="emmc-flash">
+<h2>eMMC Flash<a class="headerlink" href="#emmc-flash" title="此标题的永久链接">#</a></h2>
+<p>The V100 core board is equipped with a large-capacity 8GB eMMC FLASH
+chip, model MTFC8GAKAJCN-4M . It supports the JEDEC e-MMC V5.0 standard
+HS-MMC interface, and the level supports 1.8V or 3.3V . The data width
+of eMMC FLASH and ACAP connections is 8bit. Due to the large capacity
+and non-volatile characteristics of eMMC FLASH , it can be used as a
+large-capacity storage device in the ACAP system , such as storing ARM
+applications , system files and other user data files. The specific
+models and related parameters of eMMC FLASH are shown in Table 2-6-1 .</p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>bit
+number</strong></p></td>
+<td><p><strong>Chip type</strong></p></td>
+<td><p><strong>capacity</strong></p></td>
+<td><p><strong>factory</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>U8</p></td>
+<td><p>MTFC8GAKAJCN-4M</p></td>
+<td><p>8G Byte</p></td>
+<td><p>Micron</p></td>
+</tr>
+</tbody>
+</table>
+<p>Table 2-6-1 _ _ eMMC Flash model and parameters</p>
+<p>eMMC FLASH is connected to the PMC MIO port of BANK50 1 of the PS part
+of Versal ACAP. In the system design, these PMC MIO port functions need
+to be configured as EMMC interfaces. Figure 2-6-1 is eMMC The part of
+Flash in the schematic.</p>
+<img alt="../_images/image11.png" src="../_images/image11.png" />
+<p>Figure 2- 6-1 eMMC Flash connection diagram</p>
+<p><strong>Configure chip pin assignments:</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>Signal name</strong></p></td>
+<td><p><strong>Pin name</strong></p></td>
+<td><p><strong>Pin number</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>MMC_CCLK</p></td>
+<td><p>PMC_MIO38_501</p></td>
+<td><p>AE8</p></td>
+</tr>
+<tr class="row-odd"><td><p>MMC_CMD</p></td>
+<td><p>PMC_MIO40_501</p></td>
+<td><p>AB8</p></td>
+</tr>
+<tr class="row-even"><td><p>MMC_DAT0</p></td>
+<td><p>PMC_MIO41_501</p></td>
+<td><p>AA8</p></td>
+</tr>
+<tr class="row-odd"><td><p>MMC_DAT1</p></td>
+<td><p>PMC_MIO42_501</p></td>
+<td><p>AA9</p></td>
+</tr>
+<tr class="row-even"><td><p>MMC_DAT2</p></td>
+<td><p>PMC_MIO43_501</p></td>
+<td><p>AC9</p></td>
+</tr>
+<tr class="row-odd"><td><p>MMC_DAT3</p></td>
+<td><p>PMC_MIO44_501</p></td>
+<td><p>AD9</p></td>
+</tr>
+<tr class="row-even"><td><p>MMC_DAT4</p></td>
+<td><p>PMC_MIO45_501</p></td>
+<td><p>AE9</p></td>
+</tr>
+<tr class="row-odd"><td><p>MMC_DAT5</p></td>
+<td><p>PMC_MIO46_501</p></td>
+<td><p>AF9</p></td>
+</tr>
+<tr class="row-even"><td><p>MMC_DAT6</p></td>
+<td><p>PMC_MIO47_501</p></td>
+<td><p>AF10</p></td>
+</tr>
+<tr class="row-odd"><td><p>MMC_DAT7</p></td>
+<td><p>PMC_MIO48_501</p></td>
+<td><p>AD10</p></td>
+</tr>
+<tr class="row-even"><td><p>MMC_RSTN</p></td>
+<td><p>PMC_MIO49_501</p></td>
+<td><p>AC10</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="led-light">
+<h2>LED light<a class="headerlink" href="#led-light" title="此标题的永久链接">#</a></h2>
+<p>There is one red power indicator light (PWR) and one configuration LED
+light (DONE) on the V100 core board. When the core board is powered, the
+power indicator light will light up; when the FPGA configures the
+program, the configuration LED light will light up. The schematic
+diagram of LED light hardware connection is shown in Figure 2-7-1:</p>
+<img alt="../_images/image12.png" src="../_images/image12.png" />
+<p>Figure 2-7-1 Development board LED light hardware connection diagram</p>
+</section>
+<section id="power-supply">
+<h2>power supply<a class="headerlink" href="#power-supply" title="此标题的永久链接">#</a></h2>
+<p>the V100 core board is 7.5V~15V (typical value 12V), and the core board
+is powered by connecting to the base board. The core board uses the
+MYMGM1R824ELA5RA power chip to provide core power 0.7V for XCVE2302. In
+addition, the power supply for BANK503, BANK700, and BANK302 is
+generated by the DCDC chip TLV62130RGT. The power supply for BANK703 and
+GTY transceivers is generated by the LDO chip.</p>
+<img alt="../_images/image13.png" src="../_images/image13.png" />
+<p>Because the power supply of Versal ACAP FPGA has power-on sequence
+requirements, in the circuit design, we have designed the power-on
+sequence according to the power requirements of the chip as follows:</p>
+<p>1). VCCIO503(3.3V), VCCO302(3.3V), VCCIO_501/502/503 ( 1. 8 V ),</p>
+<p>VCCIO700/701/702(1.2V)</p>
+<ol class="arabic simple">
+<li><p>VCCINT/VCC_PMC/VCC_PSFP/VCC_PSLP(0.7V)</p></li>
+<li><p>VCCBRAM /VCC_SOC/VCC_IO ( 0.8 V)</p></li>
+<li><p>VCCAUX/VCCAUX_PMC/VCCAUX_SMON( 1. 5 V )</p></li>
+</ol>
+<p>5.GTYP_AVCC (0.9V)</p>
+<ol class="arabic simple" start="6">
+<li><p>GTYP_AVTT(1.2V)</p></li>
+</ol>
+</section>
+<section id="extension-ports">
+<h2>Extension ports<a class="headerlink" href="#extension-ports" title="此标题的永久链接">#</a></h2>
+<p>A total of 2 high-speed expansion ports are extended on the back of the
+core board. Two 160Pin inter-board connectors (Samtec:
+ADF6-40-03.5-L-4-2-A-TR ) are used to connect to the bottom board. The
+FPGA IO port passes through Differential wiring is connected to these
+two expansion ports. The PIN pitch of the connector is 0.5mm, and it is
+configured with the female connector on the base plate to achieve
+high-speed data communication.</p>
+<p><strong>Expansion port U23A</strong></p>
+<p>The 160Pin connector U23 is used to connect the VCCIN power supply
+(+12V), ground and the common IO of the FPGA on the backplane. It should
+be noted here that the A and B columns of U23 are connected to the IO
+ports of BANK702 and PS. The pin assignment of the U23_AB expansion port
+is shown in Table 2-9-1:</p>
+<p><strong>2-9-1 Table: Expansion port U23_AB pin assignment</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p>U23
+pin</p></td>
+<td><p>Signal</p>
+<p>name</p>
+</td>
+<td><p>FPGA</p>
+<p>Pin
+nu
+mber</p>
+</td>
+<td><p>le
+vel
+st
+and
+ard</p></td>
+<td><p>U23</p>
+<p>Pin</p>
+</td>
+<td><p>Signal</p>
+<p>name</p>
+</td>
+<td><p>FPGA</p>
+<p>Pin
+nu
+mber</p>
+</td>
+<td><p>le
+vel
+st
+and
+ard</p></td>
+</tr>
+<tr class="row-even"><td><p>A1</p></td>
+<td><p>B702_L17_N</p></td>
+<td><p>J24</p></td>
+<td><p>1
+.2V</p></td>
+<td><p>B1</p></td>
+<td><p>B702_L12_N</p></td>
+<td><p>T24</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-odd"><td><p>A2</p></td>
+<td><p>B702_L17_P</p></td>
+<td><p>K23</p></td>
+<td><p>1
+.2V</p></td>
+<td><p>B2</p></td>
+<td><p>B702_L12_P</p></td>
+<td><p>U23</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-even"><td><p>A3</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>B3</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-odd"><td><p>A4</p></td>
+<td><p>B702_L25_N</p></td>
+<td><p>L25</p></td>
+<td><p>1
+.2V</p></td>
+<td><p>B4</p></td>
+<td><p>B702_L16_N</p></td>
+<td><p>K24</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-even"><td><p>A5</p></td>
+<td><p>B702_L25_P</p></td>
+<td><p>L24</p></td>
+<td><p>1
+.2V</p></td>
+<td><p>B5</p></td>
+<td><p>B702_L16_P</p></td>
+<td><p>L23</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-odd"><td><p>A6</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>B6</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-even"><td><p>A7</p></td>
+<td><p>B702_L24_N</p></td>
+<td><p>N24</p></td>
+<td><p>1
+.2V</p></td>
+<td><p>B7</p></td>
+<td><p>B702_L21_N</p></td>
+<td><p>M21</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-odd"><td><p>A8</p></td>
+<td><p>B702_L24_P</p></td>
+<td><p>N23</p></td>
+<td><p>1
+.2V</p></td>
+<td><p>B8</p></td>
+<td><p>B702_L21_P</p></td>
+<td><p>N21</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-even"><td><p>A9</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>B9</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-odd"><td><p>A10</p></td>
+<td><p>B702_L22_N</p></td>
+<td><p>L22</p></td>
+<td><p>1
+.2V</p></td>
+<td><p>B10</p></td>
+<td><p>B302_L5_N</p></td>
+<td><p>C12</p></td>
+<td><p>3
+.3V</p></td>
+</tr>
+<tr class="row-even"><td><p>A11</p></td>
+<td><p>B702_L22_P</p></td>
+<td><p>K21</p></td>
+<td><p>1
+.2V</p></td>
+<td><p>B11</p></td>
+<td><p>B302_L5_P</p></td>
+<td><p>D11</p></td>
+<td><p>3
+.3V</p></td>
+</tr>
+<tr class="row-odd"><td><p>A12</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>B12</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-even"><td><p>A13</p></td>
+<td><p>B302_L2_N</p></td>
+<td><p>D14</p></td>
+<td><p>3
+.3V</p></td>
+<td><p>B13</p></td>
+<td><p>B302_L0_N</p></td>
+<td><p>E14</p></td>
+<td><p>3
+.3V</p></td>
+</tr>
+<tr class="row-odd"><td><p>A14</p></td>
+<td><p>B302_L2_P</p></td>
+<td><p>E13</p></td>
+<td><p>3
+.3V</p></td>
+<td><p>B14</p></td>
+<td><p>B302_L0_P</p></td>
+<td><p>F14</p></td>
+<td><p>3
+.3V</p></td>
+</tr>
+<tr class="row-even"><td><p>A15</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>B15</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-odd"><td><p>A16</p></td>
+<td><p>PS_MIO31</p></td>
+<td><p>AD6</p></td>
+<td><p>1
+.8V</p></td>
+<td><p>B16</p></td>
+<td><p>PS_MIO35</p></td>
+<td><p>AC7</p></td>
+<td><p>1
+.8V</p></td>
+</tr>
+<tr class="row-even"><td><p>A17</p></td>
+<td><p>PS_MIO25</p></td>
+<td><p>Y4</p></td>
+<td><p>1
+.8V</p></td>
+<td><p>B17</p></td>
+<td><p>PS_MIO37</p></td>
+<td><p>AE7</p></td>
+<td><p>1
+.8V</p></td>
+</tr>
+<tr class="row-odd"><td><p>A18</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>B18</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-even"><td><p>A19</p></td>
+<td><p>PS_MIO26</p></td>
+<td><p>AA5</p></td>
+<td><p>1
+.8V</p></td>
+<td><p>B19</p></td>
+<td><p>PS_MIO22</p></td>
+<td><p>AD4</p></td>
+<td><p>1
+.8V</p></td>
+</tr>
+<tr class="row-odd"><td><p>A20</p></td>
+<td><p>PS_MIO33</p></td>
+<td><p>AA6</p></td>
+<td><p>1
+.8V</p></td>
+<td><p>B20</p></td>
+<td><p>PS_MIO19</p></td>
+<td><p>AH4</p></td>
+<td><p>1
+.8V</p></td>
+</tr>
+<tr class="row-even"><td><p>A21</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>B21</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-odd"><td><p>A22</p></td>
+<td><p>PS_MIO32</p></td>
+<td><p>AB6</p></td>
+<td><p>1
+.8V</p></td>
+<td><p>B22</p></td>
+<td><p>PS_MIO20</p></td>
+<td><p>AF4</p></td>
+<td><p>1
+.8V</p></td>
+</tr>
+<tr class="row-even"><td><p>A23</p></td>
+<td><p>PS_MIO27</p></td>
+<td><p>AB5</p></td>
+<td><p>1
+.8V</p></td>
+<td><p>B23</p></td>
+<td><p>PS_MIO28</p></td>
+<td><p>AC5</p></td>
+<td><p>1
+.8V</p></td>
+</tr>
+<tr class="row-odd"><td><p>A24</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>B24</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-even"><td><p>A25</p></td>
+<td><p>PS_MIO14</p></td>
+<td><p>AC3</p></td>
+<td><p>1
+.8V</p></td>
+<td><p>B25</p></td>
+<td><p>PS_MIO23</p></td>
+<td><p>AC4</p></td>
+<td><p>1
+.8V</p></td>
+</tr>
+<tr class="row-odd"><td><p>A26</p></td>
+<td><p>PS_MIO13</p></td>
+<td><p>AB3</p></td>
+<td><p>1
+.8V</p></td>
+<td><p>B26</p></td>
+<td><p>PS_MIO24</p></td>
+<td><p>AA4</p></td>
+<td><p>1
+.8V</p></td>
+</tr>
+<tr class="row-even"><td><p>A27</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>B27</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-odd"><td><p>A28</p></td>
+<td><p>LPD_MIO24</p></td>
+<td><p>Y8</p></td>
+<td><p>1
+.8V</p></td>
+<td><p>B28</p></td>
+<td><p>LPD_MIO4</p></td>
+<td><p>Y2</p></td>
+<td><p>1
+.8V</p></td>
+</tr>
+<tr class="row-even"><td><p>A29</p></td>
+<td><p>LPD_MIO23</p></td>
+<td><p>Y7</p></td>
+<td><p>1
+.8V</p></td>
+<td><p>B29</p></td>
+<td><p>LPD_MIO3</p></td>
+<td><p>Y1</p></td>
+<td><p>1
+.8V</p></td>
+</tr>
+<tr class="row-odd"><td><p>A30</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>B30</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-even"><td><p>A31</p></td>
+<td><p>LPD_MIO5</p></td>
+<td><p>W2</p></td>
+<td><p>1
+.8V</p></td>
+<td><p>B31</p></td>
+<td><p>LPD_MIO18</p></td>
+<td><p>W5</p></td>
+<td><p>1
+.8V</p></td>
+</tr>
+<tr class="row-odd"><td><p>A32</p></td>
+<td><p>LPD_MIO2</p></td>
+<td><p>W1</p></td>
+<td><p>1
+.8V</p></td>
+<td><p>B32</p></td>
+<td><p>LPD_MIO12</p></td>
+<td><p>W4</p></td>
+<td><p>1
+.8V</p></td>
+</tr>
+<tr class="row-even"><td><p>A33</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>B33</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-odd"><td><p>A34</p></td>
+<td><p>LPD_MIO7</p></td>
+<td><p>U2</p></td>
+<td><p>1
+.8V</p></td>
+<td><p>B34</p></td>
+<td><p>LPD_MIO1</p></td>
+<td><p>U1</p></td>
+<td><p>1
+.8V</p></td>
+</tr>
+<tr class="row-even"><td><p>A35</p></td>
+<td><p>LPD_MIO6</p></td>
+<td><p>V2</p></td>
+<td><p>1
+.8V</p></td>
+<td><p>B35</p></td>
+<td><p>LPD_MIO13</p></td>
+<td><p>V4</p></td>
+<td><p>1
+.8V</p></td>
+</tr>
+<tr class="row-odd"><td><p>A36</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>B36</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-even"><td><p>A37</p></td>
+<td><p>FPGA_TDI</p></td>
+<td><p>AG10</p></td>
+<td><p>1
+.8V</p></td>
+<td><p>B37</p></td>
+<td><p>FPGA_TCK</p></td>
+<td><p>AH10</p></td>
+<td><p>1
+.8V</p></td>
+</tr>
+<tr class="row-odd"><td><p>A38</p></td>
+<td><p>FPGA_TMS</p></td>
+<td><p>AH9</p></td>
+<td><p>1
+.8V</p></td>
+<td><p>B38</p></td>
+<td><p>FPGA_TDO</p></td>
+<td><p>AF8</p></td>
+<td><p>1
+.8V</p></td>
+</tr>
+<tr class="row-even"><td><p>A39</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>B39</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-odd"><td><p>A40</p></td>
+<td><p>+12V</p></td>
+<td></td>
+<td><p>+12V</p></td>
+<td><p>B40</p></td>
+<td><p>+12V</p></td>
+<td></td>
+<td><p>+12V</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Expansion port U23_CD</strong></p>
+<p>The pin assignment of the U23B expansion port is shown in Table 2-9-2:</p>
+<p><strong>2-10-2 Table: Expansion port U23_CD pin assignment</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p>U23
+pin</p></td>
+<td><p>Signal</p>
+<p>name</p>
+</td>
+<td><p>FPGA</p>
+<p>Pin
+n
+umber</p>
+</td>
+<td><p>l
+evel
+stan
+dard</p></td>
+<td><p>U23</p>
+<p>Pin</p>
+</td>
+<td><p>Signal</p>
+<p>name</p>
+</td>
+<td><p>FPGA</p>
+<p>Pin
+nu
+mber</p>
+</td>
+<td><p>le
+vel
+st
+and
+ard</p></td>
+</tr>
+<tr class="row-even"><td><p>C1</p></td>
+<td><p>B702_L13_N</p></td>
+<td><p>R24</p></td>
+<td><p>1.2V</p></td>
+<td><p>D1</p></td>
+<td><p>B702_L14_N</p></td>
+<td><p>P24</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-odd"><td><p>C2</p></td>
+<td><p>B702_L13_P</p></td>
+<td><p>T23</p></td>
+<td><p>1.2V</p></td>
+<td><p>D2</p></td>
+<td><p>B702_L14_P</p></td>
+<td><p>R23</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-even"><td><p>C3</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>land</p></td>
+<td><p>D3</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-odd"><td><p>C4</p></td>
+<td><p>B702_L26_N</p></td>
+<td><p>M25</p></td>
+<td><p>1.2V</p></td>
+<td><p>D4</p></td>
+<td><p>B702_L18_N</p></td>
+<td><p>U22</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-even"><td><p>C5</p></td>
+<td><p>B702_L26_P</p></td>
+<td><p>N25</p></td>
+<td><p>1.2V</p></td>
+<td><p>D5</p></td>
+<td><p>B702_L18_P</p></td>
+<td><p>V21</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-odd"><td><p>C6</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>land</p></td>
+<td><p>D6</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-even"><td><p>C7</p></td>
+<td><p>B702_L23_N</p></td>
+<td><p>J22</p></td>
+<td><p>1.2V</p></td>
+<td><p>D7</p></td>
+<td><p>B702_L19_N</p></td>
+<td><p>R22</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-odd"><td><p>C8</p></td>
+<td><p>B702_L23_P</p></td>
+<td><p>J21</p></td>
+<td><p>1.2V</p></td>
+<td><p>D8</p></td>
+<td><p>B702_L19_P</p></td>
+<td><p>T21</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-even"><td><p>C9</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>land</p></td>
+<td><p>D9</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-odd"><td><p>C10</p></td>
+<td><p>B702_L15_N</p></td>
+<td><p>M23</p></td>
+<td><p>1.2V</p></td>
+<td><p>D10</p></td>
+<td><p>B702_L20_N</p></td>
+<td><p>P22</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-even"><td><p>C11</p></td>
+<td><p>B702_L15_P</p></td>
+<td><p>M22</p></td>
+<td><p>1.2V</p></td>
+<td><p>D11</p></td>
+<td><p>B702_L20_P</p></td>
+<td><p>R21</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-odd"><td><p>C12</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>land</p></td>
+<td><p>D12</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-even"><td><p>C13</p></td>
+<td><p>B302_L3_N</p></td>
+<td><p>D12</p></td>
+<td><p>3.3V</p></td>
+<td><p>D13</p></td>
+<td><p>B302_L4_N</p></td>
+<td><p>E11</p></td>
+<td><p>3
+.3V</p></td>
+</tr>
+<tr class="row-odd"><td><p>C14</p></td>
+<td><p>B302_L3_P</p></td>
+<td><p>E12</p></td>
+<td><p>3.3V</p></td>
+<td><p>D14</p></td>
+<td><p>B302_L4_P</p></td>
+<td><p>F11</p></td>
+<td><p>3
+.3V</p></td>
+</tr>
+<tr class="row-even"><td><p>C15</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>land</p></td>
+<td><p>D15</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-odd"><td><p>C16</p></td>
+<td><p>PS_MIO34</p></td>
+<td><p>AB7</p></td>
+<td><p>1.8V</p></td>
+<td><p>D16</p></td>
+<td><p>B302_L6_N</p></td>
+<td><p>C10</p></td>
+<td><p>3
+.3V</p></td>
+</tr>
+<tr class="row-even"><td><p>C17</p></td>
+<td><p>PS_MIO30</p></td>
+<td><p>AE6</p></td>
+<td><p>1.8V</p></td>
+<td><p>D17</p></td>
+<td><p>B302_L6_P</p></td>
+<td><p>D10</p></td>
+<td><p>3
+.3V</p></td>
+</tr>
+<tr class="row-odd"><td><p>C18</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>land</p></td>
+<td><p>D18</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-even"><td><p>C19</p></td>
+<td><p>PS_MIO29</p></td>
+<td><p>AD5</p></td>
+<td><p>1.8V</p></td>
+<td><p>D19</p></td>
+<td><p>PS_MIO15</p></td>
+<td><p>AE3</p></td>
+<td><p>1
+.8V</p></td>
+</tr>
+<tr class="row-odd"><td><p>C20</p></td>
+<td><p>PS_MIO18</p></td>
+<td><p>AH3</p></td>
+<td><p>1.8V</p></td>
+<td><p>D20</p></td>
+<td><p>PS_MIO21</p></td>
+<td><p>AE4</p></td>
+<td><p>1
+.8V</p></td>
+</tr>
+<tr class="row-even"><td><p>C21</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>land</p></td>
+<td><p>D21</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-odd"><td><p>C22</p></td>
+<td><p>PS_MIO17</p></td>
+<td><p>AG3</p></td>
+<td><p>1.8V</p></td>
+<td><p>D22</p></td>
+<td><p>PS_MIO51</p></td>
+<td><p>AA10</p></td>
+<td><p>1
+.8V</p></td>
+</tr>
+<tr class="row-even"><td><p>C23</p></td>
+<td><p>PS_MIO16</p></td>
+<td><p>AF3</p></td>
+<td><p>1.8V</p></td>
+<td><p>D23</p></td>
+<td><p>PS_MIO50</p></td>
+<td><p>AB10</p></td>
+<td><p>1
+.8V</p></td>
+</tr>
+<tr class="row-odd"><td><p>C24</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>land</p></td>
+<td><p>D24</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-even"><td><p>C25</p></td>
+<td><p>LPD_MIO22</p></td>
+<td><p>T6</p></td>
+<td><p>1.8V</p></td>
+<td><p>D25</p></td>
+<td><p>PS_MIO36</p></td>
+<td><p>AD7</p></td>
+<td><p>1
+.8V</p></td>
+</tr>
+<tr class="row-odd"><td><p>C26</p></td>
+<td><p>LPD_MIO15</p></td>
+<td><p>T5</p></td>
+<td><p>1.8V</p></td>
+<td><p>D26</p></td>
+<td><p>LPD_MIO20</p></td>
+<td><p>W6</p></td>
+<td><p>1
+.8V</p></td>
+</tr>
+<tr class="row-even"><td><p>C27</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>land</p></td>
+<td><p>D27</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-odd"><td><p>C28</p></td>
+<td><p>LPD_MIO19</p></td>
+<td><p>Y6</p></td>
+<td><p>1.8V</p></td>
+<td><p>D28</p></td>
+<td><p>LPD_MIO21</p></td>
+<td><p>U6</p></td>
+<td><p>1
+.8V</p></td>
+</tr>
+<tr class="row-even"><td><p>C29</p></td>
+<td><p>LPD_MIO16</p></td>
+<td><p>U5</p></td>
+<td><p>1.8V</p></td>
+<td><p>D29</p></td>
+<td><p>LPD_MIO25</p></td>
+<td><p>Y9</p></td>
+<td><p>1
+.8V</p></td>
+</tr>
+<tr class="row-odd"><td><p>C30</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>land</p></td>
+<td><p>D30</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-even"><td><p>C31</p></td>
+<td><p>LPD_MIO11</p></td>
+<td><p>Y3</p></td>
+<td><p>1.8V</p></td>
+<td><p>D31</p></td>
+<td><p>LPD_MIO8</p></td>
+<td><p>T3</p></td>
+<td><p>1
+.8V</p></td>
+</tr>
+<tr class="row-odd"><td><p>C32</p></td>
+<td><p>LPD_MIO17</p></td>
+<td><p>V5</p></td>
+<td><p>1.8V</p></td>
+<td><p>D32</p></td>
+<td><p>LPD_MIO14</p></td>
+<td><p>T4</p></td>
+<td><p>1
+.8V</p></td>
+</tr>
+<tr class="row-even"><td><p>C33</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>land</p></td>
+<td><p>D33</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-odd"><td><p>C34</p></td>
+<td><p>LPD_MIO10</p></td>
+<td><p>V3</p></td>
+<td><p>1.8V</p></td>
+<td><p>D34</p></td>
+<td><p>LPD_MIO0</p></td>
+<td><p>T1</p></td>
+<td><p>1
+.8V</p></td>
+</tr>
+<tr class="row-even"><td><p>C35</p></td>
+<td><p>VCC_BATT</p></td>
+<td></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>D35</p></td>
+<td><p>LPD_MIO9</p></td>
+<td><p>U3</p></td>
+<td><p>1
+.8V</p></td>
+</tr>
+<tr class="row-odd"><td><p>C36</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>land</p></td>
+<td><p>D36</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-even"><td><p>C37</p></td>
+<td><p>PS_MODE0</p></td>
+<td><p>AG8</p></td>
+<td><p>3.3V</p></td>
+<td><p>D37</p></td>
+<td><p>PS_MODE2</p></td>
+<td><p>AG6</p></td>
+<td><p>3
+.3V</p></td>
+</tr>
+<tr class="row-odd"><td><p>C38</p></td>
+<td><p>PS_MODE1</p></td>
+<td><p>AG7</p></td>
+<td><p>3.3V</p></td>
+<td><p>D38</p></td>
+<td><p>PS_MODE3</p></td>
+<td><p>AG5</p></td>
+<td><p>3
+.3V</p></td>
+</tr>
+<tr class="row-even"><td><p>C39</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>land</p></td>
+<td><p>D39</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-odd"><td><p>C40</p></td>
+<td><p>+12V</p></td>
+<td></td>
+<td><p>+12V</p></td>
+<td><p>D40</p></td>
+<td><p>+12V</p></td>
+<td></td>
+<td><p>+12V</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Expansion port U24_AB</strong></p>
+<p>The 160Pin connector U24 is used to expand the FPGA’s BANK302, the
+common IO of BANK703, and the transceiver. The pin assignment of the
+U24_AB expansion port is shown in Table 2-9-3:</p>
+<p><strong>2-9-3 Table: Expansion port U24_AB pin assignment</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p>U24
+pin</p></td>
+<td><p>Signal</p>
+<p>name</p>
+</td>
+<td><p>FPGA</p>
+<p>Pin
+n
+umber</p>
+</td>
+<td><p>le
+vel
+st
+and
+ard</p></td>
+<td><p>U24</p>
+<p>Pin</p>
+</td>
+<td><p>Signal</p>
+<p>name</p>
+</td>
+<td><p>FPGA</p>
+<p>Pin
+nu
+mber</p>
+</td>
+<td><p>le
+vel
+st
+and
+ard</p></td>
+</tr>
+<tr class="row-even"><td><p>A1</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>B1</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-odd"><td><p>A2</p></td>
+<td><p>104_TX2_N</p></td>
+<td><p>C4</p></td>
+<td><p>1
+.2V</p></td>
+<td><p>B2</p></td>
+<td><p>104_TX0_N</p></td>
+<td><p>E4</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-even"><td><p>A3</p></td>
+<td><p>104_TX2_P</p></td>
+<td><p>C5</p></td>
+<td><p>1
+.2V</p></td>
+<td><p>B3</p></td>
+<td><p>104_TX0_P</p></td>
+<td><p>E5</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-odd"><td><p>A4</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>B4</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-even"><td><p>A5</p></td>
+<td><p>104_TX3_N</p></td>
+<td><p>B7</p></td>
+<td><p>1
+.2V</p></td>
+<td><p>B5</p></td>
+<td><p>104_TX1_N</p></td>
+<td><p>D7</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-odd"><td><p>A6</p></td>
+<td><p>104_TX3_P</p></td>
+<td><p>B8</p></td>
+<td><p>1
+.2V</p></td>
+<td><p>B6</p></td>
+<td><p>104_TX1_P</p></td>
+<td><p>D8</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-even"><td><p>A7</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>B7</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-odd"><td><p>A8</p></td>
+<td><p>104_CLK1_N</p></td>
+<td><p>F6</p></td>
+<td><p>1
+.2V</p></td>
+<td><p>B8</p></td>
+<td><p>104_CLK0_N</p></td>
+<td><p>H6</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-even"><td><p>A9</p></td>
+<td><p>104_CLK1_P</p></td>
+<td><p>F7</p></td>
+<td><p>1
+.2V</p></td>
+<td><p>B9</p></td>
+<td><p>104_CLK0_P</p></td>
+<td><p>H7</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-odd"><td><p>A10</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>B10</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-even"><td><p>A11</p></td>
+<td><p>103_TX2_N</p></td>
+<td><p>J4</p></td>
+<td><p>1
+.2V</p></td>
+<td><p>B11</p></td>
+<td><p>103_TX3_N</p></td>
+<td><p>G4</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-odd"><td><p>A12</p></td>
+<td><p>103_TX2_P</p></td>
+<td><p>J5</p></td>
+<td><p>1
+.2V</p></td>
+<td><p>B12</p></td>
+<td><p>103_TX3_P</p></td>
+<td><p>G5</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-even"><td><p>A13</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>B13</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-odd"><td><p>A14</p></td>
+<td><p>103_TX0_N</p></td>
+<td><p>N4</p></td>
+<td><p>1
+.2V</p></td>
+<td><p>B14</p></td>
+<td><p>103_TX1_N</p></td>
+<td><p>L4</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-even"><td><p>A15</p></td>
+<td><p>103_TX0_P</p></td>
+<td><p>N5</p></td>
+<td><p>1
+.2V</p></td>
+<td><p>B15</p></td>
+<td><p>103_TX1_P</p></td>
+<td><p>L5</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-odd"><td><p>A16</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>B16</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-even"><td><p>A17</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>B17</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-odd"><td><p>A18</p></td>
+<td><p>B302_L10_N</p></td>
+<td><p>A14</p></td>
+<td><p>3
+.3V</p></td>
+<td><p>B18</p></td>
+<td><p>B302_L9_N</p></td>
+<td><p>A13</p></td>
+<td><p>3
+.3V</p></td>
+</tr>
+<tr class="row-even"><td><p>A19</p></td>
+<td><p>B302_L10_P</p></td>
+<td><p>B13</p></td>
+<td><p>3
+.3V</p></td>
+<td><p>B19</p></td>
+<td><p>B302_L9_P</p></td>
+<td><p>B12</p></td>
+<td><p>3
+.3V</p></td>
+</tr>
+<tr class="row-odd"><td><p>A20</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>B20</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-even"><td><p>A21</p></td>
+<td><p>B302_L1_N</p></td>
+<td><p>C13</p></td>
+<td><p>3
+.3V</p></td>
+<td><p>B21</p></td>
+<td><p>B703_L20_N</p></td>
+<td><p>D21</p></td>
+<td><p>1
+.5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>A22</p></td>
+<td><p>B302_L1_P</p></td>
+<td><p>C14</p></td>
+<td><p>3
+.3V</p></td>
+<td><p>B22</p></td>
+<td><p>B703_L20_P</p></td>
+<td><p>D20</p></td>
+<td><p>1
+.5V</p></td>
+</tr>
+<tr class="row-even"><td><p>A23</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>B23</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-odd"><td><p>A24</p></td>
+<td><p>B703_L21_N</p></td>
+<td><p>C21</p></td>
+<td><p>1
+.5V</p></td>
+<td><p>B24</p></td>
+<td><p>B703_L18_N</p></td>
+<td><p>H22</p></td>
+<td><p>1
+.5V</p></td>
+</tr>
+<tr class="row-even"><td><p>A25</p></td>
+<td><p>B703_L21_P</p></td>
+<td><p>B20</p></td>
+<td><p>1
+.5V</p></td>
+<td><p>B25</p></td>
+<td><p>B703_L18_P</p></td>
+<td><p>G21</p></td>
+<td><p>1
+.5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>A26</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>B26</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-even"><td><p>A27</p></td>
+<td><p>B703_L16_N</p></td>
+<td><p>B23</p></td>
+<td><p>1
+.5V</p></td>
+<td><p>B27</p></td>
+<td><p>B703_L24_N</p></td>
+<td><p>F24</p></td>
+<td><p>1
+.5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>A28</p></td>
+<td><p>B703_L16_P</p></td>
+<td><p>C23</p></td>
+<td><p>1
+.5V</p></td>
+<td><p>B28</p></td>
+<td><p>B703_L24_P</p></td>
+<td><p>F23</p></td>
+<td><p>1
+.5V</p></td>
+</tr>
+<tr class="row-even"><td><p>A29</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>B29</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-odd"><td><p>A30</p></td>
+<td><p>B703_L8_N</p></td>
+<td><p>E26</p></td>
+<td><p>1
+.5V</p></td>
+<td><p>B30</p></td>
+<td><p>B703_L26_N</p></td>
+<td><p>D26</p></td>
+<td><p>1
+.5V</p></td>
+</tr>
+<tr class="row-even"><td><p>A31</p></td>
+<td><p>B703_L8_P</p></td>
+<td><p>F26</p></td>
+<td><p>1
+.5V</p></td>
+<td><p>B31</p></td>
+<td><p>B703_L26_P</p></td>
+<td><p>D25</p></td>
+<td><p>1
+.5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>A32</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>B32</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-even"><td><p>A33</p></td>
+<td><p>B703_L1_N</p></td>
+<td><p>G28</p></td>
+<td><p>1
+.5V</p></td>
+<td><p>B33</p></td>
+<td><p>B703_L7_N</p></td>
+<td><p>G26</p></td>
+<td><p>1
+.5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>A34</p></td>
+<td><p>B703_L1_P</p></td>
+<td><p>H27</p></td>
+<td><p>1
+.5V</p></td>
+<td><p>B34</p></td>
+<td><p>B703_L7_P</p></td>
+<td><p>G25</p></td>
+<td><p>1
+.5V</p></td>
+</tr>
+<tr class="row-even"><td><p>A35</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>B35</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-odd"><td><p>A36</p></td>
+<td><p>B703_L6_N</p></td>
+<td><p>J26</p></td>
+<td><p>1
+.5V</p></td>
+<td><p>B36</p></td>
+<td><p>B703_L0_N</p></td>
+<td><p>H28</p></td>
+<td><p>1
+.5V</p></td>
+</tr>
+<tr class="row-even"><td><p>A37</p></td>
+<td><p>B703_L6_P</p></td>
+<td><p>H25</p></td>
+<td><p>1
+.5V</p></td>
+<td><p>B37</p></td>
+<td><p>B703_L0_P</p></td>
+<td><p>J27</p></td>
+<td><p>1
+.5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>A38</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>B38</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-even"><td><p>A39</p></td>
+<td><p>B703_L5_N</p></td>
+<td><p>B28</p></td>
+<td><p>1
+.5V</p></td>
+<td><p>B39</p></td>
+<td><p>B703_L12_N</p></td>
+<td><p>H24</p></td>
+<td><p>1
+.5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>A40</p></td>
+<td><p>B703_L5_P</p></td>
+<td><p>C27</p></td>
+<td><p>1
+.5V</p></td>
+<td><p>B40</p></td>
+<td><p>B703_L12_P</p></td>
+<td><p>H23</p></td>
+<td><p>1
+.5V</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Expansion port U24_CD</strong></p>
+<p>The pin assignment of the U24_CD expansion port is shown in Table 2-9-4:</p>
+<p><strong>2-9-4 Table: Expansion port U24_CD pin assignment</strong></p>
+<table class="table">
+<tbody>
+<tr class="row-odd"><td><p>U24
+pin</p></td>
+<td><p>Signal</p>
+<p>name</p>
+</td>
+<td><p>FPGA</p>
+<p>Pin
+n
+umber</p>
+</td>
+<td><p>le
+vel
+st
+and
+ard</p></td>
+<td><p>U24</p>
+<p>Pin</p>
+</td>
+<td><p>Signal</p>
+<p>name</p>
+</td>
+<td><p>FPGA</p>
+<p>Pin
+nu
+mber</p>
+</td>
+<td><p>le
+vel
+st
+and
+ard</p></td>
+</tr>
+<tr class="row-even"><td><p>C1</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>D1</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-odd"><td><p>C2</p></td>
+<td><p>104_RX1_N</p></td>
+<td><p>D1</p></td>
+<td><p>1
+.2V</p></td>
+<td><p>D2</p></td>
+<td><p>104_RX0_N</p></td>
+<td><p>F1</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-even"><td><p>C3</p></td>
+<td><p>104_RX1_P</p></td>
+<td><p>D2</p></td>
+<td><p>1
+.2V</p></td>
+<td><p>D3</p></td>
+<td><p>104_RX0_P</p></td>
+<td><p>F2</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-odd"><td><p>C4</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>D4</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-even"><td><p>C5</p></td>
+<td><p>104_RX3_N</p></td>
+<td><p>A4</p></td>
+<td><p>1
+.2V</p></td>
+<td><p>D5</p></td>
+<td><p>104_RX2_N</p></td>
+<td><p>B1</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-odd"><td><p>C6</p></td>
+<td><p>104_RX3_P</p></td>
+<td><p>A5</p></td>
+<td><p>1
+.2V</p></td>
+<td><p>D6</p></td>
+<td><p>104_RX2_P</p></td>
+<td><p>B2</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-even"><td><p>C7</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>D7</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-odd"><td><p>C8</p></td>
+<td><p>103_CLK1_N</p></td>
+<td><p>K6</p></td>
+<td><p>1
+.2V</p></td>
+<td><p>D8</p></td>
+<td><p>103_CLK0_N</p></td>
+<td><p>M6</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-even"><td><p>C9</p></td>
+<td><p>103_CLK1_P</p></td>
+<td><p>K7</p></td>
+<td><p>1
+.2V</p></td>
+<td><p>D9</p></td>
+<td><p>103_CLK0_P</p></td>
+<td><p>M7</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-odd"><td><p>C10</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>D10</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-even"><td><p>C11</p></td>
+<td><p>103_RX2_N</p></td>
+<td><p>K1</p></td>
+<td><p>1
+.2V</p></td>
+<td><p>D11</p></td>
+<td><p>103_RX3_N</p></td>
+<td><p>H1</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-odd"><td><p>C12</p></td>
+<td><p>103_RX2_P</p></td>
+<td><p>K2</p></td>
+<td><p>1
+.2V</p></td>
+<td><p>D12</p></td>
+<td><p>103_RX3_P</p></td>
+<td><p>H2</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-even"><td><p>C13</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>D13</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-odd"><td><p>C14</p></td>
+<td><p>103_RX1_N</p></td>
+<td><p>M1</p></td>
+<td><p>1
+.2V</p></td>
+<td><p>D14</p></td>
+<td><p>103_RX0_N</p></td>
+<td><p>P1</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-even"><td><p>C15</p></td>
+<td><p>103_RX1_P</p></td>
+<td><p>M2</p></td>
+<td><p>1
+.2V</p></td>
+<td><p>D15</p></td>
+<td><p>103_RX0_P</p></td>
+<td><p>P2</p></td>
+<td><p>1
+.2V</p></td>
+</tr>
+<tr class="row-odd"><td><p>C16</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>D16</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-even"><td><p>C17</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>D17</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-odd"><td><p>C18</p></td>
+<td><p>B302_L8_N</p></td>
+<td><p>A11</p></td>
+<td><p>3
+.3V</p></td>
+<td><p>D18</p></td>
+<td><p>B302_L7_N</p></td>
+<td><p>A10</p></td>
+<td><p>3
+.3V</p></td>
+</tr>
+<tr class="row-even"><td><p>C19</p></td>
+<td><p>B302_L8_P</p></td>
+<td><p>B11</p></td>
+<td><p>3
+.3V</p></td>
+<td><p>D19</p></td>
+<td><p>B302_L7_P</p></td>
+<td><p>B10</p></td>
+<td><p>3
+.3V</p></td>
+</tr>
+<tr class="row-odd"><td><p>C20</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>D20</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-even"><td><p>C21</p></td>
+<td><p>B703_L19_N</p></td>
+<td><p>F21</p></td>
+<td><p>1
+.5V</p></td>
+<td><p>D21</p></td>
+<td><p>B703_L13_N</p></td>
+<td><p>G23</p></td>
+<td><p>1
+.5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>C22</p></td>
+<td><p>B703_L19_P</p></td>
+<td><p>E20</p></td>
+<td><p>1
+.5V</p></td>
+<td><p>D22</p></td>
+<td><p>B703_L13_P</p></td>
+<td><p>F22</p></td>
+<td><p>1
+.5V</p></td>
+</tr>
+<tr class="row-even"><td><p>C23</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>D23</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-odd"><td><p>C24</p></td>
+<td><p>B703_L14_N</p></td>
+<td><p>E23</p></td>
+<td><p>1
+.5V</p></td>
+<td><p>D24</p></td>
+<td><p>B703_L22_N</p></td>
+<td><p>A21</p></td>
+<td><p>1
+.5V</p></td>
+</tr>
+<tr class="row-even"><td><p>C25</p></td>
+<td><p>B703_L14_P</p></td>
+<td><p>E22</p></td>
+<td><p>1
+.5V</p></td>
+<td><p>D25</p></td>
+<td><p>B703_L22_P</p></td>
+<td><p>A20</p></td>
+<td><p>1
+.5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>C26</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>D26</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-even"><td><p>C27</p></td>
+<td><p>B703_L9_N</p></td>
+<td><p>B25</p></td>
+<td><p>1
+.5V</p></td>
+<td><p>D27</p></td>
+<td><p>B703_L23_N</p></td>
+<td><p>B22</p></td>
+<td><p>1
+.5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>C28</p></td>
+<td><p>B703_L9_P</p></td>
+<td><p>C25</p></td>
+<td><p>1
+.5V</p></td>
+<td><p>D28</p></td>
+<td><p>B703_L23_P</p></td>
+<td><p>C22</p></td>
+<td><p>1
+.5V</p></td>
+</tr>
+<tr class="row-even"><td><p>C29</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>D29</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-odd"><td><p>C30</p></td>
+<td><p>B703_L25_N</p></td>
+<td><p>F25</p></td>
+<td><p>1
+.5V</p></td>
+<td><p>D30</p></td>
+<td><p>B703_L17_N</p></td>
+<td><p>A24</p></td>
+<td><p>1
+.5V</p></td>
+</tr>
+<tr class="row-even"><td><p>C31</p></td>
+<td><p>B703_L25_P</p></td>
+<td><p>E24</p></td>
+<td><p>1
+.5V</p></td>
+<td><p>D31</p></td>
+<td><p>B703_L17_P</p></td>
+<td><p>A23</p></td>
+<td><p>1
+.5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>C32</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>D32</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-even"><td><p>C33</p></td>
+<td><p>B703_L15_N</p></td>
+<td><p>C24</p></td>
+<td><p>1
+.5V</p></td>
+<td><p>D33</p></td>
+<td><p>B703_L10_N</p></td>
+<td><p>A26</p></td>
+<td><p>1
+.5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>C34</p></td>
+<td><p>B703_L15_P</p></td>
+<td><p>D24</p></td>
+<td><p>1
+.5V</p></td>
+<td><p>D34</p></td>
+<td><p>B703_L10_P</p></td>
+<td><p>A25</p></td>
+<td><p>1
+.5V</p></td>
+</tr>
+<tr class="row-even"><td><p>C35</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>D35</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-odd"><td><p>C36</p></td>
+<td><p>B703_L2_N</p></td>
+<td><p>F28</p></td>
+<td><p>1
+.5V</p></td>
+<td><p>D36</p></td>
+<td><p>B703_L11_N</p></td>
+<td><p>B27</p></td>
+<td><p>1
+.5V</p></td>
+</tr>
+<tr class="row-even"><td><p>C37</p></td>
+<td><p>B703_L2_P</p></td>
+<td><p>G27</p></td>
+<td><p>1
+.5V</p></td>
+<td><p>D37</p></td>
+<td><p>B703_L11_P</p></td>
+<td><p>B26</p></td>
+<td><p>1
+.5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>C38</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+<td><p>D38</p></td>
+<td><p>GND</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>l
+and</p></td>
+</tr>
+<tr class="row-even"><td><p>C39</p></td>
+<td><p>B703_L4_N</p></td>
+<td><p>C28</p></td>
+<td><p>1
+.5V</p></td>
+<td><p>D39</p></td>
+<td><p>B703_L3_N</p></td>
+<td><p>E28</p></td>
+<td><p>1
+.5V</p></td>
+</tr>
+<tr class="row-odd"><td><p>C40</p></td>
+<td><p>B703_L4_P</p></td>
+<td><p>D27</p></td>
+<td><p>1
+.5V</p></td>
+<td><p>D40</p></td>
+<td><p>B703_L3_P</p></td>
+<td><p>E27</p></td>
+<td><p>1
+.5V</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="structure-diagram">
+<h2>Structure diagram<a class="headerlink" href="#structure-diagram" title="此标题的永久链接">#</a></h2>
+<img alt="../_images/image14.png" src="../_images/image14.png" />
+<p>Front view (TOP View)</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../VD100_S1_RSTdocument_EN/00_aboutALINX_EN.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">上一页</p>
+        <p class="prev-next-title">About ALINX</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="VD100UserManual_Expansion%20board_EN.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">expanding board</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目录
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Development board introduction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ve2302-core-board">VE2302 core board</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ve2302">VE2302</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clock-configuration">Clock configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ddr4-dram">DDR4 DRAM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qspi-flash">QSPI Flash</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#emmc-flash">eMMC Flash</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#led-light">LED light</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#power-supply">power supply</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extension-ports">Extension ports</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-diagram">Structure diagram</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+作者： JunFN
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2024 , ALINX .
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  
+        These engineering documents are copyrighted by
+            <a
+                href="https://www.alinx.com/"
+            >ALINX official website</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://vd100-20232-v101.readthedocs.io/zh-cn/en/VD100_S1_RSTdocument_EN/00_aboutALINX_EN.html">English</a> | <a href="https://vd100-20232-v101.readthedocs.io/zh-cn/latest/VD100_S1_RSTdocument_CN/00_%E5%85%B3%E4%BA%8EALINX_CN.html">中文</a>
+    
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
