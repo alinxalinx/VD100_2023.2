@@ -38,11 +38,11 @@ https://vd100-20232-v101.readthedocs.io/zh-cn/latest/VD100_S1_RSTdocument_CN/00_
    │ 	├── VD100_S1_RSTdocument_CN  //course_s1教程文档
    │ 	│	
    │ 	└── VD100_S2_RSTdocument_CN  //course_s2教程文档
-   ├──── demo  //开发板例程
+   ├──── Demo  //开发板例程
    │	│
    │ 	├── course_s1  //纯FPGA和裸机例程
    │ 	│	
    │ 	└── course_s2  //Linux例程
    │
-   └──── hardware    //硬件资料
+   └──── Hardware    //硬件资料
 更多信息, 请访问[ALINX网站](https://www.alinx.com)

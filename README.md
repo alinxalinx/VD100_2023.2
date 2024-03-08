@@ -31,13 +31,19 @@ download **AMD Unified Installer for FPGAs & Adaptive SoCs 2023.2 SFD**  and **A
 download **PetaLinux Installer**
 * Ubuntu 20.04.6 LTS, For more OS version, please refer to AMD|XILINX document[UG1144(v2023.2)](https://docs.xilinx.com/r/en-US/ug1144-petalinux-tools-reference-guide)。
 ## Directory structure
-
+    │
+    ├──── HTMLdocs  //Development board tutorial documentation html version
+    ├──── RSTdocxs  //Development board tutorial documentation rst version
+    │	│
+    │ 	├── VD100_S1_RSTdocument_CN  //course s1 Tutorial documentation
+    │ 	│	
+    │ 	└── VD100_S2_RSTdocument_CN  //course s2 tutorial documentation
 	│
-	├──── demo  
+	├──── Demo  
 	│	│
 	│ 	├── course_s1  //FPGA and standalone demo
 	│ 	│	
 	│ 	└── course_s2  //Linux demo
 	│
-	└──── hardware    //hardware information
+	└──── Hardware    //hardware information
 For more information, please visit the [ALINX website](https://www.alinx.com)
